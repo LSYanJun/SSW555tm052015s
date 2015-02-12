@@ -3,7 +3,6 @@ COURSE: SSW555
 PROJECT 3
 Team 5
 NAME: Yanjun Wu
-CWID: 10392467
 */
 #include <iostream>
 #include <sstream>
