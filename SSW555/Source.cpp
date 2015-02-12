@@ -2,7 +2,7 @@
 COURSE: SSW555
 PROJECT 3
 Team 5
-NAME: Yanjun Wu/Gong Cheng
+NAME: Yanjun Wu/Gong Cheng/Amog Bheemanakolli Gurumallappa
 */
 #include <iostream>
 #include <sstream>
