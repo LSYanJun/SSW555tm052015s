@@ -1,0 +1,15 @@
+﻿Build started 2/8/2015 6:19:46 PM.
+     1>Project "c:\Users\Yanjun\documents\visual studio 2013\Projects\SSW555\SSW555\SSW555.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>c:\users\yanjun\documents\visual studio 2013\projects\ssw555\ssw555\source.cpp(27): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\ssw555\ssw555\source.cpp(42): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\yanjun\documents\visual studio 2013\Projects\SSW555\Debug\SSW555.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\yanjun\documents\visual studio 2013\Projects\SSW555\Debug\SSW555.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\yanjun\documents\visual studio 2013\Projects\SSW555\Debug\SSW555.lib" /MACHINE:X86 Debug\Source.obj
+         SSW555.vcxproj -> c:\users\yanjun\documents\visual studio 2013\Projects\SSW555\Debug\SSW555.exe
+     1>Done Building Project "c:\Users\Yanjun\documents\visual studio 2013\Projects\SSW555\SSW555\SSW555.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.22
