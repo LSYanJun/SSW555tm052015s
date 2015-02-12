@@ -2,7 +2,7 @@
 COURSE: SSW555
 PROJECT 3
 Team 5
-NAME: Yanjun Wu
+NAME: Yanjun Wu/Gong Cheng
 */
 #include <iostream>
 #include <sstream>
