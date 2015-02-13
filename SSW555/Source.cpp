@@ -24,8 +24,8 @@ private:
 	char sex;     // m, f
 	string birt; // date
 	string deat; // date
-	Family famc;
-	Family fams;
+	Family *famc;
+	Family *fams;
 public:
 	void setid(string id)
 	{
@@ -67,19 +67,19 @@ public:
 	{
 		return this->deat;
 	}
-	void setfamc(Family famc)
+	void setfamc(Family *famc)
 	{
 		this->famc = famc;
 	}
-	Family getfamc()
+	Family *getfamc()
 	{
 		return this->famc;
 	}
-	void setfams(Family fams)
+	void setfams(Family *fams)
 	{
 		this->fams = fams;
 	}
-	Family getfams()
+	Family *getfams()
 	{
 		return this->fams;
 	}
@@ -90,9 +90,9 @@ class Family
 private:
 	string id;
 	string marr; // date
-	Individual husb;
-	Individual wife;
-	vector<Individual> chil;
+	Individual *husb;
+	Individual *wife;
+	vector<Individual *> chil;
 	string div; // date
 public:
 	void setid(string id)
@@ -111,27 +111,27 @@ public:
 	{
 		return this->marr;
 	}
-	void sethusb(Individual husb)
+	void sethusb(Individual *husb)
 	{
 		this->husb = husb;
 	}
-	Individual gethusb()
+	Individual *gethusb()
 	{
 		return this->husb;
 	}
-	void setwife(Individual wife)
+	void setwife(Individual *wife)
 	{
 		this->wife = wife;
 	}
-	Individual getwife()
+	Individual *getwife()
 	{
 		return this->wife;
 	}
-	void addchild(Individual chil)
+	void addchild(Individual *chil)
 	{
 		this->chil.push_back(chil);
 	}
-	vector<Individual> getchild()
+	vector<Individual *> getchild()
 	{
 		return this->chil;
 	}
