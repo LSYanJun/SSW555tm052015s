@@ -46,12 +46,33 @@ void report(vector<string> line, vector<string> &level, vector<string> &tag)
 		fout << "	Tag:" << tag[i] << endl;
 	}
 }
+
+void storeInfoProcess(vector<string> line, vector<string> &indi_names, vector<string> &family_names)
+{
+
+}
+
+void reportNames(vector<string> indi_names, vector<string> family_names)
+{
+
+}
+
 int main()
 {
 	vector<string> line;
+	// store each line's information
 	vector<string> level;
+	// store each line's level number
 	vector<string> tag;
+	// store each line's tag
+	vector<string> indi_names;
+	//store the names of each of the individuals in order by their unique identifiers
+	vector<string> family_names;
+	// store the names of husbands and wives of each family in order by their unique identifiers
+	// format: (husbadName,wifeName)
 	read(line);
-	report(line,level,tag);
+	report(line, level, tag);
+	storeInfoProcess(line, indi_names, family_names);
+	reportNames(indi_names, family_names);
 	return 0;
 }
