@@ -1,4 +1,4 @@
-Line 1: 0 NOTE Yanjun /Wu/
+Line 1: 0 NOTE Gedcom 
 	Level number: 0
 	Tag:NOTE
 Line 2: 0 HEAD
@@ -15,7 +15,7 @@ Line 5: 1 FILE Jacky's family
 	Tag:Invalid tag
 Line 6: 1 DATE 1 FEB 2015
 	Level number: 1
-	Tag:DATE
+	Tag:Invalid tag
 Line 7: 1 DEST ANSTFILE
 	Level number: 1
 	Tag:Invalid tag
@@ -33,7 +33,7 @@ Line 11: 1 SUBM @I1@
 	Tag:Invalid tag
 Line 12: 2 NAME Yanjun Wu
 	Level number: 2
-	Tag:NAME
+	Tag:Invalid tag
 Line 13: 1 SUBN
 	Level number: 1
 	Tag:Invalid tag
@@ -42,7 +42,7 @@ Line 14: 1 CHAR UTF-8
 	Tag:Invalid tag
 Line 15: 0 @I1@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 16: 1 NAME Jacky /Mao/
 	Level number: 1
 	Tag:NAME
@@ -72,7 +72,7 @@ Line 24: 1 FAMC @F2@
 	Tag:FAMC
 Line 25: 0 @I2@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 26: 1 NAME Jianguo /Mao/
 	Level number: 1
 	Tag:NAME
@@ -99,7 +99,7 @@ Line 33: 1 FAMS @F2@
 	Tag:FAMS
 Line 34: 0 @I3@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 35: 1 NAME Katie /Brown/
 	Level number: 1
 	Tag:NAME
@@ -132,7 +132,7 @@ Line 44: 1 FAMC @F4@
 	Tag:FAMC
 Line 45: 0 @I4@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 46: 1 NAME Edwin /Moore/
 	Level number: 1
 	Tag:NAME
@@ -159,7 +159,7 @@ Line 53: 1 FAMS @F3@
 	Tag:FAMS
 Line 54: 0 @I5@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 55: 1 NAME Emily /Mao/
 	Level number: 1
 	Tag:NAME
@@ -189,7 +189,7 @@ Line 63: 1 FAMC @F2@
 	Tag:FAMC
 Line 64: 0 @I6@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 65: 1 NAME Lisabella /Taylor/
 	Level number: 1
 	Tag:NAME
@@ -216,7 +216,7 @@ Line 72: 1 FAMC @F5@
 	Tag:FAMC
 Line 73: 0 @I7@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 74: 1 NAME Chris /Taylor/
 	Level number: 1
 	Tag:NAME
@@ -243,7 +243,7 @@ Line 81: 1 FAMS @F5@
 	Tag:FAMS
 Line 82: 0 @I8@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 83: 1 NAME Kevin /Brown/
 	Level number: 1
 	Tag:NAME
@@ -279,7 +279,7 @@ Line 93: 1 FAMS @F6@
 	Tag:FAMS
 Line 94: 0 @I9@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 95: 1 NAME Elena /Wilson/
 	Level number: 1
 	Tag:NAME
@@ -309,7 +309,7 @@ Line 103: 1 FAMS @F7@
 	Tag:FAMS
 Line 104: 0 @I10@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 105: 1 NAME Jen /Brown/
 	Level number: 1
 	Tag:NAME
@@ -336,7 +336,7 @@ Line 112: 1 FAMS @F6@
 	Tag:FAMS
 Line 113: 0 @I11@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 114: 1 NAME James /Brown/
 	Level number: 1
 	Tag:NAME
@@ -363,7 +363,7 @@ Line 121: 1 FAMC @F6@
 	Tag:FAMC
 Line 122: 0 @I12@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 123: 1 NAME Grace /Li/
 	Level number: 1
 	Tag:NAME
@@ -390,7 +390,7 @@ Line 130: 1 FAMS @F1@
 	Tag:FAMS
 Line 131: 0 @I13@ INDI
 	Level number: 0
-	Tag:Invalid tag
+	Tag:INDI
 Line 132: 1 NAME Bob /Shaw/
 	Level number: 1
 	Tag:NAME
@@ -417,7 +417,7 @@ Line 139: 1 FAMS @F7@
 	Tag:FAMS
 Line 140: 0 @F1@ FAM
 	Level number: 0
-	Tag:Invalid tag
+	Tag:FAM
 Line 141: 1 HUSB @I1@
 	Level number: 1
 	Tag:HUSB
@@ -432,7 +432,7 @@ Line 144: 1 _CURRENT Y
 	Tag:Invalid tag
 Line 145: 0 @F2@ FAM
 	Level number: 0
-	Tag:Invalid tag
+	Tag:FAM
 Line 146: 1 HUSB @I2@
 	Level number: 1
 	Tag:HUSB
@@ -456,7 +456,7 @@ Line 152: 1 _CURRENT Y
 	Tag:Invalid tag
 Line 153: 0 @F3@ FAM
 	Level number: 0
-	Tag:Invalid tag
+	Tag:FAM
 Line 154: 1 HUSB @I4@
 	Level number: 1
 	Tag:HUSB
@@ -480,7 +480,7 @@ Line 160: 1 _CURRENT N
 	Tag:Invalid tag
 Line 161: 0 @F4@ FAM
 	Level number: 0
-	Tag:Invalid tag
+	Tag:FAM
 Line 162: 1 HUSB @I8@
 	Level number: 1
 	Tag:HUSB
@@ -495,7 +495,7 @@ Line 165: 1 _CURRENT N
 	Tag:Invalid tag
 Line 166: 0 @F7@ FAM
 	Level number: 0
-	Tag:Invalid tag
+	Tag:FAM
 Line 167: 1 HUSB @I13@
 	Level number: 1
 	Tag:HUSB
@@ -510,7 +510,7 @@ Line 170: 1 _CURRENT Y
 	Tag:Invalid tag
 Line 171: 0 @F5@ FAM
 	Level number: 0
-	Tag:Invalid tag
+	Tag:FAM
 Line 172: 1 HUSB @I7@
 	Level number: 1
 	Tag:HUSB
@@ -525,7 +525,7 @@ Line 175: 1 _CURRENT N
 	Tag:Invalid tag
 Line 176: 0 @F6@ FAM
 	Level number: 0
-	Tag:Invalid tag
+	Tag:FAM
 Line 177: 1 HUSB @I8@
 	Level number: 1
 	Tag:HUSB
