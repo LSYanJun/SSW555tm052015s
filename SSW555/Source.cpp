@@ -160,6 +160,9 @@ void read(vector<string> &line)
 
 void check(vector<string> line, vector<string> &level, vector<string> &tag)
 {
+	string tags[2] ;
+	tags[0] = "";
+	tags[1] = "";
 	for (int i = 0; i < line.size(); i++)
 	{
 		stringstream s;
@@ -171,47 +174,84 @@ void check(vector<string> line, vector<string> &level, vector<string> &tag)
 		s >> val3;
 		if (val1 == "0")
 		{
-			bool flag = false;
-			if (val2 == "TRLR" || val2 == "NOTE")
+			if (val2 == "TRLR" || val2 == "NOTE" || val2 == "INDI" || val2 == "FAM")
 			{
-				flag = true;
+				tags[0] = val2;
+				tags[1] = "";
 				tag.push_back(val2);
 			}
-			if (val3 == "INDI" || val3 == "FAM")
+			else if (val3 == "INDI" || val3 == "FAM")
 			{
-				flag = true;
+				tags[0] = val3;
+				tags[1] = "";
 				tag.push_back(val3);
 			}
-			if (flag == false)
+			else
+			{
+				tags[0] = "";
+				tags[1] = "";
+				tag.push_back("Invalid tag");
+			}
+		}
+		else if (val1 == "1")
+		{
+			if (tags[0] == "INDI")
+			{
+				if (val2 == "NAME" || val2 == "SEX" || val2 == "BIRT" || val2 == "DEAT"
+					|| val2 == "FAMC" || val2 == "FAMS")
+				{
+					tags[1] = val2;
+					tag.push_back(val2);
+				}
+				else
+				{
+					tags[1] = "";
+					tag.push_back("Invalid tag");
+				}
+			}
+			else if (tags[0] == "FAM")
+			{
+
+				if (val2 == "MARR" || val2 == "HUSB" || val2 == "WIFE" || val2 == "CHIL" || val2 == "DIV")
+				{
+					tags[1] = val2;
+					tag.push_back(val2);
+				}
+				else
+				{
+					tags[1] = "";
+					tag.push_back("Invalid tag");
+				}
+			}
+			else
+			{
+				tags[1] = "";
+				tag.push_back("Invalid tag");
+			}
+		}	
+		else if (val1 == "2")
+		{
+			if ((tags[1] == "BIRT" || tags[1] == "DEAT" || tags[1] == "MARR" || tags[1] == "DIV") && val2 == "DATE")
+				tag.push_back(val2);
+			else
 				tag.push_back("Invalid tag");
 		}
-		if (val1 == "1")
+		else
 		{
-			if (val2 == "NAME" || val2 == "SEX" || val2 == "BIRT" || val2 == "DEAT"
-				|| val2 == "FAMC" || val2 == "FAMS"
-				|| val2 == "MARR" || val2 == "HUSB" || val2 == "WIFE" || val2 == "CHIL" || val2 == "DIV")
-				tag.push_back(val2);
-			else
-				tag.push_back("Invalid tag");
-		}	
-		if (val1 == "2")
-		{
-			if (val2 == "DATE")
-				tag.push_back(val2);
-			else
-				tag.push_back("Invalid tag");
+			tag.push_back("Invalid tag");
+
 		}
 	}
 }
 
-void storeInfoProcess(vector<string> line, vector<Individual> &indi, vector<Family> &fami)
+void storeInfoProcess(vector<string> line, vector<Individual *> &indi, vector<Family *> &fami)
 {
 
 }
 
 void report(vector<string> line, vector<string> level, vector<string> tag)
 {
-	// output to txt file named nameReport.txt
+	// output to txt file named Report#1.txt
 	ofstream fout("report#1.txt");
 	for (int i = 0; i < line.size(); i++)
 	{
@@ -222,9 +262,9 @@ void report(vector<string> line, vector<string> level, vector<string> tag)
 	fout.close();
 }
 
-void report(vector<Individual> indi, vector<Family> fami)
+void report(vector<Individual *> indi, vector<Family *> fami)
 {
-	// output to txt file named nameReport.txt
+	// output to txt file named Report.txt
 	ofstream fout("report.txt");
 
 	fout.close();
@@ -238,9 +278,9 @@ int main()
 	// store each line's level number
 	vector<string> tag;
 	// store each line's tag
-	vector<Individual> indi;
+	vector<Individual *> indi;
 	//store the names of each of the individuals in order by their unique identifiers
-	vector<Family> fami;
+	vector<Family *> fami;
 	// store the names of husbands and wives of each family in order by their unique identifiers
 	// format: (husbadName,wifeName)
 	read(line);
