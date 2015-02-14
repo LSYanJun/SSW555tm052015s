@@ -1,20 +1,22 @@
-id 1: @I1@ Name 1: Jacky /Mao/ Sex 1: M BIRT 1: 27 JAN 1991 Deat 1:  Fams 1: @F1@ Famc 1: @F2@
-id 2: @I2@ Name 2: Jianguo /Mao/ Sex 2: M BIRT 2: 8 AUG 1963 Deat 2:  Fams 2: @F2@
-id 3: @I3@ Name 3: Katie /Brown/ Sex 3: F BIRT 3: 14 FEB 1965 Deat 3:  Fams 3: @F3@ Famc 3: @F4@
-id 4: @I4@ Name 4: Edwin /Moore/ Sex 4: M BIRT 4: 1 OCT 1960 Deat 4:  Fams 4: @F3@
-id 5: @I5@ Name 5: Emily /Mao/ Sex 5: F BIRT 5: 11 SEP 1993 Deat 5:  Fams 5: @F5@ Famc 5: @F2@
-id 6: @I6@ Name 6: Lisabella /Taylor/ Sex 6: F BIRT 6: 6 JUN 2014 Deat 6:  Famc 6: @F5@
-id 7: @I7@ Name 7: Chris /Taylor/ Sex 7: M BIRT 7: 11 NOV 1990 Deat 7:  Fams 7: @F5@
-id 8: @I8@ Name 8: Kevin /Brown/ Sex 8: M BIRT 8: 1933 Deat 8: 11 SEP 2001 Fams 8: @F6@
-id 9: @I9@ Name 9: Elena /Wilson/ Sex 9: F BIRT 9: 1940 Deat 9:  Fams 9: @F7@
-id 10: @I10@ Name 10: Jen /Brown/ Sex 10: F BIRT 10: 1935 Deat 10:  Fams 10: @F6@
-id 11: @I11@ Name 11: James /Brown/ Sex 11: M BIRT 11: 1 MAY 1962 Deat 11:  Famc 11: @F6@
-id 12: @I12@ Name 12: Grace /Li/ Sex 12: F BIRT 12: 21 APR 1995 Deat 12:  Fams 12: @F1@
-id 13: @I13@ Name 13: Bob /Shaw/ Sex 13: M BIRT 13: 10 AUG 1938 Deat 13:  Fams 13: @F7@
-id 1: @F1@ marr 1:  div 1:  husb 1: Jacky /Mao/ wife 1: Grace /Li/
-id 2: @F2@ marr 2: 7 JUL 1989 div 2:  husb 2: Jianguo /Mao/ wife 2: Katie /Brown/ Child 1: Jacky /Mao/ Child 2: Emily /Mao/
-id 3: @F3@ marr 3: 1 JAN 1985 div 3: 31 DEC 1987 husb 3: Edwin /Moore/ wife 3: Katie /Brown/
-id 4: @F4@ marr 4:  div 4:  husb 4: Kevin /Brown/ wife 4: Elena /Wilson/ Child 1: Katie /Brown/
-id 5: @F7@ marr 5:  div 5:  husb 5: Bob /Shaw/ wife 5: Elena /Wilson/
-id 6: @F5@ marr 6:  div 6:  husb 6: Chris /Taylor/ wife 6: Emily /Mao/ Child 1: Lisabella /Taylor/
-id 7: @F6@ marr 7:  div 7:  husb 7: Kevin /Brown/ wife 7: Jen /Brown/ Child 1: James /Brown/
+Individuals: 
+ID : @I1@, NAME : Jacky /Mao/
+ID : @I2@, NAME : Jianguo /Mao/
+ID : @I3@, NAME : Katie /Brown/
+ID : @I4@, NAME : Edwin /Moore/
+ID : @I5@, NAME : Emily /Mao/
+ID : @I6@, NAME : Lisabella /Taylor/
+ID : @I7@, NAME : Chris /Taylor/
+ID : @I8@, NAME : Kevin /Brown/
+ID : @I9@, NAME : Elena /Wilson/
+ID : @I10@, NAME : Jen /Brown/
+ID : @I11@, NAME : James /Brown/
+ID : @I12@, NAME : Grace /Li/
+ID : @I13@, NAME : Bob /Shaw/
+Families: 
+ID : @F1@, HUSB : Jacky /Mao/, WIFE : Grace /Li/
+ID : @F2@, HUSB : Jianguo /Mao/, WIFE : Katie /Brown/
+ID : @F3@, HUSB : Edwin /Moore/, WIFE : Katie /Brown/
+ID : @F4@, HUSB : Kevin /Brown/, WIFE : Elena /Wilson/
+ID : @F5@, HUSB : Chris /Taylor/, WIFE : Emily /Mao/
+ID : @F6@, HUSB : Kevin /Brown/, WIFE : Jen /Brown/
+ID : @F7@, HUSB : Bob /Shaw/, WIFE : Elena /Wilson/

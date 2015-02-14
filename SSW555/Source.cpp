@@ -413,7 +413,7 @@ void report(vector<Individual *> indi, vector<Family *> fami)   // report of the
 {
 	// output to txt file named Report.txt
 	ofstream fout("report.txt");
-/*	test code for store information
+	/*
 	for (int i = 0; i < indi.size(); i++)
 	{
 		fout << "id " << i + 1 << ": " << indi[i]->getid() << " Name " << i + 1 << ": " << indi[i]->getname() << " Sex " << i + 1 << ": " << indi[i]->getsex() << " BIRT " << i + 1 << ": " << indi[i]->getbirt() << " Deat " << i + 1 << ": " << indi[i]->getdeat();
@@ -430,6 +430,49 @@ void report(vector<Individual *> indi, vector<Family *> fami)   // report of the
 			fout << " Child " << j + 1 << ": " << fami[i]->getchild()[j]->getname();
 		fout << endl;
 	}*/
+	for (int j = indi.size() - 1; j >= 0; j--)
+	{
+		int max = 0;
+		int flag = j;
+		for (int i = 0; i <= j; i++)
+		{
+			string id = indi[i]->getid();
+			int nid = atoi(id.substr(2, id.length() - 3).c_str());
+			if (nid > max)
+			{
+				max = nid;
+				flag = i;
+			}
+		}
+		Individual *temp = indi[j];
+		indi[j] = indi[flag];
+		indi[flag] = temp;
+	}
+	fout << "Individuals: " << endl;
+	for (int i = 0; i < indi.size(); i++)
+		fout << "ID : " << indi[i]->getid() << ", NAME : " << indi[i]->getname() << endl;
+
+	for (int j = fami.size() - 1; j >= 0; j--)
+	{
+		int max = 0;
+		int flag = j;
+		for (int i = 0; i <= j; i++)
+		{
+			string id = fami[i]->getid();
+			int nid = atoi(id.substr(2, id.length() - 3).c_str());
+			if (nid > max)
+			{
+				max = nid;
+				flag = i;
+			}
+		}
+		Family *temp = fami[j];
+		fami[j] = fami[flag];
+		fami[flag] = temp;
+	}
+	fout << "Families: " << endl;
+	for (int i = 0; i < fami.size(); i++)
+		fout << "ID : " << fami[i]->getid() << ", HUSB : " << fami[i]->gethusb()->getname() << ", WIFE : " << fami[i]->getwife()->getname() << endl;
 	fout.close();
 }
 
