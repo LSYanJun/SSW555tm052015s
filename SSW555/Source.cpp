@@ -27,6 +27,20 @@ private:
 	Family *famc;
 	Family *fams;
 public:
+	Individual()
+	{
+		this->id = "";
+		this->name = "";
+		this->sex = NULL;
+		this->birt = "";
+		this->deat = "";
+		this->famc = nullptr;
+		this->fams = nullptr;
+	}
+	~Individual()
+	{
+
+	}
 	void setid(string id)
 	{
 		this->id = id;
@@ -95,6 +109,18 @@ private:
 	vector<Individual *> chil;
 	string div; // date
 public:
+	Family()
+	{
+		this->id = "";
+		this->marr = "";
+		this->husb = nullptr;
+		this->wife = nullptr;
+		this->div = "";
+	}
+	~Family()
+	{
+
+	}
 	void setid(string id)
 	{
 		this->id = id;
@@ -244,9 +270,16 @@ void check(vector<string> line, vector<string> &level, vector<string> &tag)
 	}
 }
 
-void storeInfoProcess(vector<string> line, vector<Individual *> &indi, vector<Family *> &fami)
+void storeInfoProcess(vector<string> line, vector<string> &level, vector<string> &tag, vector<Individual *> &indi, vector<Family *> &fami)
 {
+	for (int i = 0; i < line.size();)
+	{
+		if (level[i] == "0" && tag[i] == "INDI")
+		{
+			Individual * nindi = new Individual;
 
+		}
+	}
 }
 
 void report(vector<string> line, vector<string> level, vector<string> tag)
@@ -286,7 +319,7 @@ int main()
 	read(line);
 	check(line, level, tag);
 	report(line, level, tag);
-	storeInfoProcess(line, indi, fami);
+	storeInfoProcess(line, level, tag, indi, fami);
 	report(indi, fami);
 	return 0;
 }
