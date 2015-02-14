@@ -129,7 +129,7 @@ public:
 	{
 		return this->id;
 	}
-	void setmarr()
+	void setmarr(string marr)
 	{
 		this->marr = marr;
 	}
@@ -272,17 +272,131 @@ void check(vector<string> line, vector<string> &level, vector<string> &tag)
 
 void storeInfoProcess(vector<string> line, vector<string> &level, vector<string> &tag, vector<Individual *> &indi, vector<Family *> &fami)
 {
-	for (int i = 0; i < line.size();)
+	for (int i = 0; i < line.size();)  //store individual information
 	{
 		if (level[i] == "0" && tag[i] == "INDI")
 		{
 			Individual * nindi = new Individual;
-
+			stringstream s;
+			string val1, val2, val3;
+			s << line[i];
+			s >> val1 >> val2;
+			if (val2 != "INDI")
+				nindi->setid(val2);
+			i++;
+			s.sync();
+			while (level[i] != "0" && i < line.size())
+			{
+				if (tag[i] == "NAME")
+				{
+					nindi->setname(line[i].substr(7));
+				}
+				else if (tag[i] == "SEX")
+				{
+					nindi->setsex(line[i].substr(6)[0]);
+				}
+				else if (tag[i] == "BIRT")
+				{
+					if (i + 1 < line.size())
+					{
+						i++;
+						if (tag[i] == "DATE")
+							nindi->setbirt(line[i].substr(7));
+					}
+				}
+				else if (tag[i] == "DEAT")
+				{
+					if (i + 1 < line.size())
+					{
+						i++;
+						if (tag[i] == "DATE")
+							nindi->setdeat(line[i].substr(7));
+					}
+				}
+				i++;
+			}
+			indi.push_back(nindi);
 		}
+		else i++;
+	}
+	for (int i = 0; i < line.size();)  //store family information and linked all related individuals and families together
+	{
+		if (level[i] == "0" && tag[i] == "FAM")
+		{
+			Family * nfam = new Family;
+			stringstream s;
+			string val1, val2, val3;
+			s << line[i];
+			s >> val1 >> val2;
+			if (val2 != "FAM")
+				nfam->setid(val2);
+			i++;
+			s.sync();
+			while (level[i] != "0" && i < line.size())
+			{
+				if (tag[i] == "HUSB")
+				{
+					for (int m = 0; m < indi.size(); m++)
+					{
+						if (indi[m]->getid() == line[i].substr(7))
+						{
+							nfam->sethusb(indi[m]);
+							indi[m]->setfams(nfam);
+							break;
+						}
+					}
+				}
+				else if (tag[i] == "WIFE")
+				{
+					for (int m = 0; m < indi.size(); m++)
+					{
+						if (indi[m]->getid() == line[i].substr(7))
+						{
+							nfam->setwife(indi[m]);
+							indi[m]->setfams(nfam);
+							break;
+						}
+					}
+				}
+				else if (tag[i] == "CHIL")
+				{
+					for (int m = 0; m < indi.size(); m++)
+					{
+						if (indi[m]->getid() == line[i].substr(7))
+						{
+							nfam->addchild(indi[m]);
+							indi[m]->setfamc(nfam);
+							break;
+						}
+					}
+				}
+				else if (tag[i] == "MARR")
+				{
+					if (i + 1 < line.size())
+					{
+						i++;
+						if (tag[i] == "DATE")
+							nfam->setmarr(line[i].substr(7));
+					}
+				}
+				else if (tag[i] == "DIV")
+				{
+					if (i + 1 < line.size())
+					{
+						i++;
+						if (tag[i] == "DATE")
+							nfam->setdiv(line[i].substr(7));
+					}
+				}
+				i++;
+			}
+			fami.push_back(nfam);
+		}
+		else i++;
 	}
 }
 
-void report(vector<string> line, vector<string> level, vector<string> tag)
+void report(vector<string> line, vector<string> level, vector<string> tag)  // report of the tag information
 {
 	// output to txt file named Report#1.txt
 	ofstream fout("report#1.txt");
@@ -295,11 +409,27 @@ void report(vector<string> line, vector<string> level, vector<string> tag)
 	fout.close();
 }
 
-void report(vector<Individual *> indi, vector<Family *> fami)
+void report(vector<Individual *> indi, vector<Family *> fami)   // report of the sorted individuals and familes
 {
 	// output to txt file named Report.txt
 	ofstream fout("report.txt");
-
+/*	test code for store information
+	for (int i = 0; i < indi.size(); i++)
+	{
+		fout << "id " << i + 1 << ": " << indi[i]->getid() << " Name " << i + 1 << ": " << indi[i]->getname() << " Sex " << i + 1 << ": " << indi[i]->getsex() << " BIRT " << i + 1 << ": " << indi[i]->getbirt() << " Deat " << i + 1 << ": " << indi[i]->getdeat();
+		if (indi[i]->getfams())
+			fout << " Fams " << i + 1 << ": " << indi[i]->getfams()->getid();
+		if (indi[i]->getfamc())
+			fout << " Famc " << i + 1 << ": " << indi[i]->getfamc()->getid();
+		fout << endl;
+	}
+	for (int i = 0; i < fami.size(); i++)
+	{
+		fout << "id " << i + 1 << ": " << fami[i]->getid() << " marr " << i + 1 << ": " << fami[i]->getmarr() << " div " << i + 1 << ": " << fami[i]->getdiv() << " husb " << i + 1 << ": " << fami[i]->gethusb()->getname() << " wife " << i + 1 << ": " << fami[i]->getwife()->getname();
+		for (int j = 0; j < fami[i]->getchild().size(); j++)
+			fout << " Child " << j + 1 << ": " << fami[i]->getchild()[j]->getname();
+		fout << endl;
+	}*/
 	fout.close();
 }
 
