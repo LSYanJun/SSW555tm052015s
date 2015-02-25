@@ -1,6 +1,6 @@
 /*
 COURSE: SSW555
-PROJECT 3
+Project: Gedcom
 Team 5
 NAME: Yanjun Wu/Gong Cheng/Amog Bheemanakolli Gurumallappa
 */
@@ -184,7 +184,7 @@ void read(vector<string> &line)
 	fin.close();
 }
 
-void check(vector<string> line, vector<string> &level, vector<string> &tag)
+void check(vector<string> line, vector<string> &level, vector<string> &tag, vector<string> &argu)
 {
 	string tags[2] ;
 	tags[0] = "";
@@ -269,7 +269,25 @@ void check(vector<string> line, vector<string> &level, vector<string> &tag)
 		}
 	}
 }
+void validFormat(vector<string> &level, vector<string> &tag, vector<string> &argu)//before store info process
+{
+	//US01 Invalid date format
 
+	//US02 Invalid ID format
+
+	//US03 Invalid date of birth/death
+
+	//US04 Invalid gender format
+
+	//US05 Invalid name format
+
+	//
+
+}
+void validInfo(vector<Individual *> &indi, vector<Family *> &fami)//after store info process
+{
+
+}
 void storeInfoProcess(vector<string> line, vector<string> &level, vector<string> &tag, vector<Individual *> &indi, vector<Family *> &fami)
 {
 	for (int i = 0; i < line.size();)  //store individual information
@@ -484,13 +502,15 @@ int main()
 	// store each line's level number
 	vector<string> tag;
 	// store each line's tag
+	vector<string> argu;
+	// store each line's argument
 	vector<Individual *> indi;
 	//store the names of each of the individuals in order by their unique identifiers
 	vector<Family *> fami;
 	// store the names of husbands and wives of each family in order by their unique identifiers
 	// format: (husbadName,wifeName)
 	read(line);
-	check(line, level, tag);
+	check(line, level, tag, argu);
 	report(line, level, tag);
 	storeInfoProcess(line, level, tag, indi, fami);
 	report(indi, fami);
