@@ -21,7 +21,7 @@ class Individual
 private:	
 	string id;
 	string name;
-	char sex;     // m, f
+	char sex;     // M, F
 	string birt; // date
 	string deat; // date
 	Family *famc;
@@ -39,7 +39,8 @@ public:
 	}
 	~Individual()
 	{
-
+		delete famc;
+		delete fams;
 	}
 	void setid(string id)
 	{
@@ -119,7 +120,12 @@ public:
 	}
 	~Family()
 	{
-
+		while (chil.size())
+		{
+			Individual *temp = chil.back();
+			chil.pop_back();
+			delete temp;
+		}
 	}
 	void setid(string id)
 	{
@@ -350,47 +356,41 @@ void validInfo(vector<Individual *> &indi, vector<Family *> &fami)//after store 
 {
 
 }
-void storeInfoProcess(vector<string> line, vector<string> &level, vector<string> &tag, vector<string> &argu, vector<Individual *> &indi, vector<Family *> &fami)
+void storeInfoProcess(vector<string> &level, vector<string> &tag, vector<string> &argu, vector<Individual *> &indi, vector<Family *> &fami)
 {
-	for (int i = 0; i < line.size();)  //store individual information
+	for (int i = 0; i < level.size();)  //store individual information
 	{
 		if (level[i] == "0" && tag[i] == "INDI")
 		{
 			Individual * nindi = new Individual;
-			stringstream s;
-			string val1, val2, val3;
-			s << line[i];
-			s >> val1 >> val2;
-			if (val2 != "INDI")
-				nindi->setid(val2);
+			nindi->setid(argu[i]);
 			i++;
-			s.sync();
-			while (level[i] != "0" && i < line.size())
+			while (level[i] != "0" && i < level.size())
 			{
 				if (tag[i] == "NAME")
 				{
-					nindi->setname(line[i].substr(7));
+					nindi->setname(argu[i]);
 				}
 				else if (tag[i] == "SEX")
 				{
-					nindi->setsex(line[i].substr(6)[0]);
+					nindi->setsex(argu[i][0]);
 				}
 				else if (tag[i] == "BIRT")
 				{
-					if (i + 1 < line.size())
+					if (i + 1 < level.size())
 					{
 						i++;
 						if (tag[i] == "DATE")
-							nindi->setbirt(line[i].substr(7));
+							nindi->setbirt(argu[i]);
 					}
 				}
 				else if (tag[i] == "DEAT")
 				{
-					if (i + 1 < line.size())
+					if (i + 1 < level.size())
 					{
 						i++;
 						if (tag[i] == "DATE")
-							nindi->setdeat(line[i].substr(7));
+							nindi->setdeat(argu[i]);
 					}
 				}
 				i++;
@@ -399,26 +399,20 @@ void storeInfoProcess(vector<string> line, vector<string> &level, vector<string>
 		}
 		else i++;
 	}
-	for (int i = 0; i < line.size();)  //store family information and linked all related individuals and families together
+	for (int i = 0; i < level.size();)  //store family information and linked all related individuals and families together
 	{
 		if (level[i] == "0" && tag[i] == "FAM")
 		{
 			Family * nfam = new Family;
-			stringstream s;
-			string val1, val2, val3;
-			s << line[i];
-			s >> val1 >> val2;
-			if (val2 != "FAM")
-				nfam->setid(val2);
+			nfam->setid(argu[i]);
 			i++;
-			s.sync();
-			while (level[i] != "0" && i < line.size())
+			while (level[i] != "0" && i < level.size())
 			{
 				if (tag[i] == "HUSB")
 				{
 					for (int m = 0; m < indi.size(); m++)
 					{
-						if (indi[m]->getid() == line[i].substr(7))
+						if (indi[m]->getid() == argu[i])
 						{
 							nfam->sethusb(indi[m]);
 							indi[m]->setfams(nfam);
@@ -430,7 +424,7 @@ void storeInfoProcess(vector<string> line, vector<string> &level, vector<string>
 				{
 					for (int m = 0; m < indi.size(); m++)
 					{
-						if (indi[m]->getid() == line[i].substr(7))
+						if (indi[m]->getid() == argu[i])
 						{
 							nfam->setwife(indi[m]);
 							indi[m]->setfams(nfam);
@@ -442,7 +436,7 @@ void storeInfoProcess(vector<string> line, vector<string> &level, vector<string>
 				{
 					for (int m = 0; m < indi.size(); m++)
 					{
-						if (indi[m]->getid() == line[i].substr(7))
+						if (indi[m]->getid() == argu[i])
 						{
 							nfam->addchild(indi[m]);
 							indi[m]->setfamc(nfam);
@@ -452,20 +446,20 @@ void storeInfoProcess(vector<string> line, vector<string> &level, vector<string>
 				}
 				else if (tag[i] == "MARR")
 				{
-					if (i + 1 < line.size())
+					if (i + 1 < level.size())
 					{
 						i++;
 						if (tag[i] == "DATE")
-							nfam->setmarr(line[i].substr(7));
+							nfam->setmarr(argu[i]);
 					}
 				}
 				else if (tag[i] == "DIV")
 				{
-					if (i + 1 < line.size())
+					if (i + 1 < level.size())
 					{
 						i++;
 						if (tag[i] == "DATE")
-							nfam->setdiv(line[i].substr(7));
+							nfam->setdiv(argu[i]);
 					}
 				}
 				i++;
@@ -543,7 +537,7 @@ int main()
 	// store the names of husbands and wives of each family in order by their unique identifiers
 	read(line);
 	storeVec(line, level, tag, argu);
-	/*storeInfoProcess(level, tag, argu, indi, fami);
-	report(indi, fami);*/
+	//storeInfoProcess(level, tag, argu, indi, fami);
+	//report(indi, fami);
 	return 0;
 }
