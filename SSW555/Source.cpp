@@ -184,7 +184,7 @@ void read(vector<string> &line)
 	fin.close();
 }
 
-void check(vector<string> line, vector<string> &level, vector<string> &tag, vector<string> &argu)
+void storeVec(vector<string> line, vector<string> &level, vector<string> &tag, vector<string> &argu)
 {
 	string temp;
 	string tags[2] ;
@@ -335,20 +335,22 @@ void validFormat(vector<string> &level, vector<string> &tag, vector<string> &arg
 
 	//US02 Invalid ID format
 
-	//US03 Invalid date of birth/death
+	//US03 Invalid date
 
 	//US04 Invalid gender format
+	//Implemented by Amog
 
 	//US05 Invalid name format
 
-	//
+	//US09 Invalid age of an individual
+	//Implemented by Amog
 
 }
 void validInfo(vector<Individual *> &indi, vector<Family *> &fami)//after store info process
 {
 
 }
-void storeInfoProcess(vector<string> line, vector<string> &level, vector<string> &tag, vector<Individual *> &indi, vector<Family *> &fami)
+void storeInfoProcess(vector<string> line, vector<string> &level, vector<string> &tag, vector<string> &argu, vector<Individual *> &indi, vector<Family *> &fami)
 {
 	for (int i = 0; i < line.size();)  //store individual information
 	{
@@ -474,40 +476,11 @@ void storeInfoProcess(vector<string> line, vector<string> &level, vector<string>
 	}
 }
 
-void report(vector<string> line, vector<string> level, vector<string> tag)  // report of the tag information
-{
-	// output to txt file named Report#1.txt
-	ofstream fout("report#1.txt");
-	for (int i = 0; i < line.size(); i++)
-	{
-		fout << "Line " << i + 1 << ": " << line[i] << endl;
-		fout << "	Level number: " << level[i] << endl;
-		fout << "	Tag:" << tag[i] << endl;
-	}
-	fout.close();
-}
-
 void report(vector<Individual *> indi, vector<Family *> fami)   // report of the sorted individuals and familes
 {
 	// output to txt file named Report.txt
 	ofstream fout("report.txt");
-	/*
-	for (int i = 0; i < indi.size(); i++)
-	{
-		fout << "id " << i + 1 << ": " << indi[i]->getid() << " Name " << i + 1 << ": " << indi[i]->getname() << " Sex " << i + 1 << ": " << indi[i]->getsex() << " BIRT " << i + 1 << ": " << indi[i]->getbirt() << " Deat " << i + 1 << ": " << indi[i]->getdeat();
-		if (indi[i]->getfams())
-			fout << " Fams " << i + 1 << ": " << indi[i]->getfams()->getid();
-		if (indi[i]->getfamc())
-			fout << " Famc " << i + 1 << ": " << indi[i]->getfamc()->getid();
-		fout << endl;
-	}
-	for (int i = 0; i < fami.size(); i++)
-	{
-		fout << "id " << i + 1 << ": " << fami[i]->getid() << " marr " << i + 1 << ": " << fami[i]->getmarr() << " div " << i + 1 << ": " << fami[i]->getdiv() << " husb " << i + 1 << ": " << fami[i]->gethusb()->getname() << " wife " << i + 1 << ": " << fami[i]->getwife()->getname();
-		for (int j = 0; j < fami[i]->getchild().size(); j++)
-			fout << " Child " << j + 1 << ": " << fami[i]->getchild()[j]->getname();
-		fout << endl;
-	}*/
+
 	for (int j = indi.size() - 1; j >= 0; j--)
 	{
 		int max = 0;
@@ -568,11 +541,9 @@ int main()
 	//store the names of each of the individuals in order by their unique identifiers
 	vector<Family *> fami;
 	// store the names of husbands and wives of each family in order by their unique identifiers
-	// format: (husbadName,wifeName)
 	read(line);
-	check(line, level, tag, argu);
-	/*report(line, level, tag);
-	storeInfoProcess(line, level, tag, indi, fami);
+	storeVec(line, level, tag, argu);
+	/*storeInfoProcess(level, tag, argu, indi, fami);
 	report(indi, fami);*/
 	return 0;
 }
