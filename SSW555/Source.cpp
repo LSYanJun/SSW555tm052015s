@@ -186,6 +186,7 @@ void read(vector<string> &line)
 
 void check(vector<string> line, vector<string> &level, vector<string> &tag, vector<string> &argu)
 {
+	string temp;
 	string tags[2] ;
 	tags[0] = "";
 	tags[1] = "";
@@ -193,80 +194,139 @@ void check(vector<string> line, vector<string> &level, vector<string> &tag, vect
 	{
 		stringstream s;
 		s << line[i];
-		string val1,val2,val3,val4;
+		string val1,val2;
 		s >> val1;
-		level.push_back(val1);
+		if (val1 == "0" || val1 == "1" || val1 == "2")
+			level.push_back(val1);
+		else
+			level.push_back("Invalid level");
 		s >> val2;
-		s >> val3;
+		getline(s, temp);
+		temp.erase(0, temp.find_first_not_of(" "));
+		//cout << temp << endl;
 		if (val1 == "0")
 		{
-			if (val2 == "TRLR" || val2 == "NOTE" || val2 == "INDI" || val2 == "FAM")
+			if (temp == "INDI")
 			{
-				tags[0] = val2;
-				tags[1] = "";
-				tag.push_back(val2);
+				tags[0] = "INDI";
+				tag.push_back(temp);
+				argu.push_back(val2);
 			}
-			else if (val3 == "INDI" || val3 == "FAM")
+			else if (temp == "FAM")
 			{
-				tags[0] = val3;
-				tags[1] = "";
-				tag.push_back(val3);
+				tags[0] = "FAM";
+				tag.push_back(temp);
+				argu.push_back(val2);
+			}
+			else if (val2 == "NOTE")
+			{
+				tag.push_back(val2);
+				argu.push_back(temp);
+			}
+			else if (val2 == "TRLR")
+			{
+				tag.push_back(val2);
+				argu.push_back("NONE");
 			}
 			else
 			{
-				tags[0] = "";
-				tags[1] = "";
 				tag.push_back("Invalid tag");
-			}
+				argu.push_back("Invalid argument");
+			}	
 		}
 		else if (val1 == "1")
 		{
 			if (tags[0] == "INDI")
 			{
-				if (val2 == "NAME" || val2 == "SEX" || val2 == "BIRT" || val2 == "DEAT"
-					|| val2 == "FAMC" || val2 == "FAMS")
+				if (val2 == "NAME" || val2 == "SEX" || val2 == "FAMS" || val2 == "FAMC")
 				{
-					tags[1] = val2;
 					tag.push_back(val2);
+					argu.push_back(temp);
+				}
+				else if (val2 == "BIRT")
+				{
+					tags[1] = "BIRT";
+					tag.push_back(val2);
+					argu.push_back("NONE");
+				}
+				else if (val2 == "DEAT")
+				{
+					tags[1] = "DEAT";
+					tag.push_back(val2);
+					argu.push_back("NONE");
 				}
 				else
 				{
-					tags[1] = "";
 					tag.push_back("Invalid tag");
+					argu.push_back("Invalid argument");
 				}
 			}
 			else if (tags[0] == "FAM")
 			{
-
-				if (val2 == "MARR" || val2 == "HUSB" || val2 == "WIFE" || val2 == "CHIL" || val2 == "DIV")
+				if (val2 == "HUSB" || val2 == "WIFE" || val2 == "CHIL")
 				{
-					tags[1] = val2;
 					tag.push_back(val2);
+					argu.push_back(temp);
+				}
+				else if (val2 == "MARR")
+				{
+					tags[1] = "MARR";
+					tag.push_back(val2);
+					argu.push_back("NONE");
+				}
+				else if (val2 == "DIV")
+				{
+					tags[1] = "DIV";
+					tag.push_back(val2);
+					argu.push_back("NONE");
 				}
 				else
 				{
-					tags[1] = "";
 					tag.push_back("Invalid tag");
+					argu.push_back("Invalid argument");
 				}
 			}
 			else
 			{
-				tags[1] = "";
 				tag.push_back("Invalid tag");
+				argu.push_back("Invalid argument");
 			}
-		}	
+		}
 		else if (val1 == "2")
 		{
-			if ((tags[1] == "BIRT" || tags[1] == "DEAT" || tags[1] == "MARR" || tags[1] == "DIV") && val2 == "DATE")
-				tag.push_back(val2);
+			if (val2 == "DATE")
+			{
+				if (tags[0] == "INDI" && (tags[1] == "BIRT" || tag[1] == "DEAT"))
+				{
+					tag.push_back(val2);
+					argu.push_back(temp);
+				}
+				else if (tags[0] == "FAM" && (tags[1] == "MARR" || tag[1] == "DIV"))
+				{
+					tag.push_back(val2);
+					argu.push_back(temp);
+				}
+				else
+				{
+					tag.push_back("Invalid tag");
+					argu.push_back("Invalid argument");
+				}
+			}
 			else
+			{
 				tag.push_back("Invalid tag");
+				argu.push_back("Invalid argument");
+			}
 		}
 		else
 		{
 			tag.push_back("Invalid tag");
-
+			argu.push_back("Invalid argument");
 		}
+	}
+	for (int i = 0; i < line.size(); i++)
+	{
+		cout << level[i] << " " << tag[i] << " " << argu[i] << endl;
 	}
 }
 void validFormat(vector<string> &level, vector<string> &tag, vector<string> &argu)//before store info process
@@ -511,8 +571,8 @@ int main()
 	// format: (husbadName,wifeName)
 	read(line);
 	check(line, level, tag, argu);
-	report(line, level, tag);
+	/*report(line, level, tag);
 	storeInfoProcess(line, level, tag, indi, fami);
-	report(indi, fami);
+	report(indi, fami);*/
 	return 0;
 }
