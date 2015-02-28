@@ -1,22 +1,22 @@
 Individuals: 
-ID : @I1@, NAME : Jacky /Mao/
-ID : @I2@, NAME : Jianguo /Mao/
-ID : @I3@, NAME : Katie /Brown/
-ID : @I4@, NAME : Edwin /Moore/
-ID : @I5@, NAME : Emily /Mao/
-ID : @I6@, NAME : Lisabella /Taylor/
-ID : @I7@, NAME : Chris /Taylor/
-ID : @I8@, NAME : Kevin /Brown/
-ID : @I9@, NAME : Elena /Wilson/
-ID : @I10@, NAME : Jen /Brown/
-ID : @I11@, NAME : James /Brown/
-ID : @I12@, NAME : Grace /Li/
-ID : @I13@, NAME : Bob /Shaw/
+ID : I1, NAME : Jacky /Mao/
+ID : I2, NAME : Jianguo /Mao/
+ID : I3, NAME : Katie /Brown/
+ID : I4, NAME : Edwin /Moore/
+ID : I5, NAME : Emily /Mao/
+ID : I6, NAME : Lisabella /Taylor/
+ID : I7, NAME : Chris /Taylor/
+ID : I8, NAME : Kevin /Brown/
+ID : I9, NAME : Elena /Wilson/
+ID : I10, NAME : Jen /Brown/
+ID : I11, NAME : James /Brown/
+ID : I12, NAME : Grace /Li/
+ID : I13, NAME : Bob /Shaw/
 Families: 
-ID : @F1@, HUSB : Jacky /Mao/, WIFE : Grace /Li/
-ID : @F2@, HUSB : Jianguo /Mao/, WIFE : Katie /Brown/
-ID : @F3@, HUSB : Edwin /Moore/, WIFE : Katie /Brown/
-ID : @F4@, HUSB : Kevin /Brown/, WIFE : Elena /Wilson/
-ID : @F5@, HUSB : Chris /Taylor/, WIFE : Emily /Mao/
-ID : @F6@, HUSB : Kevin /Brown/, WIFE : Jen /Brown/
-ID : @F7@, HUSB : Bob /Shaw/, WIFE : Elena /Wilson/
+ID : F1, HUSB : I1, WIFE : I12
+ID : F2, HUSB : I2, WIFE : I3
+ID : F3, HUSB : I4, WIFE : I3
+ID : F4, HUSB : I8, WIFE : I9
+ID : F5, HUSB : I7, WIFE : I5
+ID : F6, HUSB : I8, WIFE : I10
+ID : F7, HUSB : I13, WIFE : I9
