@@ -1,6 +1,7 @@
 /*
 COURSE: SSW555
 Project: Gedcom
+Repository: SSW555tm052015s
 Team 5
 NAME: Yanjun Wu/Gong Cheng/Amog Bheemanakolli Gurumallappa
 */
@@ -9,6 +10,8 @@ NAME: Yanjun Wu/Gong Cheng/Amog Bheemanakolli Gurumallappa
 #include <fstream>
 #include <vector>
 #include <string>
+#include < map>
+#include <ctime>
 using namespace std;
 
 class Genealogy
@@ -273,7 +276,7 @@ private:
 	}
 
 	//user stories
-	void inexistID()
+	void inexistID() //Gong Cheng
 	{
 		for (int i = 0; i < indi.size(); i++)
 		{
@@ -373,7 +376,7 @@ private:
 		}
 	}
 
-	void unmatchedPointers()
+	void unmatchedPointers()//Gong Cheng
 	{
 		for (int i = 0; i < indi.size(); i++)
 		{
@@ -441,6 +444,82 @@ private:
 				}
 			}
 		}
+	}
+	void invalidDate()//Yanjun Wu
+	{
+		string ERRMSG = "";
+		time_t tt = time(NULL);
+		tm* t = localtime(&tt);
+		int cy = t->tm_year + 1900;
+		int cm = t->tm_mon + 1;
+		int cd = t->tm_mday;
+		map<string, int> monthMap;
+		monthMap["JAN"] = 1;
+		monthMap["FEB"] = 2;
+		monthMap["MAR"] = 3;
+		monthMap["APR"] = 4;
+		monthMap["MAY"] = 5;
+		monthMap["JUN"] = 6;
+		monthMap["JUL"] = 7;
+		monthMap["AUG"] = 8;
+		monthMap["SEP"] = 9;
+		monthMap["OCT"] = 10;
+		monthMap["NOV"] = 11;
+		monthMap["DEC"] = 12;
+		for (int i = 0; i < indi.size(); i++)
+		{
+			stringstream birt;
+			stringstream deat;
+			bool isDead = false;
+			if (indi[i]->getdeat() == "")
+				isDead = false;
+			else
+				isDead = true;
+			birt << indi[i]->getbirt();
+			deat << indi[i]->getdeat();
+			string bday, bmonth, byear, dday, dmonth, dyear;
+			birt >> bday;
+			birt >> bmonth;
+			birt >> byear;
+			deat >> dday;
+			deat >> dmonth;
+			deat >> dyear;
+			int bd, bm, by, dd, dm, dy;
+			bd = atoi(bday.c_str());
+			bm = monthMap[bmonth];
+			by = atoi(byear.c_str());
+			dd = atoi(dday.c_str());
+			dm = monthMap[dmonth];
+			dy = atoi(dyear.c_str());
+			//US03
+			if (cy < by || (cy == by && cm < bm) || (cy == by && cm == bm && cd < bd)) //invalid birth date
+			{
+				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid birth date(" 
+					+ indi[i]->getbirt() + ")";
+				errorMsg.push_back(ERRMSG);
+			}
+			if (cy < dy || (cy == dy && cm < dm) || (cy == dy && cm == dm && cd < dd)) //invalid death date
+			{
+				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid death date("
+					+ indi[i]->getdeat() + ")";
+				errorMsg.push_back(ERRMSG);
+			}
+			//US05
+			if (isDead == true)
+			{
+				if (dy < by || (dy == by && dm < bm) || (dy == by && dm == bm && dd < bd))
+				{
+					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") death before birth";
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+			
+		}
+	}
+
+	void invalidFamMember()//Yanjun Wu
+	{
+
 	}
 
 public:
@@ -616,10 +695,10 @@ public:
 				argu.push_back("Invalid argument");
 			}
 		}
-		for (int i = 0; i < line.size(); i++)
+	/*	for (int i = 0; i < line.size(); i++)
 		{
 			cout << level[i] << " " << tag[i] << " " << argu[i] << endl;
-		}
+		}*/
 	}
 
 	void test()
@@ -628,6 +707,8 @@ public:
 		fout << "Error Messages: " << endl;
 		inexistID();
 		unmatchedPointers();
+		invalidDate();
+		invalidFamMember();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
