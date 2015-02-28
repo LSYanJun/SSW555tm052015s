@@ -13,10 +13,3 @@ ID : I11, NAME : James /Brown/
 ID : I12, NAME : Grace /Li/
 ID : I13, NAME : Bob /Shaw/
 Families: 
-ID : F1, HUSB : I18, WIFE : I12
-ID : F2, HUSB : I2, WIFE : I3
-ID : F3, HUSB : I4, WIFE : I31
-ID : F4, HUSB : I8, WIFE : I9
-ID : F5, HUSB : I7, WIFE : I5
-ID : F6, HUSB : I8, WIFE : I10
-ID : F7, HUSB : I13, WIFE : I9

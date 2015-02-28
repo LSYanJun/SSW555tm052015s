@@ -1,37 +1,45 @@
-﻿Build started 2/28/2015 5:26:43 AM.
+﻿Build started 2/28/2015 3:57:02 PM.
      1>Project "C:\Users\Gong\Documents\GitHub\Gedcom\SSW555\SSW555.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Microsoft Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
          Source.cpp
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(272): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(274): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(278): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(283): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(298): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(301): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(317): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(322): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(340): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(293): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(296): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(312): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(314): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(318): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(333): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(337): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(352): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(355): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(358): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(375): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(378): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(383): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(394): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(404): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(409): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(423): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(434): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(485): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(619): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(631): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(640): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(647): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(381): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(392): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(395): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(402): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(416): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(419): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(422): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(433): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(436): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(447): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(450): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(504): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(638): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(650): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(659): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(668): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(689): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(696): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(714): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(723): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(745): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(750): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(666): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(678): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(687): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(708): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(715): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(733): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(742): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\gedcom\ssw555\source.cpp(764): warning C4018: '<' : signed/unsigned mismatch
        Link:
          E:\Microsoft Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gong\Documents\GitHub\Gedcom\Debug\SSW555.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gong\Documents\GitHub\Gedcom\Debug\SSW555.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gong\Documents\GitHub\Gedcom\Debug\SSW555.lib" /MACHINE:X86 Debug\Source.obj
          SSW555.vcxproj -> C:\Users\Gong\Documents\GitHub\Gedcom\Debug\SSW555.exe
@@ -39,4 +47,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.00
+Time Elapsed 00:00:01.06

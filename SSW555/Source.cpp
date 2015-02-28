@@ -40,9 +40,9 @@ private:
 		char sex;     // M, F
 		string birt; // date
 		string deat; // date
-		string sfamc;
+		vector<string> sfamc;
 		vector<string> sfams;
-		Family *famc;
+		vector<Family *> famc;
 		vector<Family *> fams;
 	public:
 		Individual()
@@ -52,8 +52,6 @@ private:
 			this->sex = NULL;
 			this->birt = "";
 			this->deat = "";
-			this->sfamc = "";
-			this->famc = nullptr;
 		}
 		~Individual()
 		{
@@ -100,9 +98,9 @@ private:
 		}
 		void setsfamc(string sfamc)
 		{
-			this->sfamc = sfamc;
+			this->sfamc.push_back(sfamc);
 		}
-		string getsfamc()
+		vector<string> getsfamc()
 		{
 			return sfamc;
 		}
@@ -116,9 +114,9 @@ private:
 		}
 		void setfamc(Family *famc)
 		{
-			this->famc = famc;
+			this->famc.push_back(famc);
 		}
-		Family *getfamc()
+		vector<Family *> getfamc()
 		{
 			return this->famc;
 		}
@@ -137,10 +135,10 @@ private:
 	private:
 		string id;
 		string marr; // date
-		string shusb;
-		string swife;
-		Individual *husb;
-		Individual *wife;
+		vector<string> shusb;
+		vector<string> swife;
+		vector<Individual *> husb;
+		vector<Individual *> wife;
 		vector<string> schil;
 		vector<Individual *> chil;
 		string div; // date
@@ -149,10 +147,6 @@ private:
 		{
 			this->id = "";
 			this->marr = "";
-			this->shusb = "";
-			this->swife = "";
-			this->husb = nullptr;
-			this->wife = nullptr;
 			this->div = "";
 		}
 		~Family()
@@ -176,33 +170,33 @@ private:
 		}
 		void setshusb(string shusb)
 		{
-			this->shusb = shusb;
+			this->shusb.push_back(shusb);
 		}
-		string getshusb()
+		vector<string> getshusb()
 		{
 			return this->shusb;
 		}
 		void setswife(string swife)
 		{
-			this->swife = swife;
+			this->swife.push_back(swife);
 		}
-		string getswife()
+		vector<string> getswife()
 		{
 			return this->swife;
 		}
 		void sethusb(Individual *husb)
 		{
-			this->husb = husb;
+			this->husb.push_back(husb);
 		}
-		Individual *gethusb()
+		vector<Individual *> gethusb()
 		{
 			return this->husb;
 		}
 		void setwife(Individual *wife)
 		{
-			this->wife = wife;
+			this->wife.push_back(wife);
 		}
-		Individual *getwife()
+		vector<Individual *> getwife()
 		{
 			return this->wife;
 		}
@@ -277,12 +271,13 @@ private:
 	{
 		for (int i = 0; i < indi.size(); i++)
 		{
-			if (indi[i]->getsfamc() != "")
+			for (int m = 0; m < indi[i]->getsfamc().size(); m++)
+			if (indi[i]->getsfamc()[m] != "")
 			{
 				int j = 0;
 				for (j = 0; j < fami.size(); j++)
 				{
-					if (fami[j]->getid() == indi[i]->getsfamc())
+					if (fami[j]->getid() == indi[i]->getsfamc()[m])
 					{
 						indi[i]->setfamc(fami[j]);
 						break;
@@ -291,7 +286,7 @@ private:
 				if (j == fami.size())
 				{
 					string temp = "Individual ";
-					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of an inexistent Family " + indi[i]->getsfamc() + ".";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of an inexistent Family " + indi[i]->getsfamc()[m] + ".";
 					errorMsg.push_back(temp);
 				}
 			}
@@ -316,12 +311,13 @@ private:
 		}
 		for (int i = 0; i < fami.size(); i++)
 		{
-			if (fami[i]->getshusb() != "")
+			for (int m = 0; m < fami[i]->getshusb().size(); m++)
+			if (fami[i]->getshusb()[m] != "")
 			{
 				int j = 0;
 				for (j = 0; j < indi.size(); j++)
 				{
-					if (indi[j]->getid() == fami[i]->getshusb())
+					if (indi[j]->getid() == fami[i]->getshusb()[m])
 					{
 						fami[i]->sethusb(indi[j]);
 						break;
@@ -330,16 +326,17 @@ private:
 				if (j == indi.size())
 				{
 					string temp = "Family ";
-					temp = temp + fami[i]->getid() + " has a husband who is an inexistent Individual " + fami[i]->getshusb() + ".";
+					temp = temp + fami[i]->getid() + " has a husband who is an inexistent Individual " + fami[i]->getshusb()[m] + ".";
 					errorMsg.push_back(temp);
 				}
 			}
-			if (fami[i]->getswife() != "")
+			for (int m = 0; m < fami[i]->getswife().size(); m++)
+			if (fami[i]->getswife()[m] != "")
 			{
 				int j = 0;
 				for (j = 0; j < indi.size(); j++)
 				{
-					if (indi[j]->getid() == fami[i]->getswife())
+					if (indi[j]->getid() == fami[i]->getswife()[m])
 					{
 						fami[i]->setwife(indi[j]);
 						break;
@@ -348,7 +345,7 @@ private:
 				if (j == indi.size())
 				{
 					string temp = "Family ";
-					temp = temp + fami[i]->getid() + " has a wife who is an inexistent Individual " + fami[i]->getswife() + ".";
+					temp = temp + fami[i]->getid() + " has a wife who is an inexistent Individual " + fami[i]->getswife()[m] + ".";
 					errorMsg.push_back(temp);
 				}
 			}
@@ -377,23 +374,38 @@ private:
 	{
 		for (int i = 0; i < indi.size(); i++)
 		{
-			if (indi[i]->getfamc())
+
+			for (int m = 0; m < indi[i]->getfamc().size(); m++)
 			{
 				int j = 0;
-				for (j = 0; j < indi[i]->getfamc()->getchild().size(); j++)
+				for (j = 0; j < indi[i]->getfamc()[m]->getchild().size(); j++)
 				{
-					if (indi[i]->getfamc()->getchild()[j] == indi[i]) break;
+					if (indi[i]->getfamc()[m]->getchild()[j] == indi[i]) break;
 				}
-				if (j == indi[i]->getfamc()->getchild().size())
+				if (j == indi[i]->getfamc()[m]->getchild().size())
 				{
 					string temp = "Individual ";
-					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of Family " + indi[i]->getfamc()->getid() + ", but Family " + indi[i]->getfamc()->getid() + " does not have the child of " + indi[i]->getid() + "(" + indi[i]->getname() + ").";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of Family " + indi[i]->getfamc()[m]->getid() + ", but Family " + indi[i]->getfamc()[m]->getid() + " does not have the child of " + indi[i]->getid() + "(" + indi[i]->getname() + ").";
 					errorMsg.push_back(temp);
 				}
 			}
 			for (int m = 0; m < indi[i]->getfams().size(); m++)
 			{
-				if (indi[i] != indi[i]->getfams()[m]->gethusb() && indi[i] != indi[i]->getfams()[m]->getwife())
+				bool flag = false;
+				for (int n = 0; n < indi[i]->getfams()[m]->gethusb().size(); n++)
+				if (indi[i] == indi[i]->getfams()[m]->gethusb()[n])
+				{
+					flag = true;
+					break;
+				}
+				if (!flag)
+				for (int n = 0; n < indi[i]->getfams()[m]->getwife().size(); n++)
+				if (indi[i] == indi[i]->getfams()[m]->getwife()[n])
+				{
+					flag = true;
+					break;
+				}
+				if (!flag)
 				{
 					string temp = "Individual ";
 					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a spouse of Family " + indi[i]->getfams()[m]->getid() + ", but Family " + indi[i]->getfams()[m]->getid() + " does not have the spouse of " + indi[i]->getid() + "(" + indi[i]->getname() + ").";
@@ -403,37 +415,44 @@ private:
 		}
 		for (int i = 0; i < fami.size(); i++)
 		{
-			if (fami[i]->gethusb())
+
+			for (int m = 0; m < fami[i]->gethusb().size(); m++)
 			{
 				int j = 0;
-				for (j = 0; j < fami[i]->gethusb()->getfams().size(); j++)
+				for (j = 0; j < fami[i]->gethusb()[m]->getfams().size(); j++)
 				{
-					if (fami[i]->gethusb()->getfams()[j] == fami[i]) break;
+					if (fami[i]->gethusb()[m]->getfams()[j] == fami[i]) break;
 				}
-				if (j == fami[i]->gethusb()->getfams().size())
+				if (j == fami[i]->gethusb()[m]->getfams().size())
 				{
 					string temp = "Family ";
-					temp = temp + fami[i]->getid() + "'s husband is Individual " + fami[i]->gethusb()->getid() + "(" + fami[i]->gethusb()->getname() + "), but Individual " + fami[i]->gethusb()->getid() + "(" + fami[i]->gethusb()->getname() + ") is not the husband of Family " + fami[i]->getid() + ".";
+					temp = temp + fami[i]->getid() + "'s husband is Individual " + fami[i]->gethusb()[m]->getid() + "(" + fami[i]->gethusb()[m]->getname() + "), but Individual " + fami[i]->gethusb()[m]->getid() + "(" + fami[i]->gethusb()[m]->getname() + ") is not the husband of Family " + fami[i]->getid() + ".";
 					errorMsg.push_back(temp);
 				}
 			}
-			if (fami[i]->getwife())
+			for (int m = 0; m < fami[i]->getwife().size(); m++)
 			{
 				int j = 0;
-				for (j = 0; j < fami[i]->getwife()->getfams().size(); j++)
+				for (j = 0; j < fami[i]->getwife()[m]->getfams().size(); j++)
 				{
-					if (fami[i]->getwife()->getfams()[j] == fami[i]) break;
+					if (fami[i]->getwife()[m]->getfams()[j] == fami[i]) break;
 				}
-				if (j == fami[i]->getwife()->getfams().size())
+				if (j == fami[i]->getwife()[m]->getfams().size())
 				{
 					string temp = "Family ";
-					temp = temp + fami[i]->getid() + "'s wife is Individual " + fami[i]->getwife()->getid() + "(" + fami[i]->getwife()->getname() + "), but Individual " + fami[i]->getwife()->getid() + "(" + fami[i]->getwife()->getname() + ") is not the wife of Family " + fami[i]->getid() + ".";
+					temp = temp + fami[i]->getid() + "'s wife is Individual " + fami[i]->getwife()[m]->getid() + "(" + fami[i]->getwife()[m]->getname() + "), but Individual " + fami[i]->getwife()[m]->getid() + "(" + fami[i]->getwife()[m]->getname() + ") is not the wife of Family " + fami[i]->getid() + ".";
 					errorMsg.push_back(temp);
 				}
 			}
 			for (int m = 0; m < fami[i]->getchild().size(); m++)
 			{
-				if (fami[i] != fami[i]->getchild()[m]->getfamc())
+				int n = 0;
+				for (n = 0; n < fami[i]->getchild()[m]->getfamc().size(); n++)
+				if (fami[i] == fami[i]->getchild()[m]->getfamc()[n])
+				{
+					break;
+				}
+				if (n == fami[i]->getchild()[m]->getfamc().size())
 				{
 					string temp = "Family ";
 					temp = temp + fami[i]->getid() + " has a child who is Individual " + fami[i]->getchild()[m]->getid() + "(" + fami[i]->getchild()[m]->getname() + "), but Individual " + fami[i]->getchild()[m]->getid() + "(" + fami[i]->getchild()[m]->getname() + ") is not a child of Family " + fami[i]->getid() + ".";
@@ -747,8 +766,8 @@ public:
 
 
 		fout << "Families: " << endl;
-		for (int i = 0; i < fami.size(); i++)
-			fout << "ID : " << fami[i]->getid() << ", HUSB : " << fami[i]->getshusb() << ", WIFE : " << fami[i]->getswife() << endl;
+	//	for (int i = 0; i < fami.size(); i++)
+	//		fout << "ID : " << fami[i]->getid() << ", HUSB : " << fami[i]->getshusb() << ", WIFE : " << fami[i]->getswife() << endl;
 		fout.close();
 	}
 
