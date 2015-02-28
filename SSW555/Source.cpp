@@ -57,13 +57,6 @@ private:
 		}
 		~Individual()
 		{
-			delete famc;
-			while (fams.size())
-			{
-				Family *temp = fams.back();
-				fams.pop_back();
-				delete temp;
-			}
 		}
 		void setid(string id)
 		{
@@ -164,14 +157,6 @@ private:
 		}
 		~Family()
 		{
-			delete husb;
-			delete wife;
-			while (chil.size())
-			{
-				Individual *temp = chil.back();
-				chil.pop_back();
-				delete temp;
-			}
 		}
 		void setid(string id)
 		{
@@ -292,9 +277,172 @@ private:
 	{
 		for (int i = 0; i < indi.size(); i++)
 		{
-
+			if (indi[i]->getsfamc() != "")
+			{
+				int j = 0;
+				for (j = 0; j < fami.size(); j++)
+				{
+					if (fami[j]->getid() == indi[i]->getsfamc())
+					{
+						indi[i]->setfamc(fami[j]);
+						break;
+					}
+				}
+				if (j == fami.size())
+				{
+					string temp = "Individual ";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of an inexistent Family " + indi[i]->getsfamc() + ".";
+					errorMsg.push_back(temp);
+				}
+			}
+			for (int m = 0; m < indi[i]->getsfams().size(); m++)
+			{
+				int j = 0;
+				for (j = 0; j < fami.size(); j++)
+				{
+					if (fami[j]->getid() == indi[i]->getsfams()[m])
+					{
+						indi[i]->addfams(fami[j]);
+						break;
+					}
+				}
+				if (j == fami.size())
+				{
+					string temp = "Individual ";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a spouse of an inexistent Family " + indi[i]->getsfams()[m] +".";
+					errorMsg.push_back(temp);
+				}
+			}
+		}
+		for (int i = 0; i < fami.size(); i++)
+		{
+			if (fami[i]->getshusb() != "")
+			{
+				int j = 0;
+				for (j = 0; j < indi.size(); j++)
+				{
+					if (indi[j]->getid() == fami[i]->getshusb())
+					{
+						fami[i]->sethusb(indi[j]);
+						break;
+					}
+				}
+				if (j == indi.size())
+				{
+					string temp = "Family ";
+					temp = temp + fami[i]->getid() + " has a husband who is an inexistent Individual " + fami[i]->getshusb() + ".";
+					errorMsg.push_back(temp);
+				}
+			}
+			if (fami[i]->getswife() != "")
+			{
+				int j = 0;
+				for (j = 0; j < indi.size(); j++)
+				{
+					if (indi[j]->getid() == fami[i]->getswife())
+					{
+						fami[i]->setwife(indi[j]);
+						break;
+					}
+				}
+				if (j == indi.size())
+				{
+					string temp = "Family ";
+					temp = temp + fami[i]->getid() + " has a wife who is an inexistent Individual " + fami[i]->getswife() + ".";
+					errorMsg.push_back(temp);
+				}
+			}
+			for (int m = 0; m < fami[i]->getschild().size(); m++)
+			{
+				int j = 0;
+				for (j = 0; j < indi.size(); j++)
+				{
+					if (indi[j]->getid() == fami[i]->getschild()[m])
+					{
+						fami[i]->addchild(indi[j]);
+						break;
+					}
+				}
+				if (j == indi.size())
+				{
+					string temp = "Family ";
+					temp = temp + fami[i]->getid() + " has a child who is an inexistent Individual " + fami[i]->getschild()[m] + ".";
+					errorMsg.push_back(temp);
+				}
+			}
 		}
 	}
+
+	void unmatchedPointers()
+	{
+		for (int i = 0; i < indi.size(); i++)
+		{
+			if (indi[i]->getfamc())
+			{
+				int j = 0;
+				for (j = 0; j < indi[i]->getfamc()->getchild().size(); j++)
+				{
+					if (indi[i]->getfamc()->getchild()[j] == indi[i]) break;
+				}
+				if (j == indi[i]->getfamc()->getchild().size())
+				{
+					string temp = "Individual ";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of Family " + indi[i]->getfamc()->getid() + ", but Family " + indi[i]->getfamc()->getid() + " does not have the child of " + indi[i]->getid() + "(" + indi[i]->getname() + ").";
+					errorMsg.push_back(temp);
+				}
+			}
+			for (int m = 0; m < indi[i]->getfams().size(); m++)
+			{
+				if (indi[i] != indi[i]->getfams()[m]->gethusb() && indi[i] != indi[i]->getfams()[m]->getwife())
+				{
+					string temp = "Individual ";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a spouse of Family " + indi[i]->getfams()[m]->getid() + ", but Family " + indi[i]->getfams()[m]->getid() + " does not have the spouse of " + indi[i]->getid() + "(" + indi[i]->getname() + ").";
+					errorMsg.push_back(temp);
+				}
+			}
+		}
+		for (int i = 0; i < fami.size(); i++)
+		{
+			if (fami[i]->gethusb())
+			{
+				int j = 0;
+				for (j = 0; j < fami[i]->gethusb()->getfams().size(); j++)
+				{
+					if (fami[i]->gethusb()->getfams()[j] == fami[i]) break;
+				}
+				if (j == fami[i]->gethusb()->getfams().size())
+				{
+					string temp = "Family ";
+					temp = temp + fami[i]->getid() + "'s husband is Individual " + fami[i]->gethusb()->getid() + "(" + fami[i]->gethusb()->getname() + "), but Individual " + fami[i]->gethusb()->getid() + "(" + fami[i]->gethusb()->getname() + ") is not the husband of Family " + fami[i]->getid() + ".";
+					errorMsg.push_back(temp);
+				}
+			}
+			if (fami[i]->getwife())
+			{
+				int j = 0;
+				for (j = 0; j < fami[i]->getwife()->getfams().size(); j++)
+				{
+					if (fami[i]->getwife()->getfams()[j] == fami[i]) break;
+				}
+				if (j == fami[i]->getwife()->getfams().size())
+				{
+					string temp = "Family ";
+					temp = temp + fami[i]->getid() + "'s wife is Individual " + fami[i]->getwife()->getid() + "(" + fami[i]->getwife()->getname() + "), but Individual " + fami[i]->getwife()->getid() + "(" + fami[i]->getwife()->getname() + ") is not the wife of Family " + fami[i]->getid() + ".";
+					errorMsg.push_back(temp);
+				}
+			}
+			for (int m = 0; m < fami[i]->getchild().size(); m++)
+			{
+				if (fami[i] != fami[i]->getchild()[m]->getfamc())
+				{
+					string temp = "Family ";
+					temp = temp + fami[i]->getid() + " has a child who is Individual " + fami[i]->getchild()[m]->getid() + "(" + fami[i]->getchild()[m]->getname() + "), but Individual " + fami[i]->getchild()[m]->getid() + "(" + fami[i]->getchild()[m]->getname() + ") is not a child of Family " + fami[i]->getid() + ".";
+					errorMsg.push_back(temp);
+				}
+			}
+		}
+	}
+
 public:
 	Genealogy()
 	{
@@ -474,12 +622,12 @@ public:
 		}
 	}
 
-
-
 	void test()
 	{
-		fstream fout("testResult.txt");
+		ofstream fout("testResult.txt");
+		fout << "Error Messages: " << endl;
 		inexistID();
+		unmatchedPointers();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
@@ -609,9 +757,10 @@ public:
 int main()
 {
 	Genealogy gene;
-	gene.read("YanjunWu10392467_P01.ged");
+	gene.read("test.ged");
 	gene.storeVec();
 	gene.storeInfoProcess();
+	gene.test();
 	gene.report("report.txt");
 	return 0;
 }
