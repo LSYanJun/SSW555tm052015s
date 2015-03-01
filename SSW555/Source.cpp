@@ -464,6 +464,54 @@ private:
 			}
 		}
 	}
+<<<<<<< HEAD
+	void invalidFamilyMember()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			int husb = fami[i]->gethusb().size();
+			if (husb == 0)
+			{
+				string temp = "Family ";
+				temp = temp + fami[i]->getid() + " does not have a husband.";
+				errorMsg.push_back(temp);
+			}
+			if (husb > 1)
+			{
+				string temp = "Family ";
+				temp = temp + fami[i]->getid() + " has " + to_string(husb) + " husbands: ";
+				for (int j = 0; j < husb - 1; j++)
+				{
+					temp = temp + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + "), ";
+				}
+				temp = temp + fami[i]->gethusb()[husb-1]->getid() + "(" + fami[i]->gethusb()[husb-1]->getname() + ").";
+				errorMsg.push_back(temp);
+			}
+		}
+		for (int i = 0; i < fami.size(); i++)
+		{
+			int wife = fami[i]->getwife().size();
+			if (wife == 0)
+			{
+				string temp = "Family ";
+				temp = temp + fami[i]->getid() + " does not have a wife.";
+				errorMsg.push_back(temp);
+			}
+			if (wife > 1)
+			{
+				string temp = "Family ";
+				temp = temp + fami[i]->getid() + " has " + to_string(wife) + " wives: ";
+				for (int j = 0; j < wife - 1; j++)
+				{
+					temp = temp + fami[i]->getwife()[j]->getid() + "(" + fami[i]->getwife()[j]->getname() + "), ";
+				}
+				temp = temp + fami[i]->getwife()[wife - 1]->getid() + "(" + fami[i]->getwife()[wife - 1]->getname() + ").";
+				errorMsg.push_back(temp);
+			}
+		}
+	}
+	
+=======
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
@@ -584,6 +632,7 @@ private:
 
 	}
 
+>>>>>>> origin/master
 public:
 	Genealogy()
 	{
@@ -769,8 +818,12 @@ public:
 		fout << "Error Messages: " << endl;
 		inexistID();
 		unmatchedPointers();
+<<<<<<< HEAD
+		invalidFamilyMember();
+=======
 		invalidDate();
 		invalidFamMember();
+>>>>>>> origin/master
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
