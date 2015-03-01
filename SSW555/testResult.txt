@@ -9,3 +9,5 @@ Individual I3(Katie /Brown/) is a spouse of Family F3, but Family F3 does not ha
 Individual I5(Emily /Mao/) is a child of Family F2, but Family F2 does not have the child of I5(Emily /Mao/).
 Family F2's wife is Individual I3(Katie /Brown/), but Individual I3(Katie /Brown/) is not the wife of Family F2.
 Family F2 has a child who is Individual I1(Jacky /Mao/), but Individual I1(Jacky /Mao/) is not a child of Family F2.
+Family F1 does not have a husband.
+Family F3 does not have a wife.  
