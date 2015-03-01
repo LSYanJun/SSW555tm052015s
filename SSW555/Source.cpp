@@ -539,16 +539,13 @@ private:
 		bool isDead = false;
 		for (int i = 0; i < indi.size(); i++)
 		{
-			cout << indi[i]->getbirt() << " " << indi[i]->getdeat() << endl;
+			//cout << indi[i]->getbirt() << " " << indi[i]->getdeat() << endl;
 			stringstream birt;
 			stringstream deat;
 			if (indi[i]->getdeat() == "")
 				isDead = false;
 			else
-			{
 				isDead = true;
-				//cout << indi[i]->getid() << " " << indi[i]->getname() << endl;
-			}
 			birt << indi[i]->getbirt();
 			deat << indi[i]->getdeat();
 			string bday, bmonth, byear, dday, dmonth, dyear;
@@ -608,6 +605,65 @@ private:
 				}
 			}
 		}
+		for (int i = 0; i < fami.size(); i++)
+		{
+			stringstream marr;
+			stringstream div;
+			bool isDiv = false;
+			bool isMarrLeap, isDivLeap, invMarrD, invDivD;
+			if (fami[i]->getdiv() == "")
+				isDiv = false;
+			else
+				isDiv = true;
+			marr << fami[i]->getmarr();
+			div << fami[i]->getdiv();
+			string mday, mmonth, myear, dday, dmonth, dyear;
+			marr >> mday;
+			marr >> mmonth;
+			marr >> myear;
+			div >> dday;
+			div >> dmonth;
+			div >> dyear;
+			int md, mm, my, dd, dm, dy;
+			md = atoi(mday.c_str());
+			mm = monthMap[mmonth];
+			my = atoi(myear.c_str());
+			dd = atoi(dday.c_str());
+			dm = monthMap[dmonth];
+			dy = atoi(dyear.c_str());
+			isMarrLeap = leapYear(my);
+			isDivLeap = leapYear(dy);
+			invMarrD = outOfRange(mm, md, isMarrLeap);
+			invDivD = outOfRange(dm, dd, isDivLeap);
+			//US03
+			if (cy < my || (cy == my && cm < mm) || (cy == my && cm == mm && cd < md)) //invalid marriage date
+			{
+				ERRMSG = "Family " + fami[i]->getid() + " has an invalid marriage date("
+					+ fami[i]->getmarr() + ")." + " Marriage date before current date.";
+				errorMsg.push_back(ERRMSG);
+			}
+			if (invMarrD == false)
+			{
+				ERRMSG = "Family " + fami[i]->getid() + " has an invalid marriage date("
+					+ fami[i]->getmarr() + ")." + " Marriage date doesn't exist.";
+				errorMsg.push_back(ERRMSG);
+			}
+			if (isDiv == true)
+			{
+				if (cy < dy || (cy == dy && cm < dm) || (cy == dy && cm == dm && cd < dd)) //invalid divorce date
+				{
+					ERRMSG = "Family " + fami[i]->getid() + " has an invalid divorce date("
+						+ fami[i]->getdiv() + ")." + " Divorce date before current date.";
+					errorMsg.push_back(ERRMSG);
+				}
+				if (invDivD == false)
+				{
+					ERRMSG = "Family " + fami[i]->getid() + " has an invalid divorce date("
+						+ fami[i]->getdiv() + ")." + " Divorce date doesn't exist.";
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+		}
 	}
 	bool leapYear(int year)
 	{
@@ -626,11 +682,6 @@ private:
 		else
 			return false;
 	}
-	void invalidFamMember()//Yanjun Wu
-	{
-
-	}
-
 
 public:
 	Genealogy()
@@ -819,7 +870,6 @@ public:
 		unmatchedPointers();
 		invalidFamilyMember();
 		invalidDate();
-		invalidFamMember();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;

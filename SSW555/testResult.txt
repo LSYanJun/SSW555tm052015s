@@ -16,3 +16,5 @@ Individual I10(Jen /Brown/) death before birth. Birth: 29 FEB 2000 Death: 20 MAY
 Individual I11(James /Brown/) has an invalid death date(29 FEB 2400).Death date before current date.
 Individual I13(Bob /Shaw/) has an invalid birth date(31 JUN 1938). Birthday doesn't exist.
 Individual I13(Bob /Shaw/) has an invalid death date.(29 FEB 1999). Death date doesn't exist.
+Family F1 has an invalid marriage date(2 FEB 2018). Marriage date before current date.
+Family F3 has an invalid divorce date(31 NOV 1987). Divorce date doesn't exist.
