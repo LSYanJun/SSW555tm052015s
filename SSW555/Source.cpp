@@ -485,15 +485,23 @@ private:
 		monthMap["OCT"] = 10;
 		monthMap["NOV"] = 11;
 		monthMap["DEC"] = 12;
+		bool isBirtLeap;
+		bool isDeatLeap;
+		bool invBirtD;
+		bool invDeatD;
+		bool isDead = false;
 		for (int i = 0; i < indi.size(); i++)
 		{
+			cout << indi[i]->getbirt() << " " << indi[i]->getdeat() << endl;
 			stringstream birt;
 			stringstream deat;
-			bool isDead = false;
 			if (indi[i]->getdeat() == "")
 				isDead = false;
 			else
+			{
 				isDead = true;
+				//cout << indi[i]->getid() << " " << indi[i]->getname() << endl;
+			}
 			birt << indi[i]->getbirt();
 			deat << indi[i]->getdeat();
 			string bday, bmonth, byear, dday, dmonth, dyear;
@@ -510,32 +518,67 @@ private:
 			dd = atoi(dday.c_str());
 			dm = monthMap[dmonth];
 			dy = atoi(dyear.c_str());
+			isBirtLeap = leapYear(by);
+			isDeatLeap = leapYear(dy);
+			invBirtD = outOfRange(bm, bd, isBirtLeap);
+			invDeatD = outOfRange(dm, dd, isDeatLeap);
 			//US03
 			if (cy < by || (cy == by && cm < bm) || (cy == by && cm == bm && cd < bd)) //invalid birth date
 			{
 				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid birth date(" 
-					+ indi[i]->getbirt() + ")";
+					+ indi[i]->getbirt() + ")." + " Birthday before current date.";
 				errorMsg.push_back(ERRMSG);
 			}
-			if (cy < dy || (cy == dy && cm < dm) || (cy == dy && cm == dm && cd < dd)) //invalid death date
+			if (invBirtD == false)
 			{
-				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid death date("
-					+ indi[i]->getdeat() + ")";
+				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid birth date("
+					+ indi[i]->getbirt() + ")." + " Birthday doesn't exist.";
 				errorMsg.push_back(ERRMSG);
 			}
-			//US05
+			if (isDead == true)
+			{
+				if (cy < dy || (cy == dy && cm < dm) || (cy == dy && cm == dm && cd < dd)) //invalid death date
+				{
+					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid death date("
+						+ indi[i]->getdeat() + ")." + "Death date before current date.";
+					errorMsg.push_back(ERRMSG);
+				}
+				if (invDeatD == false)
+				{
+					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid death date.("
+						+ indi[i]->getdeat() + ")." + " Death date doesn't exist.";
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+		
+			//US05 death before birth
 			if (isDead == true)
 			{
 				if (dy < by || (dy == by && dm < bm) || (dy == by && dm == bm && dd < bd))
 				{
-					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") death before birth";
+					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") death before birth. " + "Birth: " + indi[i]->getbirt() + " Death: " + indi[i]->getdeat();
 					errorMsg.push_back(ERRMSG);
 				}
 			}
-			
 		}
 	}
-
+	bool leapYear(int year)
+	{
+		if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+			return true;
+		else
+			return false;
+	}
+	bool outOfRange(int month, int day, bool isLeapYear)
+	{
+		int mon[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		if (isLeapYear == true)
+			mon[1] = 29;
+		if (day > 0 && day <= mon[month - 1])
+			return true;
+		else
+			return false;
+	}
 	void invalidFamMember()//Yanjun Wu
 	{
 
@@ -686,12 +729,12 @@ public:
 			{
 				if (val2 == "DATE")
 				{
-					if (tags[0] == "INDI" && (tags[1] == "BIRT" || tag[1] == "DEAT"))
+					if (tags[0] == "INDI" && (tags[1] == "BIRT" || tags[1] == "DEAT"))
 					{
 						tag.push_back(val2);
 						argu.push_back(temp);
 					}
-					else if (tags[0] == "FAM" && (tags[1] == "MARR" || tag[1] == "DIV"))
+					else if (tags[0] == "FAM" && (tags[1] == "MARR" || tags[1] == "DIV"))
 					{
 						tag.push_back(val2);
 						argu.push_back(temp);
