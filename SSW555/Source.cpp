@@ -464,7 +464,7 @@ private:
 			}
 		}
 	}
-<<<<<<< HEAD
+
 	void invalidFamilyMember()
 	{
 		for (int i = 0; i < fami.size(); i++)
@@ -510,8 +510,7 @@ private:
 			}
 		}
 	}
-	
-=======
+
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
@@ -632,7 +631,7 @@ private:
 
 	}
 
->>>>>>> origin/master
+
 public:
 	Genealogy()
 	{
@@ -818,12 +817,9 @@ public:
 		fout << "Error Messages: " << endl;
 		inexistID();
 		unmatchedPointers();
-<<<<<<< HEAD
 		invalidFamilyMember();
-=======
 		invalidDate();
 		invalidFamMember();
->>>>>>> origin/master
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;

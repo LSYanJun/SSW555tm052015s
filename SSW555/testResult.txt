@@ -9,13 +9,10 @@ Individual I3(Katie /Brown/) is a spouse of Family F3, but Family F3 does not ha
 Individual I5(Emily /Mao/) is a child of Family F2, but Family F2 does not have the child of I5(Emily /Mao/).
 Family F2's wife is Individual I3(Katie /Brown/), but Individual I3(Katie /Brown/) is not the wife of Family F2.
 Family F2 has a child who is Individual I1(Jacky /Mao/), but Individual I1(Jacky /Mao/) is not a child of Family F2.
-<<<<<<< HEAD
+Family F1 does not have a husband.
+Family F3 does not have a wife.
 Individual I9(Elena /Wilson/) has an invalid birth date(1 JAN 2016). Birthday before current date.
 Individual I10(Jen /Brown/) death before birth. Birth: 29 FEB 2000 Death: 20 MAY 1935
 Individual I11(James /Brown/) has an invalid death date(29 FEB 2400).Death date before current date.
 Individual I13(Bob /Shaw/) has an invalid birth date(31 JUN 1938). Birthday doesn't exist.
 Individual I13(Bob /Shaw/) has an invalid death date.(29 FEB 1999). Death date doesn't exist.
-=======
-Family F1 does not have a husband.
-Family F3 does not have a wife.  
->>>>>>> origin/master
