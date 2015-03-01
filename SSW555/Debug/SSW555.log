@@ -1,11 +1,58 @@
-﻿Build started 3/1/2015 3:33:42 PM.
-     1>Project "C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\SSW555\SSW555.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.lib" /MACHINE:X86 Debug\Source.obj
-         LINK : C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.exe not found or not built by the last incremental link; performing full link
-         SSW555.vcxproj -> C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.exe
-     1>Done Building Project "C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\SSW555\SSW555.vcxproj" (Build target(s)).
+﻿Build started 3/1/2015 4:08:57 PM.
+     1>Project "C:\Users\AMOGHA\Documents\GitHub\SSW555tm052015s\SSW555\SSW555.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(275): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(277): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(281): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(296): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(299): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(315): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(317): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(321): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(336): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(340): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(355): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(358): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(378): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(381): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(384): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(395): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(398): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(405): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(419): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(422): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(425): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(436): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(439): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(450): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(453): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(470): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(491): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(516): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(518): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(528): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(543): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\time.inl(112) : see declaration of 'localtime'
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(565): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(633): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(750): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(899): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(908): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(915): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(927): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(936): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(957): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(964): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(982): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(991): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\amogha\documents\github\ssw555tm052015s\ssw555\source.cpp(1013): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\AMOGHA\Documents\GitHub\SSW555tm052015s\Debug\SSW555.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\AMOGHA\Documents\GitHub\SSW555tm052015s\Debug\SSW555.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\AMOGHA\Documents\GitHub\SSW555tm052015s\Debug\SSW555.lib" /MACHINE:X86 Debug\Source.obj
+         SSW555.vcxproj -> C:\Users\AMOGHA\Documents\GitHub\SSW555tm052015s\Debug\SSW555.exe
+     1>Done Building Project "C:\Users\AMOGHA\Documents\GitHub\SSW555tm052015s\SSW555\SSW555.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.37
+Time Elapsed 00:00:01.65

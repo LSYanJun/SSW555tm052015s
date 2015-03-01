@@ -510,7 +510,32 @@ private:
 			}
 		}
 	}
-
+	void invalidGender()
+	{
+		string ERRMSG;
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				if (fami[i]->gethusb()[j]->getsex() != 'M')
+				{
+					ERRMSG = "Famil " + fami[i]->getid() + "'s husdband " + fami[i]->gethusb()[j]->getid()
+						+ "(" + fami[i]->gethusb()[j]->getname() + ")" + " is not MALE.";
+					errorMsg.push_back(ERRMSG);
+				}
+				
+			}
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				if (fami[i]->getwife()[j]->getsex() != 'F')
+				{
+					ERRMSG = "Famil " + fami[i]->getid() + "'s wife " + fami[i]->getwife()[j]->getid()
+						+ "(" + fami[i]->getwife()[j]->getname() + ")" + " is not FEMALE.";
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+		}
+	}
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
@@ -868,8 +893,9 @@ public:
 		fout << "Error Messages: " << endl;
 		inexistID();
 		unmatchedPointers();
-		invalidFamilyMember();
 		invalidDate();
+		invalidFamilyMember();
+		invalidGender();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
