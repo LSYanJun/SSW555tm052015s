@@ -34,6 +34,11 @@ private:
 	vector<Family *> fami;
 	// store the names of husbands and wives of each family in order by their unique identifiers
 	vector<string> errorMsg;
+	time_t tt = time(NULL);
+	tm* t = localtime(&tt);
+	int cy = t->tm_year + 1900; // current year
+	int cm = t->tm_mon + 1;// current month
+	int cd = t->tm_mday;// current day
 
 	class Individual
 	{
@@ -539,60 +544,21 @@ private:
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
-		time_t tt = time(NULL);
-		tm* t = localtime(&tt);
-		int cy = t->tm_year + 1900;
-		int cm = t->tm_mon + 1;
-		int cd = t->tm_mday;
-		map<string, int> monthMap;
-		monthMap["JAN"] = 1;
-		monthMap["FEB"] = 2;
-		monthMap["MAR"] = 3;
-		monthMap["APR"] = 4;
-		monthMap["MAY"] = 5;
-		monthMap["JUN"] = 6;
-		monthMap["JUL"] = 7;
-		monthMap["AUG"] = 8;
-		monthMap["SEP"] = 9;
-		monthMap["OCT"] = 10;
-		monthMap["NOV"] = 11;
-		monthMap["DEC"] = 12;
-		bool isBirtLeap;
-		bool isDeatLeap;
-		bool invBirtD;
-		bool invDeatD;
-		bool isDead = false;
+		bool isBirtLeap, isDeatLeap, invBirtD, invDeatD, isDead;
 		for (int i = 0; i < indi.size(); i++)
 		{
 			//cout << indi[i]->getbirt() << " " << indi[i]->getdeat() << endl;
-			stringstream birt;
-			stringstream deat;
 			if (indi[i]->getdeat() == "")
 				isDead = false;
 			else
 				isDead = true;
-			birt << indi[i]->getbirt();
-			deat << indi[i]->getdeat();
-			string bday, bmonth, byear, dday, dmonth, dyear;
-			birt >> bday;
-			birt >> bmonth;
-			birt >> byear;
-			deat >> dday;
-			deat >> dmonth;
-			deat >> dyear;
-			int bd, bm, by, dd, dm, dy;
-			bd = atoi(bday.c_str());
-			bm = monthMap[bmonth];
-			by = atoi(byear.c_str());
-			dd = atoi(dday.c_str());
-			dm = monthMap[dmonth];
-			dy = atoi(dyear.c_str());
-			isBirtLeap = leapYear(by);
-			isDeatLeap = leapYear(dy);
-			invBirtD = outOfRange(bm, bd, isBirtLeap);
-			invDeatD = outOfRange(dm, dd, isDeatLeap);
+			isBirtLeap = leapYear(indi[i]->getbirt());
+			isDeatLeap = leapYear(indi[i]->getdeat());
+			invBirtD = inexistDate(indi[i]->getbirt());
+			invDeatD = inexistDate(indi[i]->getdeat());
 			//US03
-			if (cy < by || (cy == by && cm < bm) || (cy == by && cm == bm && cd < bd)) //invalid birth date
+			//if (cy < by || (cy == by && cm < bm) || (cy == by && cm == bm && cd < bd)) //invalid birth date
+			if (compareDate(cy,cm,cd,indi[i]->getbirt()) == false)
 			{
 				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid birth date(" 
 					+ indi[i]->getbirt() + ")." + " Birthday before current date.";
@@ -606,7 +572,7 @@ private:
 			}
 			if (isDead == true)
 			{
-				if (cy < dy || (cy == dy && cm < dm) || (cy == dy && cm == dm && cd < dd)) //invalid death date
+				if (compareDate(cy,cm,cd,indi[i]->getdeat()) == false)
 				{
 					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid death date("
 						+ indi[i]->getdeat() + ")." + "Death date before current date.";
@@ -623,7 +589,7 @@ private:
 			//US05 death before birth
 			if (isDead == true)
 			{
-				if (dy < by || (dy == by && dm < bm) || (dy == by && dm == bm && dd < bd))
+				if (compareDate(indi[i]->getdeat(),indi[i]->getbirt()) == false)
 				{
 					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") death before birth. " + "Birth: " + indi[i]->getbirt() + " Death: " + indi[i]->getdeat();
 					errorMsg.push_back(ERRMSG);
@@ -632,36 +598,17 @@ private:
 		}
 		for (int i = 0; i < fami.size(); i++)
 		{
-			stringstream marr;
-			stringstream div;
-			bool isDiv = false;
-			bool isMarrLeap, isDivLeap, invMarrD, invDivD;
+			bool isDiv, isMarrLeap, isDivLeap, invMarrD, invDivD;
 			if (fami[i]->getdiv() == "")
 				isDiv = false;
 			else
 				isDiv = true;
-			marr << fami[i]->getmarr();
-			div << fami[i]->getdiv();
-			string mday, mmonth, myear, dday, dmonth, dyear;
-			marr >> mday;
-			marr >> mmonth;
-			marr >> myear;
-			div >> dday;
-			div >> dmonth;
-			div >> dyear;
-			int md, mm, my, dd, dm, dy;
-			md = atoi(mday.c_str());
-			mm = monthMap[mmonth];
-			my = atoi(myear.c_str());
-			dd = atoi(dday.c_str());
-			dm = monthMap[dmonth];
-			dy = atoi(dyear.c_str());
-			isMarrLeap = leapYear(my);
-			isDivLeap = leapYear(dy);
-			invMarrD = outOfRange(mm, md, isMarrLeap);
-			invDivD = outOfRange(dm, dd, isDivLeap);
+			isMarrLeap = leapYear(fami[i]->getmarr());
+			isDivLeap = leapYear(fami[i]->getdiv());
+			invMarrD = inexistDate(fami[i]->getmarr());
+			invDivD = inexistDate(fami[i]->getdiv());
 			//US03
-			if (cy < my || (cy == my && cm < mm) || (cy == my && cm == mm && cd < md)) //invalid marriage date
+			if (compareDate(cy,cm,cd,fami[i]->getmarr()) == false) //invalid marriage date
 			{
 				ERRMSG = "Family " + fami[i]->getid() + " has an invalid marriage date("
 					+ fami[i]->getmarr() + ")." + " Marriage date before current date.";
@@ -675,7 +622,7 @@ private:
 			}
 			if (isDiv == true)
 			{
-				if (cy < dy || (cy == dy && cm < dm) || (cy == dy && cm == dm && cd < dd)) //invalid divorce date
+				if (compareDate(cy, cm, cd, fami[i]->getdiv()) == false) //invalid divorce date
 				{
 					ERRMSG = "Family " + fami[i]->getid() + " has an invalid divorce date("
 						+ fami[i]->getdiv() + ")." + " Divorce date before current date.";
@@ -690,24 +637,99 @@ private:
 			}
 		}
 	}
-	bool leapYear(int year)
+	int monthMap(string month)
 	{
+		if (month == "JAN") return 1;
+		else if (month == "FEB") return 2;
+		else if (month == "MAR") return 3;
+		else if (month == "APR") return 4;
+		else if (month == "MAY") return 5;
+		else if (month == "JUN") return 6;
+		else if (month == "JUL") return 7;
+		else if (month == "AUG") return 8;
+		else if (month == "SEP") return 9;
+		else if (month == "OCT") return 10;
+		else if (month == "NOV") return 11;
+		else if (month == "DEC") return 12;
+	}
+	bool leapYear(string date)
+	{
+		stringstream ss;
+		int year;
+		string var1, var2, var3;
+		ss << date;
+		ss >> var1;
+		ss >> var2;
+		ss >> var3;
+		year = atoi(var3.c_str());
 		if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
 			return true;
 		else
 			return false;
 	}
-	bool outOfRange(int month, int day, bool isLeapYear)
+	bool inexistDate(string date)
 	{
 		int mon[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		if (isLeapYear == true)
+		stringstream ss;
+		int year, month, day;
+		string var1, var2, var3;
+		ss << date;
+		ss >> var1;
+		ss >> var2;
+		ss >> var3;
+		year = atoi(var3.c_str());
+		month = monthMap(var2);
+		day = atoi(var1.c_str());
+		//cout << day << " " << month << " " << year << endl;
+		if (leapYear(date))
 			mon[1] = 29;
 		if (day > 0 && day <= mon[month - 1])
 			return true;
 		else
 			return false;
 	}
-
+	bool compareDate(int cy, int cm, int cd, string dateArgu)
+	{
+		int year, month, day;
+		string y, m, d;
+		stringstream ss;
+		ss << dateArgu;
+		ss >> d;
+		ss >> m;
+		ss >> y;
+		day = atoi(d.c_str());
+		month = monthMap(m);
+		year = atoi(y.c_str());
+		if (cy < year || (cy == year && cm < month) || (cy == year && cm == month && cd < day))
+			return false;
+		else
+			true;
+	}
+	bool compareDate(string firDate, string secDate)
+	{
+		int firYear, firMonth, firDay, secYear, secMonth, secDay;
+		string fy, fm, fd, sy, sm, sd;
+		stringstream fs, ss;
+		fs << firDate;
+		ss << secDate;
+		fs >> fd;
+		fs >> fm;
+		fs >> fy;
+		ss >> sd;
+		ss >> sm;
+		ss >> sy;
+		firYear = atoi(fy.c_str());
+		firMonth = monthMap(fm);
+		firDay = atoi(fd.c_str());
+		secYear = atoi(sy.c_str());
+		secMonth = monthMap(sm);
+		secDay = atoi(sd.c_str());
+		if (firYear < secYear || (firYear == secYear && firMonth < secMonth) || (firYear == secYear && firMonth == secMonth && firDay < secDay))
+			return false;
+		else
+			true;
+	}
+	
 public:
 	Genealogy()
 	{
