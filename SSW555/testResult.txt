@@ -1,26 +1,4 @@
 Error Messages: 
-Individual I1(Jacky /Mao/) is a child of an inexistent Family F22.
-Individual I3(Katie /Brown/) is a spouse of an inexistent Family F23.
-Family F1 has a husband who is an inexistent Individual I18.
-Family F2 has a child who is an inexistent Individual I15.
-Family F3 has a wife who is an inexistent Individual I31.
-Individual I1(Jacky /Mao/) is a spouse of Family F1, but Family F1 does not have the spouse of I1(Jacky /Mao/).
-Individual I3(Katie /Brown/) is a spouse of Family F3, but Family F3 does not have the spouse of I3(Katie /Brown/).
-Individual I5(Emily /Mao/) is a child of Family F2, but Family F2 does not have the child of I5(Emily /Mao/).
-Individual I8(Kevin /Brown/) is a spouse of Family F6, but Family F6 does not have the spouse of I8(Kevin /Brown/).
-Family F2's husband is Individual I4(Edwin /Moore/), but Individual I4(Edwin /Moore/) is not the husband of Family F2.
-Family F2's wife is Individual I3(Katie /Brown/), but Individual I3(Katie /Brown/) is not the wife of Family F2.
-Family F2 has a child who is Individual I1(Jacky /Mao/), but Individual I1(Jacky /Mao/) is not a child of Family F2.
-Family F6's husband is Individual I7(Chris /Taylor/), but Individual I7(Chris /Taylor/) is not the husband of Family F6.
-Individual I9(Elena /Wilson/) has an invalid birth date(1 JAN 2016). Birthday before current date.
-Individual I10(Jen /Brown/) death before birth. Birth: 29 FEB 2000 Death: 20 MAY 1935
-Individual I11(James /Brown/) has an invalid death date(29 FEB 2400).Death date before current date.
-Individual I13(Bob /Shaw/) has an invalid birth date(31 JUN 1938). Birthday doesn't exist.
-Individual I13(Bob /Shaw/) has an invalid death date.(29 FEB 1999). Death date doesn't exist.
-Family F1 has an invalid marriage date(2 FEB 2018). Marriage date before current date.
-Family F3 has an invalid divorce date(31 NOV 1987). Divorce date doesn't exist.
-Family F1 does not have a husband.
-Family F2 has 2 husbands: I2(Jianguo /Mao/), I4(Edwin /Moore/).
-Family F3 does not have a wife.
-Famil F2's wife I3(Katie /Brown/) is not FEMALE.
-Famil F4's husdband I8(Kevin /Brown/) is not MALE.
+Individual I1(Jacky /Mao/) is older than 150 years old. Birt date(27 JAN 1848), not dead.
+Individual I8(Kevin /Brown/) was older than 150 years old. Birt date(1 NOV 1848), deat date(11 SEP 2001).
+Individual I3(Katie /Brown/) plays multiple roles in Family F2: child, wife

@@ -470,6 +470,102 @@ private:
 		}
 	}
 
+	void invalidAge() // Gong Cheng
+	{
+		for (int i = 0; i < indi.size(); i++)
+		{
+			int birt = atoi(indi[i]->getbirt().substr(indi[i]->getbirt().length() - 4).c_str());
+			int deat = cy;
+			if (indi[i]->getdeat()!="")
+			{
+				deat = atoi(indi[i]->getdeat().substr(indi[i]->getdeat().length() - 4).c_str());
+			}
+			if (deat - birt >= 150)
+			{
+				string temp = "Individual ";
+				if (indi[i]->getdeat() == "")
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is older than 150 years old. Birt date(" + indi[i]->getbirt() + "), not dead.";
+				else
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") was older than 150 years old. Birt date(" + indi[i]->getbirt() + "), deat date(" + indi[i]->getdeat() + ").";
+				errorMsg.push_back(temp);
+			}
+		}
+	}
+
+	void multipleRoles()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			vector<Individual *> t;
+			vector<string> role;
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				t.push_back(fami[i]->gethusb()[j]);
+				role.push_back("husband");
+			}
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				t.push_back(fami[i]->getwife()[j]);
+				role.push_back("wife");
+			}
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+			{
+				t.push_back(fami[i]->getchild()[j]);
+				role.push_back("child");
+			}
+			for (int j = t.size() - 1; j >= 0; j--)
+			{
+				int max = 0;
+				int flag = j;
+				for (int k = 0; k <= j; k++)
+				{
+					string id = t[k]->getid();
+					int nid = atoi(id.substr(1, id.length() - 1).c_str());
+					if (nid > max)
+					{
+						max = nid;
+						flag = k;
+					}
+				}
+				Individual *temp = t[j];
+				string r = role[j];
+				t[j] = t[flag];
+				role[j] = role[flag];
+				t[flag] = temp;
+				role[flag] = r;
+			}
+			bool flag = false;
+			string temp;
+			for (int j = 1; j < t.size(); j++)
+			{
+				if (t[j] == t[j - 1])
+				{
+					if (!flag)
+					{
+						temp = "Individual " + t[j]->getid() + "(" + t[j]->getname() + ") plays multiple roles in Family " + fami[i]->getid() + ": " + role[j - 1] + ", " + role[j];
+					}
+					else
+					{
+						temp = temp + ", " + role[j];
+					}
+					flag = true;
+				}
+				else
+				{
+					if (flag)
+					{
+						errorMsg.push_back(temp);
+					}
+					flag = false;
+				}
+			}
+			if (flag)
+			{
+				errorMsg.push_back(temp);
+			}
+		}
+	}
+
 	void invalidFamilyMember()
 	{
 		for (int i = 0; i < fami.size(); i++)
@@ -552,9 +648,10 @@ private:
 				isDead = false;
 			else
 				isDead = true;
-			isBirtLeap = leapYear(indi[i]->getbirt());
-			isDeatLeap = leapYear(indi[i]->getdeat());
+//			isBirtLeap = leapYear(indi[i]->getbirt());
+//			isDeatLeap = leapYear(indi[i]->getdeat());
 			invBirtD = inexistDate(indi[i]->getbirt());
+			if (isDead)
 			invDeatD = inexistDate(indi[i]->getdeat());
 			//US03
 			//if (cy < by || (cy == by && cm < bm) || (cy == by && cm == bm && cd < bd)) //invalid birth date
@@ -603,9 +700,10 @@ private:
 				isDiv = false;
 			else
 				isDiv = true;
-			isMarrLeap = leapYear(fami[i]->getmarr());
-			isDivLeap = leapYear(fami[i]->getdiv());
+//			isMarrLeap = leapYear(fami[i]->getmarr());
+//			isDivLeap = leapYear(fami[i]->getdiv());
 			invMarrD = inexistDate(fami[i]->getmarr());
+			if (isDiv)
 			invDivD = inexistDate(fami[i]->getdiv());
 			//US03
 			if (compareDate(cy,cm,cd,fami[i]->getmarr()) == false) //invalid marriage date
@@ -918,6 +1016,8 @@ public:
 		invalidDate();
 		invalidFamilyMember();
 		invalidGender();
+		invalidAge();
+		multipleRoles();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
