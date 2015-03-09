@@ -474,6 +474,7 @@ private:
 	{
 		for (int i = 0; i < indi.size(); i++)
 		{
+			if (indi[i]->getbirt() == "") continue;
 			int birt = atoi(indi[i]->getbirt().substr(indi[i]->getbirt().length() - 4).c_str());
 			int deat = cy;
 			if (indi[i]->getdeat()!="")
@@ -637,6 +638,8 @@ private:
 			}
 		}
 	}
+
+
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
