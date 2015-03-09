@@ -485,9 +485,9 @@ private:
 			{
 				string temp = "Individual ";
 				if (indi[i]->getdeat() == "")
-					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is older than 150 years old. Birt date(" + indi[i]->getbirt() + "), not dead.";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is older than 150 years old. Birth date(" + indi[i]->getbirt() + "), not dead.";
 				else
-					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") was older than 150 years old. Birt date(" + indi[i]->getbirt() + "), deat date(" + indi[i]->getdeat() + ").";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") was older than 150 years old. Birth date(" + indi[i]->getbirt() + "), deat date(" + indi[i]->getdeat() + ").";
 				errorMsg.push_back(temp);
 			}
 		}
