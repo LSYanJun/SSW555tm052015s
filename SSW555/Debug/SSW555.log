@@ -1,4 +1,4 @@
-﻿Build started 3/7/2015 6:57:46 PM.
+﻿Build started 3/9/2015 2:52:07 PM.
      1>Project "C:\Users\Gong\Documents\GitHub\SSW555tm052015s\SSW555\SSW555.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Microsoft Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
@@ -29,38 +29,38 @@
      1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(455): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(458): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(475): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(497): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(501): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(506): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(511): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(539): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(571): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(592): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(617): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(619): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(629): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(644): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(696): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(643): warning C4101: 'isDeatLeap' : unreferenced local variable
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(643): warning C4101: 'isBirtLeap' : unreferenced local variable
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(698): warning C4101: 'isDivLeap' : unreferenced local variable
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(698): warning C4101: 'isMarrLeap' : unreferenced local variable
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(498): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(502): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(507): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(512): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(540): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(572): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(593): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(618): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(620): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(630): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(647): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(699): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(646): warning C4101: 'isDeatLeap' : unreferenced local variable
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(646): warning C4101: 'isBirtLeap' : unreferenced local variable
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(701): warning C4101: 'isDivLeap' : unreferenced local variable
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(701): warning C4101: 'isMarrLeap' : unreferenced local variable
      1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(38): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  e:\microsoft visual studio\vc\include\time.inl(112) : see declaration of 'localtime'
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(870): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1021): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1030): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1037): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1049): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1058): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1079): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1086): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1104): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1113): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1135): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(805): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(829): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
-     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(752): warning C4715: 'Genealogy::monthMap' : not all control paths return a value
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(873): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1024): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1033): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1040): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1052): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1061): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1082): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1089): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1107): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1116): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(1138): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(808): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(832): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
+     1>c:\users\gong\documents\github\ssw555tm052015s\ssw555\source.cpp(755): warning C4715: 'Genealogy::monthMap' : not all control paths return a value
        Link:
          E:\Microsoft Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gong\Documents\GitHub\SSW555tm052015s\Debug\SSW555.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gong\Documents\GitHub\SSW555tm052015s\Debug\SSW555.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gong\Documents\GitHub\SSW555tm052015s\Debug\SSW555.lib" /MACHINE:X86 Debug\Source.obj
          SSW555.vcxproj -> C:\Users\Gong\Documents\GitHub\SSW555tm052015s\Debug\SSW555.exe
@@ -68,4 +68,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.92
+Time Elapsed 00:00:03.29
