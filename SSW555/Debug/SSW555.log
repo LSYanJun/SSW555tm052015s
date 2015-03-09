@@ -1,4 +1,4 @@
-﻿Build started 3/3/2015 4:16:40 PM.
+﻿Build started 3/9/2015 3:32:37 PM.
      1>Project "C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\SSW555\SSW555.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
@@ -29,30 +29,49 @@
      1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(455): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(458): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(475): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(496): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(521): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(523): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(533): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(548): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(599): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(498): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(502): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(507): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(512): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(540): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(572): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(593): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(618): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(620): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(630): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(647): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(700): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(646): warning C4101: 'isDeatLeap' : unreferenced local variable
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(646): warning C4101: 'isBirtLeap' : unreferenced local variable
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(702): warning C4101: 'isDivLeap' : unreferenced local variable
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(702): warning C4101: 'isMarrLeap' : unreferenced local variable
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(746): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(748): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(750): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(761): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(763): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(779): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(783): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(794): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(38): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\time.inl(112) : see declaration of 'localtime'
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(772): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(921): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(930): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(937): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(949): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(958): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(979): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(986): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1004): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1013): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1035): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(707): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(731): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
-     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(654): warning C4715: 'Genealogy::monthMap' : not all control paths return a value
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(940): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1093): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1102): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1109): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1121): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1130): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1151): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1158): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1176): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1185): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(1207): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(875): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(899): warning C4715: 'Genealogy::compareDate' : not all control paths return a value
+     1>c:\users\yanjun\documents\visual studio 2013\projects\gedcom\ssw555\source.cpp(822): warning C4715: 'Genealogy::monthMap' : not all control paths return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.lib" /MACHINE:X86 Debug\Source.obj
+         LINK : C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.exe not found or not built by the last incremental link; performing full link
          SSW555.vcxproj -> C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\Debug\SSW555.exe
      1>Done Building Project "C:\Users\Yanjun\Documents\Visual Studio 2013\Projects\Gedcom\SSW555\SSW555.vcxproj" (Build target(s)).
 
