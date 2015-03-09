@@ -644,6 +644,7 @@ private:
 		for (int i = 0; i < indi.size(); i++)
 		{
 			//cout << indi[i]->getbirt() << " " << indi[i]->getdeat() << endl;
+			if (indi[i]->getbirt() == "") continue;
 			if (indi[i]->getdeat() == "")
 				isDead = false;
 			else
@@ -696,6 +697,7 @@ private:
 		for (int i = 0; i < fami.size(); i++)
 		{
 			bool isDiv, isMarrLeap, isDivLeap, invMarrD, invDivD;
+			if (fami[i]->getmarr() == "") continue;
 			if (fami[i]->getdiv() == "")
 				isDiv = false;
 			else
@@ -731,6 +733,71 @@ private:
 					ERRMSG = "Family " + fami[i]->getid() + " has an invalid divorce date("
 						+ fami[i]->getdiv() + ")." + " Divorce date doesn't exist.";
 					errorMsg.push_back(ERRMSG);
+				}
+			}
+		}
+	}
+	void elderAgeRule()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				for (int k = 0; k < fami[i]->getchild().size(); k++)
+				{
+					if (compareDate(fami[i]->gethusb()[j]->getbirt(), fami[i]->getchild()[k]->getbirt()))
+					{
+						ERRMSG = "Husband " + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + ") of family " + fami[i]->getid()
+							+ "(" + fami[i]->gethusb()[j]->getbirt() + ")" + " is not older than the child " + fami[i]->getchild()[k]->getid() + "(" + fami[i]->getchild()[k]->getname() + ")"
+							+"(" +fami[i]->getchild()[k]->getbirt() + ")";
+						
+					}	
+				}
+			}
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				for (int k = 0; k < fami[i]->getchild().size(); k++)
+				{
+					if (compareDate(fami[i]->getwife()[j]->getbirt(), fami[i]->getchild()[k]->getbirt()))
+					{
+						ERRMSG = "Wife " + fami[i]->getwife()[j]->getid() + "(" + fami[i]->getwife()[j]->getname() + ") of family " + fami[i]->getid()
+							+ "(" + fami[i]->getwife()[j]->getbirt() + ")" + " is not older than the child " + fami[i]->getchild()[k]->getid() + "(" + fami[i]->getchild()[k]->getname() + ")"
+							+ "(" + fami[i]->getchild()[k]->getbirt() + ")";
+						errorMsg.push_back(ERRMSG);
+					}
+				}
+			}
+		}
+	}
+	void deathBeforeMarr()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < fami.size(); i++)
+		{
+			if (fami[i]->getmarr() != "")
+			{
+				for (int j = 0; j < fami[i]->gethusb().size(); j++)
+				{
+					if (fami[i]->gethusb()[j]->getdeat() != "")
+					{
+						if (compareDate(fami[i]->getmarr(), fami[i]->gethusb()[j]->getdeat()))
+							ERRMSG = "Family " + fami[i]->getid() + ", husband " + fami[i]->gethusb()[j]->getid()
+							+ "(" + fami[i]->gethusb()[j]->getname() + ") death (" + fami[i]->gethusb()[j]->getdeat()
+							+ ") before marriage (" + fami[i]->getmarr() + ")";
+						errorMsg.push_back(ERRMSG);
+					}
+				}
+				for (int j = 0; j < fami[i]->getwife().size(); j++)
+				{
+					if (fami[i]->getwife()[j]->getdeat() != "")
+					{
+						if (compareDate(fami[i]->getmarr(), fami[i]->getwife()[j]->getdeat()))
+							ERRMSG = "Family " + fami[i]->getid() + ", wife " + fami[i]->getwife()[j]->getid()
+							+ "(" + fami[i]->getwife()[j]->getname() + ") death (" + fami[i]->getwife()[j]->getdeat()
+							+ ") before marriage (" + fami[i]->getmarr() + ")";
+						errorMsg.push_back(ERRMSG);
+					}
 				}
 			}
 		}
@@ -1018,6 +1085,8 @@ public:
 		invalidGender();
 		invalidAge();
 		multipleRoles();
+		elderAgeRule();
+		deathBeforeMarr();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
