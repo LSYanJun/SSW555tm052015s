@@ -639,7 +639,52 @@ private:
 		}
 	}
 
+	void marrigeBeforeBirth()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			string marr = fami[i]->getmarr();
+			if (marr == "") continue;
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				string bir = fami[i]->getwife()[j]->getbirt();
+				if (bir == "") continue;
+				if (compareDate(bir, marr))
+				{
+					string temp = "Individual ";
+					temp = temp + fami[i]->getwife()[j]->getid() + "(" + fami[i]->getwife()[j]->getname() + ")'s marrige(" + fami[i]->getmarr() + ") before birth(" + fami[i]->getwife()[j]->getbirt() + ").";
+					errorMsg.push_back(temp);
+				}
+			}
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				string bir = fami[i]->gethusb()[j]->getbirt();
+				if (bir == "") continue;
+				if (compareDate(bir, marr))
+				{
+					string temp = "Individual ";
+					temp = temp + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + ")'s marrige(" + fami[i]->getmarr() + ") before birth(" + fami[i]->gethusb()[j]->getbirt() + ").";
+					errorMsg.push_back(temp);
+				}
+			}
+		}
+	}
 
+	void divorceBeforeMarrige()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			string marr = fami[i]->getmarr();
+			string div = fami[i]->getdiv();
+			if (marr == "" || div == "") continue;
+			if (compareDate(marr, div))
+			{
+				string temp = "Family ";
+				temp = temp + fami[i]->getid() + "'s divorce date(" + fami[i]->getdiv() + ") before marrige date(" + fami[i]->getmarr() + ").";
+				errorMsg.push_back(temp);
+			}
+		}
+	}
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
@@ -1090,6 +1135,8 @@ public:
 		multipleRoles();
 		elderAgeRule();
 		deathBeforeMarr();
+		marrigeBeforeBirth();
+		divorceBeforeMarrige();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
