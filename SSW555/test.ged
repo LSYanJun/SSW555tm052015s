@@ -27,7 +27,6 @@
 2 SURN Mao
 2 _MARNM Mao
 1 SEX M
-1 BIRT
 1 FAMS @F2@
 0 @I3@ INDI
 1 NAME Katie /Brown/
@@ -148,7 +147,6 @@
 1 WIFE @I3@
 1 CHIL @I3@
 1 CHIL @I5@
-1 MARR
 1 _CURRENT Y
 0 @F3@ FAM
 1 HUSB @I4@

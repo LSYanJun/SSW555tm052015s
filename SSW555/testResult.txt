@@ -1,8 +1,8 @@
 Error Messages: 
-Family F2's husband is Individual I2(Jianguo /Mao/), but Individual I2(Jianguo /Mao/) is not the husband of Family F2.
-Individual I1(Jacky /Mao/) is older than 150 years old. Birt date(27 JAN 1848), not dead.
-Individual I8(Kevin /Brown/) was older than 150 years old. Birt date(1 NOV 1848), deat date(11 SEP 2001).
+Individual I1(Jacky /Mao/) is older than 150 years old. Birth date(27 JAN 1848), not dead.
+Individual I8(Kevin /Brown/) was older than 150 years old. Birth date(1 NOV 1848), deat date(11 SEP 2001).
 Individual I3(Katie /Brown/) plays multiple roles in Family F2: child, wife
 Wife I3(Katie /Brown/) of family F2(14 FEB 1965) is not older than the child I3(Katie /Brown/)(14 FEB 1965)
-
-
+Individual I12(Grace /Li/)'s marrige(1 JAN 1985) before birth(21 APR 1995).
+Individual I5(Emily /Mao/)'s marrige(1 JAN 1985) before birth(11 SEP 1993).
+Individual I7(Chris /Taylor/)'s marrige(1 JAN 1985) before birth(11 NOV 1990).
