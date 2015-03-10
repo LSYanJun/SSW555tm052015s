@@ -799,7 +799,7 @@ private:
 						ERRMSG = "Husband " + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + ") of family " + fami[i]->getid()
 							+ "(" + fami[i]->gethusb()[j]->getbirt() + ")" + " is not older than the child " + fami[i]->getchild()[k]->getid() + "(" + fami[i]->getchild()[k]->getname() + ")"
 							+"(" +fami[i]->getchild()[k]->getbirt() + ")";
-						
+						errorMsg.push_back(ERRMSG);
 					}	
 				}
 			}
