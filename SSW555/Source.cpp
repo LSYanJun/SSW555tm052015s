@@ -830,10 +830,12 @@ private:
 					if (fami[i]->gethusb()[j]->getdeat() != "")
 					{
 						if (compareDate(fami[i]->getmarr(), fami[i]->gethusb()[j]->getdeat()))
+						{
 							ERRMSG = "Family " + fami[i]->getid() + ", husband " + fami[i]->gethusb()[j]->getid()
-							+ "(" + fami[i]->gethusb()[j]->getname() + ") death (" + fami[i]->gethusb()[j]->getdeat()
-							+ ") before marriage (" + fami[i]->getmarr() + ")";
-						errorMsg.push_back(ERRMSG);
+								+ "(" + fami[i]->gethusb()[j]->getname() + ") death (" + fami[i]->gethusb()[j]->getdeat()
+								+ ") before marriage (" + fami[i]->getmarr() + ")";
+							errorMsg.push_back(ERRMSG);
+						}
 					}
 				}
 				for (int j = 0; j < fami[i]->getwife().size(); j++)
@@ -841,10 +843,12 @@ private:
 					if (fami[i]->getwife()[j]->getdeat() != "")
 					{
 						if (compareDate(fami[i]->getmarr(), fami[i]->getwife()[j]->getdeat()))
+						{
 							ERRMSG = "Family " + fami[i]->getid() + ", wife " + fami[i]->getwife()[j]->getid()
-							+ "(" + fami[i]->getwife()[j]->getname() + ") death (" + fami[i]->getwife()[j]->getdeat()
-							+ ") before marriage (" + fami[i]->getmarr() + ")";
-						errorMsg.push_back(ERRMSG);
+								+ "(" + fami[i]->getwife()[j]->getname() + ") death (" + fami[i]->getwife()[j]->getdeat()
+								+ ") before marriage (" + fami[i]->getmarr() + ")";
+							errorMsg.push_back(ERRMSG);
+						}
 					}
 				}
 			}
@@ -1256,8 +1260,32 @@ public:
 
 
 		fout << "Families: " << endl;
-	//	for (int i = 0; i < fami.size(); i++)
-	//		fout << "ID : " << fami[i]->getid() << ", HUSB : " << fami[i]->getshusb() << ", WIFE : " << fami[i]->getswife() << endl;
+		for (int i = 0; i < fami.size(); i++)
+		{
+			fout << "ID : " << fami[i]->getid();
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				if (j == 0)
+					fout << ", HUSBAND : " << fami[i]->gethusb()[j]->getname();
+				else
+					fout << ", " << fami[i]->gethusb()[j]->getname();
+			}
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				if (j == 0)
+					fout << ", WIFE : " << fami[i]->getwife()[j]->getname();
+				else
+					fout << ", " << fami[i]->getwife()[j]->getname();
+			}
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+			{
+				if (j == 0)
+					fout << ", CHILDREN : " << fami[i]->getchild()[j]->getname();
+				else
+					fout << ", " << fami[i]->getchild()[j]->getname();
+			}
+			fout << endl;
+		}
 		fout.close();
 	}
 
