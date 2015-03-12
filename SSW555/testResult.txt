@@ -3,15 +3,8 @@ Individual I3(Katie /Brown/) is a child of Family F2, but Family F2 does not hav
 Individual I1(Jacky /Mao/) is older than 150 years old. Birth date(27 JAN 1848), not dead.
 Husband I8(Kevin /Brown/) of family F4(14 FEB 1965) is not older than the child I3(Katie /Brown/)(14 FEB 1965)
 Husband I8(Kevin /Brown/) of family F6(14 FEB 1965) is not older than the child I11(James /Brown/)(1 MAY 1962)
+Family F3, wife I3(Katie /Brown/) death (8 AUG 1980) before marriage (1 JAN 1985)
 Individual I12(Grace /Li/)'s marrige(1 JAN 1840) before birth(21 APR 1995).
 Individual I1(Jacky /Mao/)'s marrige(1 JAN 1840) before birth(27 JAN 1848).
-Individual I3(Katie /Brown/)'s marrige(1 JAN 1950) before birth(14 FEB 1965).
-Individual I4(Edwin /Moore/)'s marrige(1 JAN 1950) before birth(1 OCT 1960).
-Individual I9(Elena /Wilson/)'s marrige(1 JAN 1930) before birth(1 NOV 1940).
-Individual I8(Kevin /Brown/)'s marrige(1 JAN 1930) before birth(14 FEB 1965).
-Individual I5(Emily /Mao/)'s marrige(1 JAN 1980) before birth(11 SEP 1993).
-Individual I7(Chris /Taylor/)'s marrige(1 JAN 1980) before birth(11 NOV 1990).
-Individual I8(Kevin /Brown/)'s marrige(1 JAN 1960) before birth(14 FEB 1965).
-Individual I9(Elena /Wilson/)'s marrige(1 JAN 1937) before birth(1 NOV 1940).
-Individual I13(Bob /Shaw/)'s marrige(1 JAN 1937) before birth(10 AUG 1938).
-Family F3's divorce date(31 DEC 1947) before marrige date(1 JAN 1950).
+Individual I5(Emily /Mao/)'s marrige(1 JAN 1992) before birth(11 SEP 1993).
+Family F3's divorce date(31 DEC 1947) before marrige date(1 JAN 1985).
