@@ -567,6 +567,124 @@ private:
 		}
 	}
 
+
+	void deathBeforeGivingBirth()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				string wifeDeath = fami[i]->getwife()[j]->getdeat();
+				if (wifeDeath == "") continue;
+				for (int m = 0; m < fami[i]->getchild().size(); m++)
+				{
+					string childBirth = fami[i]->getchild()[m]->getbirt();
+					if (childBirth == "") continue;
+					if (!compareDate(wifeDeath, childBirth))
+					{
+						string temp = "In Family " + fami[i]->getid() + ", wife " + fami[i]->getwife()[j]->getid() + "(" + fami[i]->getwife()[j]->getname()
+							+ ")'s death date(" + wifeDeath + ") is < her child " + fami[i]->getchild()[m]->getid() + "(" + fami[i]->getchild()[m]->getname() + ")'s birth date(" + childBirth + ")";
+						errorMsg.push_back(temp);
+					}
+				}
+			}
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				string husbDeath = fami[i]->gethusb()[j]->getdeat();
+				if (husbDeath == "") continue;
+				string hy, hm, hd;
+				stringstream s(husbDeath);
+				s >> hd >> hm >> hy;
+				int mon = monthMap(hm);
+				switch (mon)
+				{
+				case 1:
+				{
+						  hm = "NOV";
+						  break;
+				}
+				case 2:
+				{
+						  hm = "DEC";
+						  break;
+				}
+				case 3:
+				{
+						  hm = "JAN";
+						  hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 4:
+				{
+						  hm = "FEB";
+						  hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 5:
+				{
+						  hm = "MAR";
+						  hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 6:
+				{
+						  hm = "APR";
+						  hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 7:
+				{
+						  hm = "MAY";
+						  hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 8:
+				{
+						  hm = "JUN";
+						  hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 9:
+				{
+						  hm = "JUL";
+						  hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 10:
+				{
+						   hm = "AUG";
+						   hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 11:
+				{
+						   hm = "SEP";
+						   hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				case 12:
+				{
+						   hm = "OCT";
+						   hy = to_string(atoi(hy.c_str()) + 1);
+						  break;
+				}
+				}
+				string husbDeath2 = hd + " " + hm + " " + hy + " ";
+				for (int m = 0; m < fami[i]->getchild().size(); m++)
+				{
+					string childBirth = fami[i]->getchild()[m]->getbirt();
+					if (childBirth == "") continue;
+					if (!compareDate(husbDeath2, childBirth))
+					{
+						string temp = "In Family " + fami[i]->getid() + ", husband " + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname()
+							+ ")'s death date(" + husbDeath + ") + 10 months is < his child " + fami[i]->getchild()[m]->getid() + "(" + fami[i]->getchild()[m]->getname() + ")'s birth date(" + childBirth + ")";
+						errorMsg.push_back(temp);
+					}
+				}
+			}
+		}
+	}
+
 	void invalidFamilyMember()
 	{
 		for (int i = 0; i < fami.size(); i++)
@@ -922,7 +1040,7 @@ private:
 		else
 			true;
 	}
-	bool compareDate(string firDate, string secDate)
+	bool compareDate(string firDate, string secDate)  // first < second return false, else return true
 	{
 		int firYear, firMonth, firDay, secYear, secMonth, secDay;
 		string fy, fm, fd, sy, sm, sd;
@@ -1141,6 +1259,7 @@ public:
 		deathBeforeMarr();
 		marrigeBeforeBirth();
 		divorceBeforeMarrige();
+		deathBeforeGivingBirth();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
