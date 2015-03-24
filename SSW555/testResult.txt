@@ -1,3 +1,4 @@
 Error Messages: 
 In Family F5, wife I5(Emily /Mao/)'s death date(5 JUN 2014) is < her child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
 In Family F5, husband I7(Chris /Taylor/)'s death date(6 JUN 2013) + 10 months is < his child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
+Individual I8(Kevin /Brown/) has more than one spouse currently: I9(Elena /Wilson/) in Family F4, I10(Jen /Brown/) in Family F6. 

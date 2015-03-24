@@ -685,6 +685,53 @@ private:
 		}
 	}
 
+	void polygamy()
+	{
+		for (int i = 0; i < indi.size(); i++)
+		{
+			vector<Family *> countF;
+			vector<Individual *> countI;
+			for (int j = 0; j < indi[i]->getfams().size(); j++)
+			{
+				if (indi[i]->getfams()[j]->getdiv() == "")
+				{
+					for (int m = 0; m < indi[i]->getfams()[j]->gethusb().size(); m++)
+					{
+						if (indi[i]->getfams()[j]->gethusb()[m] == indi[i])
+						{
+							for (int n = 0; n < indi[i]->getfams()[j]->getwife().size(); n++)
+							{
+								countF.push_back(indi[i]->getfams()[j]);
+								countI.push_back(indi[i]->getfams()[j]->getwife()[n]);
+							}
+						}
+					}
+					for (int m = 0; m < indi[i]->getfams()[j]->getwife().size(); m++)
+					{
+						if (indi[i]->getfams()[j]->getwife()[m] == indi[i])
+						{
+							for (int n = 0; n < indi[i]->getfams()[j]->gethusb().size(); n++)
+							{
+								countF.push_back(indi[i]->getfams()[j]);
+								countI.push_back(indi[i]->getfams()[j]->gethusb()[n]);
+							}
+						}
+					}
+				}
+			}
+			if (countF.size() > 1)
+			{
+				string temp = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has more than one spouse currently: ";
+				for (int j = 0; j < countF.size() - 1; j++)
+				{
+					temp = temp + countI[j]->getid() + "(" + countI[j]->getname() + ") in Family " + countF[j]->getid() + ", ";
+				}
+				temp = temp + countI[countF.size() - 1]->getid() + "(" + countI[countF.size() - 1]->getname() + ") in Family " + countF[countF.size() - 1]->getid() + ". ";
+				errorMsg.push_back(temp);
+			}
+		}
+	}
+
 	void invalidFamilyMember()
 	{
 		for (int i = 0; i < fami.size(); i++)
@@ -1260,6 +1307,7 @@ public:
 		marrigeBeforeBirth();
 		divorceBeforeMarrige();
 		deathBeforeGivingBirth();
+		polygamy();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
