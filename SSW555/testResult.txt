@@ -1,11 +1,3 @@
 Error Messages: 
-Individual I1(Jacky /Mao/) is older than 150 years old. Birth date(27 JAN 1848), not dead.
-Individual I12(Grace /Li/) was older than 150 years old. Birth date(21 APR 1839), deat date(21 APR 1990).
-Individual I3(Katie /Brown/) plays multiple roles in Family F2: child, wife
-Wife I3(Katie /Brown/) of family F2(14 FEB 1965) is not older than the child I3(Katie /Brown/)(14 FEB 1965)
-Husband I8(Kevin /Brown/) of family F4(14 FEB 1965) is not older than the child I3(Katie /Brown/)(14 FEB 1965)
-Husband I8(Kevin /Brown/) of family F6(14 FEB 1965) is not older than the child I11(James /Brown/)(1 MAY 1962)
-Family F3, wife I3(Katie /Brown/) death (8 AUG 1980) before marriage (1 JAN 1985)
-Individual I1(Jacky /Mao/)'s marrige(1 JAN 1840) before birth(27 JAN 1848).
-Individual I5(Emily /Mao/)'s marrige(1 JAN 1992) before birth(11 SEP 1993).
-Family F3's divorce date(31 DEC 1947) before marrige date(1 JAN 1985).
+In Family F5, wife I5(Emily /Mao/)'s death date(5 JUN 2014) is < her child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
+In Family F5, husband I7(Chris /Taylor/)'s death date(6 JUN 2013) + 10 months is < his child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
