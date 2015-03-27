@@ -2,3 +2,7 @@ Error Messages:
 In Family F5, wife I5(Emily /Mao/)'s death date(5 JUN 2014) is < her child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
 In Family F5, husband I7(Chris /Taylor/)'s death date(6 JUN 2013) + 10 months is < his child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
 Individual I8(Kevin /Brown/) has more than one spouse currently: I9(Elena /Wilson/) in Family F4, I10(Jen /Brown/) in Family F6. 
+Individual I1(Jacky /Mao/)'s birthday is 27 JAN 1970 and he got married when he was uder 20. Marriage date is 1 JAN 1985.
+Individual I12(Grace /Li/)'s birthday is 21 APR 1970 and she got married when she was uder 18. Marriage date is 1 JAN 1985.
+Individual I7(Chris /Taylor/)'s birthday is 11 NOV 1970 and he got married when he was uder 20. Marriage date is 1 JAN 1985.
+Individual I5(Emily /Mao/)'s birthday is 11 SEP 1970 and she got married when she was uder 18. Marriage date is 1 JAN 1985.

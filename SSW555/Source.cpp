@@ -1019,6 +1019,77 @@ private:
 			}
 		}
 	}
+	void illegalSpouse()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->getchild().size();j++)
+			for (int k = j + 1; k < fami[i]->getchild().size(); k++)
+			for (int m = 0; m < fami[i]->getchild()[j]->getfams().size();m++)
+			for (int n = 0; n < fami[i]->getchild()[k]->getfams().size();n++)
+			{
+				if (fami[i]->getchild()[j]->getfams()[m]->getid() == fami[i]->getchild()[k]->getfams()[n]->getid())
+				{
+					ERRMSG = "Individual " + fami[i]->getchild()[j]->getid() + "(" + fami[i]->getchild()[j]->getname()
+						+ ") and Individual " + fami[i]->getchild()[k]->getid() + "(" + fami[i]->getchild()[k]->getname() + ") are siblings in family " + fami[i]->getid()
+						+ " but they get married in family " + fami[i]->getchild()[j]->getfams()[m]->getid();
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+		}
+	}
+
+	void illegalMarriageAge()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				if (calcAge(fami[i]->gethusb()[j]->getbirt(),fami[i]->getmarr()) < 20)
+				{
+					ERRMSG = "Individual " + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + ")'s birthday is " 
+						+ fami[i]->gethusb()[j]->getbirt() + " and he got married when he was uder 20. Marriage date is " + fami[i]->getmarr() + ".";
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				if (calcAge(fami[i]->getwife()[j]->getbirt(), fami[i]->getmarr()) < 18)
+				{
+					ERRMSG = "Individual " + fami[i]->getwife()[j]->getid() + "(" + fami[i]->getwife()[j]->getname() + ")'s birthday is "
+						+ fami[i]->getwife()[j]->getbirt() + " and she got married when she was uder 18. Marriage date is " + fami[i]->getmarr() + ".";
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+		}
+	}
+	int calcAge(string birt, string marr)
+	{
+		int year, month, day, myear, mmonth, mday;
+		string y, m, d, my, mm, md;
+		stringstream ss;
+		stringstream s;
+		ss << birt;
+		s << marr;
+		ss >> d;
+		ss >> m;
+		ss >> y;
+		s >> md;
+		s >> mm;
+		s >> my;
+		day = atoi(d.c_str());
+		month = monthMap(m);
+		year = atoi(y.c_str());
+		mday = atoi(md.c_str());
+		mmonth = monthMap(mm);
+		myear = atoi(my.c_str());
+		if (mmonth < month || (mmonth < month && mday < day))
+			return myear - year;
+		else
+			return myear - year - 1;
+	}
 	int monthMap(string month)
 	{
 		if (month == "JAN") return 1;
@@ -1308,6 +1379,8 @@ public:
 		divorceBeforeMarrige();
 		deathBeforeGivingBirth();
 		polygamy();
+		illegalSpouse();
+		illegalMarriageAge();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
