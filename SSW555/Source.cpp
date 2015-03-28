@@ -253,7 +253,7 @@ private:
 			Individual *temp = indi[j];
 			indi[j] = indi[flag];
 			indi[flag] = temp;
-		}		
+		}
 		for (int j = fami.size() - 1; j >= 0; j--)
 		{
 			int max = 0;
@@ -280,24 +280,24 @@ private:
 		for (int i = 0; i < indi.size(); i++)
 		{
 			for (int m = 0; m < indi[i]->getsfamc().size(); m++)
-			if (indi[i]->getsfamc()[m] != "")
-			{
-				int j = 0;
-				for (j = 0; j < fami.size(); j++)
+				if (indi[i]->getsfamc()[m] != "")
 				{
-					if (fami[j]->getid() == indi[i]->getsfamc()[m])
+					int j = 0;
+					for (j = 0; j < fami.size(); j++)
 					{
-						indi[i]->setfamc(fami[j]);
-						break;
+						if (fami[j]->getid() == indi[i]->getsfamc()[m])
+						{
+							indi[i]->setfamc(fami[j]);
+							break;
+						}
+					}
+					if (j == fami.size())
+					{
+						string temp = "Individual ";
+						temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of an inexistent Family " + indi[i]->getsfamc()[m] + ".";
+						errorMsg.push_back(temp);
 					}
 				}
-				if (j == fami.size())
-				{
-					string temp = "Individual ";
-					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a child of an inexistent Family " + indi[i]->getsfamc()[m] + ".";
-					errorMsg.push_back(temp);
-				}
-			}
 			for (int m = 0; m < indi[i]->getsfams().size(); m++)
 			{
 				int j = 0;
@@ -312,7 +312,7 @@ private:
 				if (j == fami.size())
 				{
 					string temp = "Individual ";
-					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a spouse of an inexistent Family " + indi[i]->getsfams()[m] +".";
+					temp = temp + indi[i]->getid() + "(" + indi[i]->getname() + ") is a spouse of an inexistent Family " + indi[i]->getsfams()[m] + ".";
 					errorMsg.push_back(temp);
 				}
 			}
@@ -320,43 +320,43 @@ private:
 		for (int i = 0; i < fami.size(); i++)
 		{
 			for (int m = 0; m < fami[i]->getshusb().size(); m++)
-			if (fami[i]->getshusb()[m] != "")
-			{
-				int j = 0;
-				for (j = 0; j < indi.size(); j++)
+				if (fami[i]->getshusb()[m] != "")
 				{
-					if (indi[j]->getid() == fami[i]->getshusb()[m])
+					int j = 0;
+					for (j = 0; j < indi.size(); j++)
 					{
-						fami[i]->sethusb(indi[j]);
-						break;
+						if (indi[j]->getid() == fami[i]->getshusb()[m])
+						{
+							fami[i]->sethusb(indi[j]);
+							break;
+						}
+					}
+					if (j == indi.size())
+					{
+						string temp = "Family ";
+						temp = temp + fami[i]->getid() + " has a husband who is an inexistent Individual " + fami[i]->getshusb()[m] + ".";
+						errorMsg.push_back(temp);
 					}
 				}
-				if (j == indi.size())
-				{
-					string temp = "Family ";
-					temp = temp + fami[i]->getid() + " has a husband who is an inexistent Individual " + fami[i]->getshusb()[m] + ".";
-					errorMsg.push_back(temp);
-				}
-			}
 			for (int m = 0; m < fami[i]->getswife().size(); m++)
-			if (fami[i]->getswife()[m] != "")
-			{
-				int j = 0;
-				for (j = 0; j < indi.size(); j++)
+				if (fami[i]->getswife()[m] != "")
 				{
-					if (indi[j]->getid() == fami[i]->getswife()[m])
+					int j = 0;
+					for (j = 0; j < indi.size(); j++)
 					{
-						fami[i]->setwife(indi[j]);
-						break;
+						if (indi[j]->getid() == fami[i]->getswife()[m])
+						{
+							fami[i]->setwife(indi[j]);
+							break;
+						}
+					}
+					if (j == indi.size())
+					{
+						string temp = "Family ";
+						temp = temp + fami[i]->getid() + " has a wife who is an inexistent Individual " + fami[i]->getswife()[m] + ".";
+						errorMsg.push_back(temp);
 					}
 				}
-				if (j == indi.size())
-				{
-					string temp = "Family ";
-					temp = temp + fami[i]->getid() + " has a wife who is an inexistent Individual " + fami[i]->getswife()[m] + ".";
-					errorMsg.push_back(temp);
-				}
-			}
 			for (int m = 0; m < fami[i]->getschild().size(); m++)
 			{
 				int j = 0;
@@ -401,18 +401,18 @@ private:
 			{
 				bool flag = false;
 				for (int n = 0; n < indi[i]->getfams()[m]->gethusb().size(); n++)
-				if (indi[i] == indi[i]->getfams()[m]->gethusb()[n])
-				{
-					flag = true;
-					break;
-				}
+					if (indi[i] == indi[i]->getfams()[m]->gethusb()[n])
+					{
+						flag = true;
+						break;
+					}
 				if (!flag)
-				for (int n = 0; n < indi[i]->getfams()[m]->getwife().size(); n++)
-				if (indi[i] == indi[i]->getfams()[m]->getwife()[n])
-				{
-					flag = true;
-					break;
-				}
+					for (int n = 0; n < indi[i]->getfams()[m]->getwife().size(); n++)
+						if (indi[i] == indi[i]->getfams()[m]->getwife()[n])
+						{
+							flag = true;
+							break;
+						}
 				if (!flag)
 				{
 					string temp = "Individual ";
@@ -456,10 +456,10 @@ private:
 			{
 				int n = 0;
 				for (n = 0; n < fami[i]->getchild()[m]->getfamc().size(); n++)
-				if (fami[i] == fami[i]->getchild()[m]->getfamc()[n])
-				{
-					break;
-				}
+					if (fami[i] == fami[i]->getchild()[m]->getfamc()[n])
+					{
+						break;
+					}
 				if (n == fami[i]->getchild()[m]->getfamc().size())
 				{
 					string temp = "Family ";
@@ -477,7 +477,7 @@ private:
 			if (indi[i]->getbirt() == "") continue;
 			int birt = atoi(indi[i]->getbirt().substr(indi[i]->getbirt().length() - 4).c_str());
 			int deat = cy;
-			if (indi[i]->getdeat()!="")
+			if (indi[i]->getdeat() != "")
 			{
 				deat = atoi(indi[i]->getdeat().substr(indi[i]->getdeat().length() - 4).c_str());
 			}
@@ -600,73 +600,73 @@ private:
 				{
 				case 1:
 				{
-						  hm = "NOV";
-						  break;
+					hm = "NOV";
+					break;
 				}
 				case 2:
 				{
-						  hm = "DEC";
-						  break;
+					hm = "DEC";
+					break;
 				}
 				case 3:
 				{
-						  hm = "JAN";
-						  hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "JAN";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 4:
 				{
-						  hm = "FEB";
-						  hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "FEB";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 5:
 				{
-						  hm = "MAR";
-						  hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "MAR";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 6:
 				{
-						  hm = "APR";
-						  hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "APR";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 7:
 				{
-						  hm = "MAY";
-						  hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "MAY";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 8:
 				{
-						  hm = "JUN";
-						  hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "JUN";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 9:
 				{
-						  hm = "JUL";
-						  hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "JUL";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 10:
 				{
-						   hm = "AUG";
-						   hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "AUG";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 11:
 				{
-						   hm = "SEP";
-						   hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "SEP";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				case 12:
 				{
-						   hm = "OCT";
-						   hy = to_string(atoi(hy.c_str()) + 1);
-						  break;
+					hm = "OCT";
+					hy = to_string(atoi(hy.c_str()) + 1);
+					break;
 				}
 				}
 				string husbDeath2 = hd + " " + hm + " " + hy + " ";
@@ -751,7 +751,7 @@ private:
 				{
 					temp = temp + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + "), ";
 				}
-				temp = temp + fami[i]->gethusb()[husb-1]->getid() + "(" + fami[i]->gethusb()[husb-1]->getname() + ").";
+				temp = temp + fami[i]->gethusb()[husb - 1]->getid() + "(" + fami[i]->gethusb()[husb - 1]->getname() + ").";
 				errorMsg.push_back(temp);
 			}
 		}
@@ -790,7 +790,7 @@ private:
 						+ "(" + fami[i]->gethusb()[j]->getname() + ")" + " is not MALE.";
 					errorMsg.push_back(ERRMSG);
 				}
-				
+
 			}
 			for (int j = 0; j < fami[i]->getwife().size(); j++)
 			{
@@ -850,6 +850,56 @@ private:
 			}
 		}
 	}
+
+	void amountOfFamilyMembers()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			int amount = fami[i]->getchild().size() + fami[i]->getwife().size() + fami[i]->gethusb().size();
+			if (amount > 8)
+			{
+				string err = "Family " + fami[i]->getid() + " has more than 8 members (" + to_string(amount) + ").";
+				errorMsg.push_back(err);
+			}
+		}
+	}
+
+	void ageGap()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			vector<Individual *> children;
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+			{
+				string birth = fami[i]->getchild()[j]->getbirt();
+				string birthBefore, birthAfter;
+				string by, bm, bd;
+				stringstream ss(birth);
+				ss >> bd >> bm >> by;
+				by = to_string(atoi(by.c_str()) - 1);
+				birthBefore = bd + " " + bm + " " + by;
+				by = to_string(atoi(by.c_str()) + 2);
+				birthAfter = bd + " " + bm + " " + by;
+				for (int m = 0; m < children.size(); m++)
+				{
+					if (birth != children[m]->getbirt() && compareDate(children[m]->getbirt(), birthBefore) && compareDate(birth, children[m]->getbirt()))
+					{
+						string err = "In Family " + fami[i]->getid() + ", child " + fami[i]->getchild()[j]->getid() + "(" + fami[i]->getchild()[j]->getname() + ") and child "
+							+ children[m]->getid() + "(" + children[m]->getname() + ") are not twins but born within one year.";
+						errorMsg.push_back(err);
+					}
+					if (birth != children[m]->getbirt() && compareDate(children[m]->getbirt(), birth) && compareDate(birthAfter, children[m]->getbirt()))
+					{
+						string err = "In Family " + fami[i]->getid() + ", child " + fami[i]->getchild()[j]->getid() + "(" + fami[i]->getchild()[j]->getname() + ") and child "
+							+ children[m]->getid() + "(" + children[m]->getname() + ") are not twins but born within one year.";
+						errorMsg.push_back(err);
+					}
+				}
+				children.push_back(fami[i]->getchild()[j]);
+			}
+		}
+	}
+
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
@@ -862,16 +912,16 @@ private:
 				isDead = false;
 			else
 				isDead = true;
-//			isBirtLeap = leapYear(indi[i]->getbirt());
-//			isDeatLeap = leapYear(indi[i]->getdeat());
+			//			isBirtLeap = leapYear(indi[i]->getbirt());
+			//			isDeatLeap = leapYear(indi[i]->getdeat());
 			invBirtD = inexistDate(indi[i]->getbirt());
 			if (isDead)
-			invDeatD = inexistDate(indi[i]->getdeat());
+				invDeatD = inexistDate(indi[i]->getdeat());
 			//US03
 			//if (cy < by || (cy == by && cm < bm) || (cy == by && cm == bm && cd < bd)) //invalid birth date
-			if (compareDate(cy,cm,cd,indi[i]->getbirt()) == false)
+			if (compareDate(cy, cm, cd, indi[i]->getbirt()) == false)
 			{
-				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid birth date(" 
+				ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid birth date("
 					+ indi[i]->getbirt() + ")." + " Birthday before current date.";
 				errorMsg.push_back(ERRMSG);
 			}
@@ -883,7 +933,7 @@ private:
 			}
 			if (isDead == true)
 			{
-				if (compareDate(cy,cm,cd,indi[i]->getdeat()) == false)
+				if (compareDate(cy, cm, cd, indi[i]->getdeat()) == false)
 				{
 					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") has an invalid death date("
 						+ indi[i]->getdeat() + ")." + "Death date before current date.";
@@ -896,11 +946,11 @@ private:
 					errorMsg.push_back(ERRMSG);
 				}
 			}
-		
+
 			//US05 death before birth
 			if (isDead == true)
 			{
-				if (compareDate(indi[i]->getdeat(),indi[i]->getbirt()) == false)
+				if (compareDate(indi[i]->getdeat(), indi[i]->getbirt()) == false)
 				{
 					ERRMSG = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") death before birth. " + "Birth: " + indi[i]->getbirt() + " Death: " + indi[i]->getdeat();
 					errorMsg.push_back(ERRMSG);
@@ -915,13 +965,13 @@ private:
 				isDiv = false;
 			else
 				isDiv = true;
-//			isMarrLeap = leapYear(fami[i]->getmarr());
-//			isDivLeap = leapYear(fami[i]->getdiv());
+			//			isMarrLeap = leapYear(fami[i]->getmarr());
+			//			isDivLeap = leapYear(fami[i]->getdiv());
 			invMarrD = inexistDate(fami[i]->getmarr());
 			if (isDiv)
-			invDivD = inexistDate(fami[i]->getdiv());
+				invDivD = inexistDate(fami[i]->getdiv());
 			//US03
-			if (compareDate(cy,cm,cd,fami[i]->getmarr()) == false) //invalid marriage date
+			if (compareDate(cy, cm, cd, fami[i]->getmarr()) == false) //invalid marriage date
 			{
 				ERRMSG = "Family " + fami[i]->getid() + " has an invalid marriage date("
 					+ fami[i]->getmarr() + ")." + " Marriage date before current date.";
@@ -963,9 +1013,9 @@ private:
 					{
 						ERRMSG = "Husband " + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + ") of family " + fami[i]->getid()
 							+ "(" + fami[i]->gethusb()[j]->getbirt() + ")" + " is not older than the child " + fami[i]->getchild()[k]->getid() + "(" + fami[i]->getchild()[k]->getname() + ")"
-							+"(" +fami[i]->getchild()[k]->getbirt() + ")";
+							+ "(" + fami[i]->getchild()[k]->getbirt() + ")";
 						errorMsg.push_back(ERRMSG);
-					}	
+					}
 				}
 			}
 			for (int j = 0; j < fami[i]->getwife().size(); j++)
@@ -1024,19 +1074,19 @@ private:
 		string ERRMSG = "";
 		for (int i = 0; i < fami.size(); i++)
 		{
-			for (int j = 0; j < fami[i]->getchild().size();j++)
-			for (int k = j + 1; k < fami[i]->getchild().size(); k++)
-			for (int m = 0; m < fami[i]->getchild()[j]->getfams().size();m++)
-			for (int n = 0; n < fami[i]->getchild()[k]->getfams().size();n++)
-			{
-				if (fami[i]->getchild()[j]->getfams()[m]->getid() == fami[i]->getchild()[k]->getfams()[n]->getid())
-				{
-					ERRMSG = "Individual " + fami[i]->getchild()[j]->getid() + "(" + fami[i]->getchild()[j]->getname()
-						+ ") and Individual " + fami[i]->getchild()[k]->getid() + "(" + fami[i]->getchild()[k]->getname() + ") are siblings in family " + fami[i]->getid()
-						+ " but they get married in family " + fami[i]->getchild()[j]->getfams()[m]->getid();
-					errorMsg.push_back(ERRMSG);
-				}
-			}
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+				for (int k = j + 1; k < fami[i]->getchild().size(); k++)
+					for (int m = 0; m < fami[i]->getchild()[j]->getfams().size(); m++)
+						for (int n = 0; n < fami[i]->getchild()[k]->getfams().size(); n++)
+						{
+							if (fami[i]->getchild()[j]->getfams()[m]->getid() == fami[i]->getchild()[k]->getfams()[n]->getid())
+							{
+								ERRMSG = "Individual " + fami[i]->getchild()[j]->getid() + "(" + fami[i]->getchild()[j]->getname()
+									+ ") and Individual " + fami[i]->getchild()[k]->getid() + "(" + fami[i]->getchild()[k]->getname() + ") are siblings in family " + fami[i]->getid()
+									+ " but they get married in family " + fami[i]->getchild()[j]->getfams()[m]->getid();
+								errorMsg.push_back(ERRMSG);
+							}
+						}
 		}
 	}
 
@@ -1047,9 +1097,9 @@ private:
 		{
 			for (int j = 0; j < fami[i]->gethusb().size(); j++)
 			{
-				if (calcAge(fami[i]->gethusb()[j]->getbirt(),fami[i]->getmarr()) < 20)
+				if (calcAge(fami[i]->gethusb()[j]->getbirt(), fami[i]->getmarr()) < 20)
 				{
-					ERRMSG = "Individual " + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + ")'s birthday is " 
+					ERRMSG = "Individual " + fami[i]->gethusb()[j]->getid() + "(" + fami[i]->gethusb()[j]->getname() + ")'s birthday is "
 						+ fami[i]->gethusb()[j]->getbirt() + " and he got married when he was uder 20. Marriage date is " + fami[i]->getmarr() + ".";
 					errorMsg.push_back(ERRMSG);
 				}
@@ -1182,7 +1232,7 @@ private:
 		else
 			true;
 	}
-	
+
 public:
 	Genealogy()
 	{
@@ -1356,9 +1406,9 @@ public:
 				argu.push_back("Invalid argument");
 			}
 		}
-	/*	for (int i = 0; i < line.size(); i++)
+		/*	for (int i = 0; i < line.size(); i++)
 		{
-			cout << level[i] << " " << tag[i] << " " << argu[i] << endl;
+		cout << level[i] << " " << tag[i] << " " << argu[i] << endl;
 		}*/
 	}
 
@@ -1381,6 +1431,8 @@ public:
 		polygamy();
 		illegalSpouse();
 		illegalMarriageAge();
+		amountOfFamilyMembers();
+		ageGap();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;

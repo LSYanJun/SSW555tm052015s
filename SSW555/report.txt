@@ -12,11 +12,16 @@ ID : I10, NAME : Jen /Brown/
 ID : I11, NAME : James /Brown/
 ID : I12, NAME : Grace /Li/
 ID : I13, NAME : Bob /Shaw/
+ID : I14, NAME : Boba /Shaw/
+ID : I15, NAME : Bobb /Shaw/
+ID : I16, NAME : Bobc /Shaw/
+ID : I17, NAME : Bobd /Shaw/
+ID : I18, NAME : Bobe /Shaw/
 Families: 
 ID : F1, HUSBAND : Jacky /Mao/, WIFE : Grace /Li/
-ID : F2, HUSBAND : Jianguo /Mao/, WIFE : Katie /Brown/, CHILDREN : Jacky /Mao/, Emily /Mao/
+ID : F2, HUSBAND : Jianguo /Mao/, WIFE : Katie /Brown/, CHILDREN : Jacky /Mao/, Emily /Mao/, Bobb /Shaw/, Bobc /Shaw/, Bobd /Shaw/, Bobe /Shaw/, Boba /Shaw/
 ID : F3, HUSBAND : Edwin /Moore/, WIFE : Katie /Brown/
-ID : F4, HUSBAND : Kevin /Brown/, WIFE : Elena /Wilson/, CHILDREN : Katie /Brown/
+ID : F4, HUSBAND : Kevin /Brown/, WIFE : Elena /Wilson/, CHILDREN : Katie /Brown/, Edwin /Moore/
 ID : F5, HUSBAND : Chris /Taylor/, WIFE : Emily /Mao/, CHILDREN : Lisabella /Taylor/
 ID : F6, HUSBAND : Kevin /Brown/, WIFE : Jen /Brown/, CHILDREN : James /Brown/
 ID : F7, HUSBAND : Bob /Shaw/, WIFE : Elena /Wilson/
