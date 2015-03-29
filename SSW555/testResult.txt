@@ -9,4 +9,4 @@ Individual I12(Grace /Li/)'s birthday is 21 APR 1970 and she got married when sh
 Individual I7(Chris /Taylor/)'s birthday is 11 NOV 1970 and he got married when he was uder 20. Marriage date is 1 JAN 1985.
 Individual I5(Emily /Mao/)'s birthday is 11 SEP 1970 and she got married when she was uder 18. Marriage date is 1 JAN 1985.
 Family F2 has more than 8 members (9).
-In Family F2, child I5(Emily /Mao/) and child I1(Jacky /Mao/) are not twins but born within one year.
+In Family F2, child I5(Emily /Mao/) and child I1(Jacky /Mao/) are not multiple births but born within one year.

@@ -885,13 +885,13 @@ private:
 					if (birth != children[m]->getbirt() && compareDate(children[m]->getbirt(), birthBefore) && compareDate(birth, children[m]->getbirt()))
 					{
 						string err = "In Family " + fami[i]->getid() + ", child " + fami[i]->getchild()[j]->getid() + "(" + fami[i]->getchild()[j]->getname() + ") and child "
-							+ children[m]->getid() + "(" + children[m]->getname() + ") are not twins but born within one year.";
+							+ children[m]->getid() + "(" + children[m]->getname() + ") are not multiple births but born within one year.";
 						errorMsg.push_back(err);
 					}
 					if (birth != children[m]->getbirt() && compareDate(children[m]->getbirt(), birth) && compareDate(birthAfter, children[m]->getbirt()))
 					{
 						string err = "In Family " + fami[i]->getid() + ", child " + fami[i]->getchild()[j]->getid() + "(" + fami[i]->getchild()[j]->getname() + ") and child "
-							+ children[m]->getid() + "(" + children[m]->getname() + ") are not twins but born within one year.";
+							+ children[m]->getid() + "(" + children[m]->getname() + ") are not multiple births but born within one year.";
 						errorMsg.push_back(err);
 					}
 				}
