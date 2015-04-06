@@ -588,7 +588,7 @@ private:
 					}
 				}
 			}
-			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
 			{
 				string husbDeath = fami[i]->gethusb()[j]->getdeat();
 				if (husbDeath == "") continue;
@@ -727,6 +727,251 @@ private:
 					temp = temp + countI[j]->getid() + "(" + countI[j]->getname() + ") in Family " + countF[j]->getid() + ", ";
 				}
 				temp = temp + countI[countF.size() - 1]->getid() + "(" + countI[countF.size() - 1]->getname() + ") in Family " + countF[countF.size() - 1]->getid() + ". ";
+				errorMsg.push_back(temp);
+			}
+		}
+	}
+
+	void childInFamily()
+	{
+		for (int i = 0; i < indi.size(); i++)
+		{
+			if (indi[i]->getfamc().size() > 1)
+			{
+				string temp = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") is the child of multiple families: ";
+				for (int j = 0; j < indi[i]->getfamc().size() - 1; j++)
+				{
+					temp += "Family " + indi[i]->getfamc()[j]->getid() + ", ";
+				}
+				temp += "Family " + indi[i]->getfamc()[indi[i]->getfamc().size() - 1]->getid() + ".";
+				errorMsg.push_back(temp);
+			}
+		}
+	}
+
+	void uniqueInformation()
+	{
+		vector<string> name, sex, birthD, deathD, marrD, divD;
+		string bdmd = "";
+		string zero = "";
+		string id = "";
+		for (int i = 0; i < level.size(); i++)
+		{
+			if (level[i] == "0")
+			{
+				if (zero == "INDI")
+				{
+					if (name.size() > 1)
+					{
+						string temp = "Individual " + id + " has more than one name : ";
+						for (int j = 0; j < name.size() - 1; j++)
+						{
+							temp += name[j] + ", ";
+						}
+						temp += name[name.size() - 1] + ". ";
+						errorMsg.push_back(temp);
+					}
+					else if (name.size() == 0)
+					{
+						string temp = "Individual " + id + " does not have a name. ";
+						errorMsg.push_back(temp);
+					}
+					if (sex.size() > 1)
+					{
+						string temp = "Individual " + id + " has more than one sex : ";
+						for (int j = 0; j < sex.size() - 1; j++)
+						{
+							temp += sex[j] + ", ";
+						}
+						temp += sex[sex.size() - 1] + ". ";
+						errorMsg.push_back(temp);
+					}
+					else if (sex.size() == 0)
+					{
+						string temp = "Individual " + id + " does not have a sex. ";
+						errorMsg.push_back(temp);
+					}
+					if (birthD.size() > 1)
+					{
+						string temp = "Individual " + id + " has more than one birthday : ";
+						for (int j = 0; j < birthD.size() - 1; j++)
+						{
+							temp += birthD[j] + ", ";
+						}
+						temp += birthD[birthD.size() - 1] + ". ";
+						errorMsg.push_back(temp);
+					}
+					else if (birthD.size() == 0)
+					{
+						string temp = "Individual " + id + " does not have a birthday. ";
+						errorMsg.push_back(temp);
+					}
+					if (deathD.size() > 1)
+					{
+						string temp = "Individual " + id + " has more than one death date : ";
+						for (int j = 0; j < deathD.size() - 1; j++)
+						{
+							temp += deathD[j] + ", ";
+						}
+						temp += deathD[deathD.size() - 1] + ". ";
+						errorMsg.push_back(temp);
+					}
+				}
+				else if (zero == "FAM")
+				{
+					if (marrD.size() > 1)
+					{
+						string temp = "Family " + id + " has more than one marriage date : ";
+						for (int j = 0; j < marrD.size() - 1; j++)
+						{
+							temp += marrD[j] + ", ";
+						}
+						temp += marrD[marrD.size() - 1] + ". ";
+						errorMsg.push_back(temp);
+					}
+					else if (marrD.size() == 0)
+					{
+						string temp = "Family " + id + " does not have a marriage date. ";
+						errorMsg.push_back(temp);
+					}
+					if (divD.size() > 1)
+					{
+						string temp = "Family " + id + " has more than one divorce date : ";
+						for (int j = 0; j < divD.size() - 1; j++)
+						{
+							temp += divD[j] + ", ";
+						}
+						temp += divD[divD.size() - 1] + ". ";
+						errorMsg.push_back(temp);
+					}
+				}
+				if (tag[i] == "INDI" || tag[i] == "FAM")
+				{
+					zero = tag[i];
+					id = argu[i].substr(1, argu[i].length() - 2);
+				}
+				else
+				{
+					zero = "";
+					id = "";
+				}
+				name.resize(0);
+				sex.resize(0);
+				birthD.resize(0);
+				deathD.resize(0);
+				marrD.resize(0);
+				divD.resize(0);
+			}
+			else
+			{
+				if (tag[i] == "BIRT" || tag[i] == "DEAT" || tag[i] == "MARR" || tag[i] == "DIV")
+				{
+					bdmd = tag[i];
+				}
+				else
+				{
+					if (tag[i] == "NAME")
+						name.push_back(argu[i]);
+					else if (tag[i] == "SEX")
+						sex.push_back(argu[i]);
+					else if (tag[i] == "DATE")
+					{
+						if (bdmd == "BIRT")
+							birthD.push_back(argu[i]);
+						else if (bdmd == "DEAT")
+							deathD.push_back(argu[i]);
+						else if (bdmd == "MARR")
+							marrD.push_back(argu[i]);
+						else if (bdmd == "DIV")
+							divD.push_back(argu[i]);
+					}
+					bdmd = "";
+				}
+			}
+		}
+		if (zero == "INDI")
+		{
+			if (name.size() > 1)
+			{
+				string temp = "Individual " + id + " has more than one name : ";
+				for (int j = 0; j < name.size() - 1; j++)
+				{
+					temp += name[j] + ", ";
+				}
+				temp += name[name.size() - 1] + ". ";
+				errorMsg.push_back(temp);
+			}
+			else if (name.size() == 0)
+			{
+				string temp = "Individual " + id + " does not have a name. ";
+				errorMsg.push_back(temp);
+			}
+			if (sex.size() > 1)
+			{
+				string temp = "Individual " + id + " has more than one sex : ";
+				for (int j = 0; j < sex.size() - 1; j++)
+				{
+					temp += sex[j] + ", ";
+				}
+				temp += sex[sex.size() - 1] + ". ";
+				errorMsg.push_back(temp);
+			}
+			else if (sex.size() == 0)
+			{
+				string temp = "Individual " + id + " does not have a sex. ";
+				errorMsg.push_back(temp);
+			}
+			if (birthD.size() > 1)
+			{
+				string temp = "Individual " + id + " has more than one birthday : ";
+				for (int j = 0; j < birthD.size() - 1; j++)
+				{
+					temp += birthD[j] + ", ";
+				}
+				temp += birthD[birthD.size() - 1] + ". ";
+				errorMsg.push_back(temp);
+			}
+			else if (birthD.size() == 0)
+			{
+				string temp = "Individual " + id + " does not have a birthday. ";
+				errorMsg.push_back(temp);
+			}
+			if (deathD.size() > 1)
+			{
+				string temp = "Individual " + id + " has more than one death date : ";
+				for (int j = 0; j < deathD.size() - 1; j++)
+				{
+					temp += deathD[j] + ", ";
+				}
+				temp += deathD[deathD.size() - 1] + ". ";
+				errorMsg.push_back(temp);
+			}
+		}
+		else if (zero == "FAM")
+		{
+			if (marrD.size() > 1)
+			{
+				string temp = "Family " + id + " has more than one marriage date : ";
+				for (int j = 0; j < marrD.size() - 1; j++)
+				{
+					temp += marrD[j] + ", ";
+				}
+				temp += marrD[marrD.size() - 1] + ". ";
+				errorMsg.push_back(temp);
+			}
+			else if (marrD.size() == 0)
+			{
+				string temp = "Family " + id + " does not have a marriage date. ";
+				errorMsg.push_back(temp);
+			}
+			if (divD.size() > 1)
+			{
+				string temp = "Family " + id + " has more than one divorce date : ";
+				for (int j = 0; j < divD.size() - 1; j++)
+				{
+					temp += divD[j] + ", ";
+				}
+				temp += divD[divD.size() - 1] + ". ";
 				errorMsg.push_back(temp);
 			}
 		}
@@ -1095,6 +1340,7 @@ private:
 		string ERRMSG = "";
 		for (int i = 0; i < fami.size(); i++)
 		{
+			if (fami[i]->getmarr() == "") continue;
 			for (int j = 0; j < fami[i]->gethusb().size(); j++)
 			{
 				if (calcAge(fami[i]->gethusb()[j]->getbirt(), fami[i]->getmarr()) < 20)
@@ -1433,6 +1679,8 @@ public:
 		illegalMarriageAge();
 		amountOfFamilyMembers();
 		ageGap();
+		childInFamily();
+		uniqueInformation();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
@@ -1449,7 +1697,7 @@ public:
 				Individual * nindi = new Individual;
 				nindi->setid(argu[i].substr(1, argu[i].length() - 2));
 				i++;
-				while (level[i] != "0" && i < level.size())
+				while (i < level.size() && level[i] != "0" && i < level.size())
 				{
 					if (tag[i] == "NAME")
 					{
@@ -1498,7 +1746,7 @@ public:
 				Family * nfam = new Family;
 				nfam->setid(argu[i].substr(1, argu[i].length() - 2));
 				i++;
-				while (level[i] != "0" && i < level.size())
+				while (i < level.size() && level[i] != "0" && i < level.size())
 				{
 					if (tag[i] == "HUSB")
 					{

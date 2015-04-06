@@ -1,12 +1,13 @@
 Error Messages: 
-Family F4 has a child who is Individual I4(Edwin /Moore/), but Individual I4(Edwin /Moore/) is not a child of Family F4.
-In Family F5, wife I5(Emily /Mao/)'s death date(5 JUN 2014) is < her child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
-In Family F5, husband I7(Chris /Taylor/)'s death date(6 JUN 2013) + 10 months is < his child I6(Lisabella /Taylor/)'s birth date(6 JUN 2014)
-Individual I8(Kevin /Brown/) has more than one spouse currently: I9(Elena /Wilson/) in Family F4, I10(Jen /Brown/) in Family F6. 
-Individual I3(Katie /Brown/) and Individual I4(Edwin /Moore/) are siblings in family F4 but they get married in family F3
-Individual I1(Jacky /Mao/)'s birthday is 27 JAN 1970 and he got married when he was uder 20. Marriage date is 1 JAN 1985.
-Individual I12(Grace /Li/)'s birthday is 21 APR 1970 and she got married when she was uder 18. Marriage date is 1 JAN 1985.
-Individual I7(Chris /Taylor/)'s birthday is 11 NOV 1970 and he got married when he was uder 20. Marriage date is 1 JAN 1985.
-Individual I5(Emily /Mao/)'s birthday is 11 SEP 1970 and she got married when she was uder 18. Marriage date is 1 JAN 1985.
-Family F2 has more than 8 members (9).
-In Family F2, child I5(Emily /Mao/) and child I1(Jacky /Mao/) are not multiple births but born within one year.
+Famil F2's husdband I2() is not MALE.
+Individual I1(Jackie /Mao/) is the child of multiple families: Family F2, Family F3.
+Individual I1 has more than one name : Jacky /Mao/, Jackie /Mao/. 
+Individual I1 has more than one sex : F, M. 
+Individual I1 has more than one birthday : 27 JAN 1960, 27 JAN 1970. 
+Individual I1 has more than one death date : 1 JAN 2014, 1 FEB 2014. 
+Individual I2 does not have a name. 
+Individual I2 does not have a sex. 
+Individual I2 does not have a birthday. 
+Family F4 does not have a marriage date. 
+Family F5 has more than one marriage date : 2 JAN 2000, 1 JAN 2000. 
+Family F5 has more than one divorce date : 5 JAN 2014, 5 JAN 2014. 
