@@ -763,7 +763,7 @@ private:
 				{
 					if (name.size() > 1)
 					{
-						string temp = "Individual " + id + " has more than one name : ";
+						string temp = "Individual " + id + " has more than one name tag: ";
 						for (int j = 0; j < name.size() - 1; j++)
 						{
 							temp += name[j] + ", ";
@@ -773,12 +773,12 @@ private:
 					}
 					else if (name.size() == 0)
 					{
-						string temp = "Individual " + id + " does not have a name. ";
+						string temp = "Individual " + id + " does not have a name tag. ";
 						errorMsg.push_back(temp);
 					}
 					if (sex.size() > 1)
 					{
-						string temp = "Individual " + id + " has more than one sex : ";
+						string temp = "Individual " + id + " has more than one sex tag: ";
 						for (int j = 0; j < sex.size() - 1; j++)
 						{
 							temp += sex[j] + ", ";
@@ -788,12 +788,12 @@ private:
 					}
 					else if (sex.size() == 0)
 					{
-						string temp = "Individual " + id + " does not have a sex. ";
+						string temp = "Individual " + id + " does not have a sex tag. ";
 						errorMsg.push_back(temp);
 					}
 					if (birthD.size() > 1)
 					{
-						string temp = "Individual " + id + " has more than one birthday : ";
+						string temp = "Individual " + id + " has more than one birthday tag: ";
 						for (int j = 0; j < birthD.size() - 1; j++)
 						{
 							temp += birthD[j] + ", ";
@@ -803,12 +803,12 @@ private:
 					}
 					else if (birthD.size() == 0)
 					{
-						string temp = "Individual " + id + " does not have a birthday. ";
+						string temp = "Individual " + id + " does not have a birthday tag. ";
 						errorMsg.push_back(temp);
 					}
 					if (deathD.size() > 1)
 					{
-						string temp = "Individual " + id + " has more than one death date : ";
+						string temp = "Individual " + id + " has more than one death date tag: ";
 						for (int j = 0; j < deathD.size() - 1; j++)
 						{
 							temp += deathD[j] + ", ";
@@ -821,7 +821,7 @@ private:
 				{
 					if (marrD.size() > 1)
 					{
-						string temp = "Family " + id + " has more than one marriage date : ";
+						string temp = "Family " + id + " has more than one marriage date tag: ";
 						for (int j = 0; j < marrD.size() - 1; j++)
 						{
 							temp += marrD[j] + ", ";
@@ -831,12 +831,12 @@ private:
 					}
 					else if (marrD.size() == 0)
 					{
-						string temp = "Family " + id + " does not have a marriage date. ";
+						string temp = "Family " + id + " does not have a marriage date tag. ";
 						errorMsg.push_back(temp);
 					}
 					if (divD.size() > 1)
 					{
-						string temp = "Family " + id + " has more than one divorce date : ";
+						string temp = "Family " + id + " has more than one divorce date tag: ";
 						for (int j = 0; j < divD.size() - 1; j++)
 						{
 							temp += divD[j] + ", ";
@@ -893,7 +893,7 @@ private:
 		{
 			if (name.size() > 1)
 			{
-				string temp = "Individual " + id + " has more than one name : ";
+				string temp = "Individual " + id + " has more than one name tag: ";
 				for (int j = 0; j < name.size() - 1; j++)
 				{
 					temp += name[j] + ", ";
@@ -903,12 +903,12 @@ private:
 			}
 			else if (name.size() == 0)
 			{
-				string temp = "Individual " + id + " does not have a name. ";
+				string temp = "Individual " + id + " does not have a name tag. ";
 				errorMsg.push_back(temp);
 			}
 			if (sex.size() > 1)
 			{
-				string temp = "Individual " + id + " has more than one sex : ";
+				string temp = "Individual " + id + " has more than one sex tag: ";
 				for (int j = 0; j < sex.size() - 1; j++)
 				{
 					temp += sex[j] + ", ";
@@ -918,12 +918,12 @@ private:
 			}
 			else if (sex.size() == 0)
 			{
-				string temp = "Individual " + id + " does not have a sex. ";
+				string temp = "Individual " + id + " does not have a sex tag. ";
 				errorMsg.push_back(temp);
 			}
 			if (birthD.size() > 1)
 			{
-				string temp = "Individual " + id + " has more than one birthday : ";
+				string temp = "Individual " + id + " has more than one birthday tag: ";
 				for (int j = 0; j < birthD.size() - 1; j++)
 				{
 					temp += birthD[j] + ", ";
@@ -933,12 +933,12 @@ private:
 			}
 			else if (birthD.size() == 0)
 			{
-				string temp = "Individual " + id + " does not have a birthday. ";
+				string temp = "Individual " + id + " does not have a birthday tag. ";
 				errorMsg.push_back(temp);
 			}
 			if (deathD.size() > 1)
 			{
-				string temp = "Individual " + id + " has more than one death date : ";
+				string temp = "Individual " + id + " has more than one death date tag: ";
 				for (int j = 0; j < deathD.size() - 1; j++)
 				{
 					temp += deathD[j] + ", ";
@@ -951,7 +951,7 @@ private:
 		{
 			if (marrD.size() > 1)
 			{
-				string temp = "Family " + id + " has more than one marriage date : ";
+				string temp = "Family " + id + " has more than one marriage date tag: ";
 				for (int j = 0; j < marrD.size() - 1; j++)
 				{
 					temp += marrD[j] + ", ";
@@ -961,12 +961,12 @@ private:
 			}
 			else if (marrD.size() == 0)
 			{
-				string temp = "Family " + id + " does not have a marriage date. ";
+				string temp = "Family " + id + " does not have a marriage date tag. ";
 				errorMsg.push_back(temp);
 			}
 			if (divD.size() > 1)
 			{
-				string temp = "Family " + id + " has more than one divorce date : ";
+				string temp = "Family " + id + " has more than one divorce date tag: ";
 				for (int j = 0; j < divD.size() - 1; j++)
 				{
 					temp += divD[j] + ", ";
@@ -1402,6 +1402,52 @@ private:
 			}
 		}
 	}
+
+	void familyRule()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < indi.size(); i++)
+		{
+			if (indi[i]->getfamc().size() == 0 && indi[i]->getfams().size() == 0)
+			{
+				ERRMSG = "Individual " + indi[i]->getid() + " (" + indi[i]->getname() + ") " + "doesn't belong to any family.";
+				errorMsg.push_back(ERRMSG);
+			}
+		}
+	}
+
+	void completeInfo()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < indi.size(); i++)
+		{
+			if (indi[i]->getname() == "")
+			{
+				ERRMSG = "Individual " + indi[i]->getid() + " doesn't complete information(missing name).";
+				errorMsg.push_back(ERRMSG);
+			}
+			else if (indi[i]->getsex() == NULL )
+			{
+				ERRMSG = "Individual " + indi[i]->getid() + " (" + indi[i]->getname() + ") " + " doesn't complete information(missing gender).";
+				errorMsg.push_back(ERRMSG);
+			}
+			else if (indi[i]->getbirt() == "")
+			{
+				ERRMSG = "individual " + indi[i]->getid() + " (" + indi[i]->getname() + ") " + " doesn't complete information(missing birth date).";
+				errorMsg.push_back(ERRMSG);
+			}
+		}
+		for (int i = 0; i < fami.size(); i++)
+		{
+			if (fami[i]->getmarr() == "")
+			{
+				ERRMSG = "Family " + fami[i]->getid() + " doesn't complete information(missing marriage date).";
+				errorMsg.push_back(ERRMSG);
+			}
+		}
+	}
+
+
 	int calcAge(string birt, string marr)
 	{
 		int year, month, day, myear, mmonth, mday;
@@ -1703,27 +1749,34 @@ public:
 	{
 		ofstream fout("testResult.txt");
 		fout << "Error Messages: " << endl;
+		errorMsg.push_back("\n========================Sprint 1========================\n");
 		inexistID();
 		unmatchedPointers();
 		invalidDate();
 		invalidFamilyMember();
 		invalidGender();
 		invalidAge();
+		errorMsg.push_back("\n========================Sprint 2========================\n");
 		multipleRoles();
 		elderAgeRule();
 		deathBeforeMarr();
 		marrigeBeforeBirth();
 		divorceBeforeMarrige();
 		deathBeforeGivingBirth();
+		errorMsg.push_back("\n========================Sprint 3========================\n");
 		polygamy();
 		illegalSpouse();
 		illegalMarriageAge();
 		amountOfFamilyMembers();
 		ageGap();
 		childInFamily();
+		errorMsg.push_back("\n========================Sprint 4========================\n");
 		uniqueInformation();
 		pregnancyLimit();
 		divorceBeforeGivingBirth();
+		familyRule();
+		completeInfo();
+
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
