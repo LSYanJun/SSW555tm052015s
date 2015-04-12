@@ -1144,6 +1144,47 @@ private:
 			}
 		}
 	}
+	void pregnancyLimit()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->getwife().size(); j++)
+			{
+				//fami[i]->getwife()[j]->get
+				if (fami[i]->getwife()[j]->getbirt() == "") continue;
+				int birt = atoi(fami[i]->getwife()[j]->getbirt().substr(fami[i]->getwife()[j]->getbirt().length() - 4).c_str());
+				int currYear = cy;
+				int age = currYear - birt;
+				string ageString = to_string(age);
+				
+				if ((age < 18) || (age > 50))
+				{
+					string err =  fami[i]->getwife()[j]->getid() + "(" + fami[i]->getwife()[j]->getname() + ") is not in pregnancy age limit. Her present age is " + ageString;
+					errorMsg.push_back(err);
+				}
+			}
+		}
+	}
+
+	void divorceBeforeGivingBirth()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			string div = fami[i]->getdiv();
+			if (div == "") continue;
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+			{
+				string bir = fami[i]->getchild()[j]->getbirt();
+				if (bir == "") continue;
+				if (compareDate(bir, div))
+				{
+					string temp = "Family ";
+					temp = temp + fami[i]->getid() + " divorce Date is(" + fami[i]->getdiv() + ") and child's birth Date is (" +fami[i]->getchild()[j]->getbirt() + ").";
+					errorMsg.push_back(temp);
+				}
+			}
+		}
+	}
 
 	void invalidDate()//Yanjun Wu
 	{
@@ -1681,6 +1722,8 @@ public:
 		ageGap();
 		childInFamily();
 		uniqueInformation();
+		pregnancyLimit();
+		divorceBeforeGivingBirth();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
