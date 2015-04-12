@@ -18,10 +18,10 @@ Individual I3(Katie /Brown/)'s marrige(1 JAN 1970) before birth(14 FEB 1990).
 
 Individual I3(Katie /Brown/)'s birthday is 14 FEB 1990 and she got married when she was uder 18. Marriage date is 7 JUL 1989.
 Individual I3(Katie /Brown/)'s birthday is 14 FEB 1990 and she got married when she was uder 18. Marriage date is 1 JAN 1970.
-Individual I1(Jackie /Mao/) is the child of multiple families: Family F2, Family F3.
 
 ========================Sprint 4========================
 
+Individual I1(Jackie /Mao/) is the child of multiple families: Family F2, Family F3.
 Individual I1 has more than one name tag: Jacky /Mao/, Jackie /Mao/. 
 Individual I1 has more than one sex tag: F, M. 
 Individual I1 has more than one birthday tag: 27 JAN 1960, 27 JAN 1974. 
