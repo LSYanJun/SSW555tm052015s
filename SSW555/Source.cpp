@@ -1152,15 +1152,24 @@ private:
 			{
 				//fami[i]->getwife()[j]->get
 				if (fami[i]->getwife()[j]->getbirt() == "") continue;
-				int birt = atoi(fami[i]->getwife()[j]->getbirt().substr(fami[i]->getwife()[j]->getbirt().length() - 4).c_str());
-				int currYear = cy;
-				int age = currYear - birt;
-				string ageString = to_string(age);
-				
-				if ((age < 18) || (age > 50))
+				string wd, wm, wy;
+				stringstream s(fami[i]->getwife()[j]->getbirt());
+				s >> wd >> wm >> wy;
+				int wbirt = atoi(wy.c_str());
+				for (int k = 0; k < fami[i]->getchild().size(); k++)
 				{
-					string err =  fami[i]->getwife()[j]->getid() + "(" + fami[i]->getwife()[j]->getname() + ") is not in pregnancy age limit. Her present age is " + ageString;
-					errorMsg.push_back(err);
+					if (fami[i]->getchild()[k]->getbirt() == "") continue;
+					string cd, cm, cy;
+					stringstream ss(fami[i]->getchild()[k]->getbirt());
+					ss >> cd >> cm >> cy;
+					int cbirt = atoi(cy.c_str());
+					if (cbirt - wbirt>50 || cbirt - wbirt < 18)
+					{
+						string temp = "In Family " + fami[i]->getid() + ", wife " + fami[i]->getwife()[j]->getid() +
+							"(" + fami[i]->getwife()[j]->getname() + ") gave birth to child " + fami[i]->getchild()[k]->getid() +
+							"(" + fami[i]->getchild()[k]->getname() + ") when she was " + to_string(cbirt - wbirt) + "(not between 18 and 50)";
+						errorMsg.push_back(temp);
+					}
 				}
 			}
 		}

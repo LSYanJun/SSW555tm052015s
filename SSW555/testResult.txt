@@ -7,17 +7,9 @@ Famil F5's husdband I7(Chris /Taylor/) is not MALE.
 
 ========================Sprint 2========================
 
-Wife I3(Katie /Brown/) of family F2(14 FEB 1990) is not older than the child I1(Jackie /Mao/)(27 JAN 1974)
-Wife I3(Katie /Brown/) of family F2(14 FEB 1990) is not older than the child I5(Emily /Mao/)(11 SEP 1971)
-Wife I3(Katie /Brown/) of family F3(14 FEB 1990) is not older than the child I1(Jackie /Mao/)(27 JAN 1974)
-Wife I9(Elena /Wilson/) of family F4(1 NOV 1991) is not older than the child I3(Katie /Brown/)(14 FEB 1990)
-Individual I3(Katie /Brown/)'s marrige(7 JUL 1989) before birth(14 FEB 1990).
-Individual I3(Katie /Brown/)'s marrige(1 JAN 1970) before birth(14 FEB 1990).
 
 ========================Sprint 3========================
 
-Individual I3(Katie /Brown/)'s birthday is 14 FEB 1990 and she got married when she was uder 18. Marriage date is 7 JUL 1989.
-Individual I3(Katie /Brown/)'s birthday is 14 FEB 1990 and she got married when she was uder 18. Marriage date is 1 JAN 1970.
 
 ========================Sprint 4========================
 
@@ -32,7 +24,7 @@ Individual I2 does not have a birthday tag.
 Family F4 does not have a marriage date tag. 
 Family F5 has more than one marriage date tag: 2 JAN 2000, 1 JAN 2000. 
 Family F5 has more than one divorce date tag: 5 JAN 2014, 5 JAN 2014. 
-I10(Jen /Brown/) is not in pregnancy age limit. Her present age is 95
+In Family F4, wife I9(Elena /Wilson/) gave birth to child I3(Katie /Brown/) when she was 9(not between 18 and 50)
 Family F3 divorce Date is(31 DEC 1972) and child's birth Date is (27 JAN 1974).
 Individual I11 (James /Brown/) doesn't belong to any family.
 Individual I2 doesn't complete information(missing name).
