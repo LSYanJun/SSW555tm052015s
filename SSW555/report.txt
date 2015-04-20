@@ -1,10 +1,10 @@
 Individuals: 
-ID : I1, NAME : Jackie /Mao/
-ID : I2, NAME : 
+ID : I1, NAME : Jacky /Gao/
+ID : I2, NAME : Jianguo /Mao/
 ID : I3, NAME : Katie /Brown/
 ID : I4, NAME : Edwin /Moore/
 ID : I5, NAME : Emily /Mao/
-ID : I6, NAME : 
+ID : I6, NAME : Lisabella /Taylor/
 ID : I7, NAME : Chris /Taylor/
 ID : I8, NAME : Kevin /Brown/
 ID : I9, NAME : Elena /Wilson/
@@ -12,11 +12,15 @@ ID : I10, NAME : Jen /Brown/
 ID : I11, NAME : James /Brown/
 ID : I12, NAME : Grace /Li/
 ID : I13, NAME : Bob /Shaw/
+ID : I14, NAME : Emilya /Mao/
+ID : I15, NAME : Emilyb /Mao/
+ID : I16, NAME : Emilyc /Mao/
+ID : I17, NAME : Emilyd /Mao/
 Families: 
-ID : F1, HUSBAND : Jackie /Mao/, WIFE : Grace /Li/
-ID : F2, HUSBAND : , WIFE : Katie /Brown/, CHILDREN : Jackie /Mao/, Emily /Mao/
-ID : F3, HUSBAND : Edwin /Moore/, WIFE : Katie /Brown/, CHILDREN : Jackie /Mao/
+ID : F1, HUSBAND : Jacky /Gao/, WIFE : Grace /Li/
+ID : F2, HUSBAND : Jianguo /Mao/, WIFE : Katie /Brown/, CHILDREN : Jacky /Gao/, Emily /Mao/, Emilya /Mao/, Emilyb /Mao/, Emilyc /Mao/, Emilyd /Mao/
+ID : F3, HUSBAND : Edwin /Moore/, WIFE : Katie /Brown/
 ID : F4, HUSBAND : Kevin /Brown/, WIFE : Elena /Wilson/, CHILDREN : Katie /Brown/
-ID : F5, HUSBAND : Chris /Taylor/, WIFE : Emily /Mao/, CHILDREN : 
+ID : F5, HUSBAND : Chris /Taylor/, WIFE : Emily /Mao/, CHILDREN : Lisabella /Taylor/
 ID : F6, HUSBAND : Kevin /Brown/, WIFE : Jen /Brown/
 ID : F7, HUSBAND : Bob /Shaw/, WIFE : Elena /Wilson/

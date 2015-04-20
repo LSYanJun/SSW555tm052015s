@@ -1,0 +1,34 @@
+Error Messages: 
+
+========================Sprint 1========================
+
+Famil F2's husdband I2() is not MALE.
+Famil F5's husdband I7(Chris /Taylor/) is not MALE.
+
+========================Sprint 2========================
+
+
+========================Sprint 3========================
+
+
+========================Sprint 4========================
+
+Individual I1(Jackie /Mao/) is the child of multiple families: Family F2, Family F3.
+Individual I1 has more than one name tag: Jacky /Mao/, Jackie /Mao/. 
+Individual I1 has more than one sex tag: F, M. 
+Individual I1 has more than one birthday tag: 27 JAN 1960, 27 JAN 1974. 
+Individual I1 has more than one death date tag: 1 JAN 2014, 1 FEB 2014. 
+Individual I2 does not have a name tag. 
+Individual I2 does not have a sex tag. 
+Individual I2 does not have a birthday tag. 
+Family F4 does not have a marriage date tag. 
+Family F5 has more than one marriage date tag: 2 JAN 2000, 1 JAN 2000. 
+Family F5 has more than one divorce date tag: 5 JAN 2014, 5 JAN 2014. 
+In Family F4, wife I9(Elena /Wilson/) gave birth to child I3(Katie /Brown/) when she was 9(not between 18 and 50)
+Family F3 divorce Date is(31 DEC 1972) and child's birth Date is (27 JAN 1974).
+Individual I11 (James /Brown/) doesn't belong to any family.
+Individual I2 doesn't complete information(missing name).
+Individual I6 doesn't complete information(missing name).
+Individual I7 (Chris /Taylor/)  doesn't complete information(missing gender).
+individual I8 (Kevin /Brown/)  doesn't complete information(missing birth date).
+Family F4 doesn't complete information(missing marriage date).

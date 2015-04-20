@@ -977,6 +977,81 @@ private:
 		}
 	}
 
+	void lastNameRule()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				string husbName = fami[i]->gethusb()[j]->getname();
+				int posS = husbName.find_first_of("/");
+				int posL = husbName.find_last_of("/");
+				string husbLastName = "";
+				if (posS != string::npos) husbLastName = husbName.substr(posS, posL);
+				for (int k = 0; k < fami[i]->getchild().size(); k++)
+				{
+					string childName = fami[i]->getchild()[k]->getname();
+					posS = childName.find_first_of("/");
+					posL = childName.find_last_of("/");
+					string childLastName;
+					if (posS != string::npos) childLastName = childName.substr(posS, posL);
+					if (husbLastName != childLastName)
+					{
+						string temp = "In Family " + fami[i]->getid() + ", husband " + fami[i]->gethusb()[j]->getid() + "("
+							+ fami[i]->gethusb()[j]->getname() + ") and child " + fami[i]->getchild()[k]->getid() + "("
+							+ fami[i]->getchild()[k]->getname() + ") don't have the same last name.";
+						errorMsg.push_back(temp);
+					}
+				}
+			}
+		}
+	}
+
+	void multipleBirthsRule()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			vector<vector <Individual *> > multiBirth;
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+			{
+				string birt = fami[i]->getchild()[j]->getbirt();
+				if (birt == "") continue;
+				for (int k = 0; k < multiBirth.size() + 1; k++)
+				{
+					if (k == multiBirth.size())
+					{
+						vector<Individual *> child;
+						child.push_back(fami[i]->getchild()[j]);
+						multiBirth.push_back(child);
+						break;
+					}
+					else
+					{
+						if (birt == multiBirth[k][0]->getbirt())
+						{
+							multiBirth[k].push_back(fami[i]->getchild()[j]);
+							break;
+						}
+					}
+				}
+			}
+			for (int j = 0; j < multiBirth.size(); j++)
+			{
+				if (multiBirth[j].size() > 4)
+				{
+					string temp = "In Family " + fami[i]->getid() + ", there are more than 4 children born on the same day: ";
+					for (int k = 0; k < multiBirth[j].size() - 1; k++)
+					{
+						temp += multiBirth[j][k]->getid() + "(" + multiBirth[j][k]->getname() + "), ";
+					}
+					temp += "and " + multiBirth[j][multiBirth[j].size() - 1]->getid() 
+						+ "(" + multiBirth[j][multiBirth[j].size() - 1]->getname() + "). ";
+					errorMsg.push_back(temp);
+				}
+			}
+		}
+	}
+
 	void invalidFamilyMember()
 	{
 		for (int i = 0; i < fami.size(); i++)
@@ -1785,6 +1860,9 @@ public:
 		divorceBeforeGivingBirth();
 		familyRule();
 		completeInfo();
+		errorMsg.push_back("\n========================Sprint 5========================\n");
+		lastNameRule();
+		multipleBirthsRule();
 
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
