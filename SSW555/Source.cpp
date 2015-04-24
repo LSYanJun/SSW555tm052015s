@@ -1269,7 +1269,51 @@ private:
 			}
 		}
 	}
-
+	void birthDateLimit()
+	{
+		for (int i = 0; i < indi.size(); i++)
+		{
+			string bir = indi[i]->getbirt();
+			if (bir == "") continue;
+			stringstream s(bir);
+			string birtD, birtM, birtY;
+			s >> birtD >> birtM >> birtY;
+			if (atoi(birtY.c_str()) < 1900)
+			{
+				string err = "Individual " + indi[i]->getid() + "(" + indi[i]->getname() + ") is an ancient people born before 1900.";
+				errorMsg.push_back(err);
+			}
+		}
+	}
+	void mayDecMarr()
+	{
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->gethusb().size(); j++)
+			{
+				string bir = fami[i]->gethusb()[j]->getbirt();
+				if (bir == "") continue;
+				stringstream s(bir);
+				string birtD, birtM, birtY;
+				s >> birtD >> birtM >> birtY;
+				int husbY = atoi(birtY.c_str());
+				for (int m = 0; m < fami[i]->getwife().size(); m++)
+				{
+					bir = fami[i]->getwife()[m]->getbirt();
+					if (bir == "") continue;
+					stringstream ss(bir);
+					ss >> birtD >> birtM >> birtY;
+					int wifeY = atoi(birtY.c_str());
+					if (husbY - wifeY>30 || wifeY - husbY > 30)
+					{
+						string err = "In family " + fami[i]->getid() + ", husband " + fami[i]->gethusb()[j]->getid() + "("
+							+ fami[i]->gethusb()[j]->getname() + ") and wife " + fami[i]->getwife()[m]->getid() + "("
+							+ fami[i]->getwife()[m]->getname() + ") has a age gap greater than 30 years.";
+						errorMsg.push_back(err);
+					}
+				}
+			}
+	}
 	void invalidDate()//Yanjun Wu
 	{
 		string ERRMSG = "";
@@ -1863,6 +1907,8 @@ public:
 		errorMsg.push_back("\n========================Sprint 5========================\n");
 		lastNameRule();
 		multipleBirthsRule();
+		birthDateLimit();
+		mayDecMarr();
 
 		for (int i = 0; i < errorMsg.size(); i++)
 		{

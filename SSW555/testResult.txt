@@ -2,9 +2,12 @@ Error Messages:
 
 ========================Sprint 1========================
 
+Family F7's wife is Individual I9(Elena /Wilson/), but Individual I9(Elena /Wilson/) is not the wife of Family F7.
 
 ========================Sprint 2========================
 
+Husband I8(Kevin /Brown/) of family F4(1 NOV 1933) is not older than the child I3(Katie /Brown/)(14 FEB 1874)
+Wife I9(Elena /Wilson/) of family F4(1 NOV 1940) is not older than the child I3(Katie /Brown/)(14 FEB 1874)
 
 ========================Sprint 3========================
 
@@ -15,12 +18,13 @@ Individual I8(Kevin /Brown/) has more than one spouse currently: I9(Elena /Wilso
 Family F4 does not have a marriage date tag. 
 Family F5 does not have a marriage date tag. 
 Family F6 does not have a marriage date tag. 
-In Family F2, wife I3(Katie /Brown/) gave birth to child I1(Jacky /Gao/) when she was 5(not between 18 and 50)
-In Family F2, wife I3(Katie /Brown/) gave birth to child I5(Emily /Mao/) when she was 6(not between 18 and 50)
-In Family F2, wife I3(Katie /Brown/) gave birth to child I14(Emilya /Mao/) when she was 6(not between 18 and 50)
-In Family F2, wife I3(Katie /Brown/) gave birth to child I15(Emilyb /Mao/) when she was 6(not between 18 and 50)
-In Family F2, wife I3(Katie /Brown/) gave birth to child I16(Emilyc /Mao/) when she was 6(not between 18 and 50)
-In Family F2, wife I3(Katie /Brown/) gave birth to child I17(Emilyd /Mao/) when she was 6(not between 18 and 50)
+In Family F2, wife I3(Katie /Brown/) gave birth to child I1(Jacky /Gao/) when she was 96(not between 18 and 50)
+In Family F2, wife I3(Katie /Brown/) gave birth to child I5(Emily /Mao/) when she was 97(not between 18 and 50)
+In Family F2, wife I3(Katie /Brown/) gave birth to child I14(Emilya /Mao/) when she was 97(not between 18 and 50)
+In Family F2, wife I3(Katie /Brown/) gave birth to child I15(Emilyb /Mao/) when she was 97(not between 18 and 50)
+In Family F2, wife I3(Katie /Brown/) gave birth to child I16(Emilyc /Mao/) when she was 97(not between 18 and 50)
+In Family F2, wife I3(Katie /Brown/) gave birth to child I17(Emilyd /Mao/) when she was 97(not between 18 and 50)
+In Family F4, wife I9(Elena /Wilson/) gave birth to child I3(Katie /Brown/) when she was -66(not between 18 and 50)
 Individual I11 (James /Brown/) doesn't belong to any family.
 Family F4 doesn't complete information(missing marriage date).
 Family F5 doesn't complete information(missing marriage date).
@@ -30,3 +34,5 @@ Family F6 doesn't complete information(missing marriage date).
 
 In Family F2, husband I2(Jianguo /Mao/) and child I1(Jacky /Gao/) don't have the same last name.
 In Family F2, there are more than 4 children born on the same day: I5(Emily /Mao/), I14(Emilya /Mao/), I15(Emilyb /Mao/), I16(Emilyc /Mao/), and I17(Emilyd /Mao/). 
+Individual I3(Katie /Brown/) is an ancient people born before 1900.
+In family F2, husband I2(Jianguo /Mao/) and wife I3(Katie /Brown/) has a age gap greater than 30 years.

@@ -19,7 +19,7 @@ ID : I17, NAME : Emilyd /Mao/
 Families: 
 ID : F1, HUSBAND : Jacky /Gao/, WIFE : Grace /Li/
 ID : F2, HUSBAND : Jianguo /Mao/, WIFE : Katie /Brown/, CHILDREN : Jacky /Gao/, Emily /Mao/, Emilya /Mao/, Emilyb /Mao/, Emilyc /Mao/, Emilyd /Mao/
-ID : F3, HUSBAND : Edwin /Moore/, WIFE : Katie /Brown/
+ID : F3, HUSBAND : Edwin /Moore/, WIFE : Elena /Wilson/
 ID : F4, HUSBAND : Kevin /Brown/, WIFE : Elena /Wilson/, CHILDREN : Katie /Brown/
 ID : F5, HUSBAND : Chris /Taylor/, WIFE : Emily /Mao/, CHILDREN : Lisabella /Taylor/
 ID : F6, HUSBAND : Kevin /Brown/, WIFE : Jen /Brown/
