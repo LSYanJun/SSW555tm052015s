@@ -1313,6 +1313,7 @@ private:
 					}
 				}
 			}
+		}
 	}
 	void invalidDate()//Yanjun Wu
 	{
@@ -1575,6 +1576,44 @@ private:
 		}
 	}
 
+	void giveBirBeforeMarr()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+			{
+				if (compareDate(fami[i]->getchild()[j]->getbirt(),fami[i]->getmarr()) == false)
+				{
+					ERRMSG = "Child " + fami[i]->getchild()[j]->getid() + " (" + fami[i]->getchild()[j]->getname() + ") " + " of family " + fami[i]->getid() 
+						+ " was born ( " + fami[i]->getchild()[j]->getbirt() + ") " + " before before parents' marriage." + "(" + fami[i]->getmarr() + ")";
+					errorMsg.push_back(ERRMSG);
+				}
+			}
+		}
+	}
+
+	void marrRule()
+	{
+		string ERRMSG = "";
+		for (int i = 0; i < fami.size(); i++)
+		{
+			for (int j = 0; j < fami[i]->getchild().size(); j++)
+			{
+				for (int k = 0; k < fami[i]->getchild()[j]->getfams().size(); k++)
+				{
+					if (fami[i]->getchild()[j]->getfams()[k]->getmarr() == "")
+						continue;
+					if (compareDate(fami[i]->getchild()[j]->getfams()[k]->getmarr(), fami[i]->getmarr()) == false)
+					{
+						ERRMSG = "Child " + fami[i]->getchild()[j]->getid() + " (" + fami[i]->getchild()[j]->getname() + ") " + " of family " + fami[i]->getid() + " was married ("
+							+ fami[i]->getchild()[j]->getfams()[k]->getmarr() + ") " + " before before parents' marriage." + "(" + fami[i]->getmarr() + ")";
+						errorMsg.push_back(ERRMSG);
+					}
+				}
+			}
+		}
+	}
 
 	int calcAge(string birt, string marr)
 	{
@@ -1909,7 +1948,8 @@ public:
 		multipleBirthsRule();
 		birthDateLimit();
 		mayDecMarr();
-
+		giveBirBeforeMarr();
+		marrRule();
 		for (int i = 0; i < errorMsg.size(); i++)
 		{
 			fout << errorMsg[i] << endl;
