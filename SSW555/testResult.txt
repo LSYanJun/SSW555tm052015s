@@ -35,6 +35,6 @@ In Family F2, husband I2(Jianguo /Mao/) and child I1(Jacky /Gao/) don't have the
 In Family F2, there are more than 4 children born on the same day: I5(Emily /Mao/), I14(Emilya /Mao/), I15(Emilyb /Mao/), I16(Emilyc /Mao/), and I17(Emilyd /Mao/). 
 Individual I3(Katie /Brown/) is an ancient people born before 1900.
 In family F2, husband I2(Jianguo /Mao/) and wife I3(Katie /Brown/) has a age gap greater than 30 years.
-Child I1 (Jacky /Gao/)  of family F2 was born ( 27 JAN 1970)  before before parents' marriage.(7 JUL 1970)
-Child I3 (Katie /Brown/)  of family F4 was born ( 14 FEB 1874)  before before parents' marriage.(1 JAN 1996)
-Child I3 (Katie /Brown/)  of family F4 was married (7 JUL 1970)  before before parents' marriage.(1 JAN 1996)
+Child I1 (Jacky /Gao/)  of family F2 was born ( 27 JAN 1970)  before parents' marriage.(7 JUL 1970)
+Child I3 (Katie /Brown/)  of family F4 was born ( 14 FEB 1874)  before parents' marriage.(1 JAN 1996)
+Child I3 (Katie /Brown/)  of family F4 was married (7 JUL 1970)  before parents' marriage.(1 JAN 1996)

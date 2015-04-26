@@ -1586,7 +1586,7 @@ private:
 				if (compareDate(fami[i]->getchild()[j]->getbirt(),fami[i]->getmarr()) == false)
 				{
 					ERRMSG = "Child " + fami[i]->getchild()[j]->getid() + " (" + fami[i]->getchild()[j]->getname() + ") " + " of family " + fami[i]->getid() 
-						+ " was born ( " + fami[i]->getchild()[j]->getbirt() + ") " + " before before parents' marriage." + "(" + fami[i]->getmarr() + ")";
+						+ " was born ( " + fami[i]->getchild()[j]->getbirt() + ") " + " before parents' marriage." + "(" + fami[i]->getmarr() + ")";
 					errorMsg.push_back(ERRMSG);
 				}
 			}
@@ -1607,7 +1607,7 @@ private:
 					if (compareDate(fami[i]->getchild()[j]->getfams()[k]->getmarr(), fami[i]->getmarr()) == false)
 					{
 						ERRMSG = "Child " + fami[i]->getchild()[j]->getid() + " (" + fami[i]->getchild()[j]->getname() + ") " + " of family " + fami[i]->getid() + " was married ("
-							+ fami[i]->getchild()[j]->getfams()[k]->getmarr() + ") " + " before before parents' marriage." + "(" + fami[i]->getmarr() + ")";
+							+ fami[i]->getchild()[j]->getfams()[k]->getmarr() + ") " + " before parents' marriage." + "(" + fami[i]->getmarr() + ")";
 						errorMsg.push_back(ERRMSG);
 					}
 				}
